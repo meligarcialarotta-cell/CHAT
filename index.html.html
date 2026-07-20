@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chat con Melisa · Mi Plan de Vuelo</title>
+<style>
+  :root{
+    --lila:#9B7EBD;
+    --lila-dark:#6E4E9E;
+    --rose:#C98CA7;
+    --olive:#7C8A5E;
+    --ink:#3A3A3A;
+    --grey:#6B6B6B;
+    --bg1:#F3E9F2;
+    --bg2:#FBF0E9;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    font-family:'Georgia', 'Times New Roman', serif;
+    background:linear-gradient(160deg, var(--bg1) 0%, var(--bg2) 100%);
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    padding:32px 16px;
+  }
+  .app{
+    width:100%;
+    max-width:640px;
+  }
+  .eyebrow{
+    text-align:center;
+    letter-spacing:2px;
+    font-size:12px;
+    color:var(--rose);
+    font-family:Arial, sans-serif;
+    font-weight:bold;
+    margin-bottom:18px;
+  }
+  .avatar{
+    width:64px;height:64px;border-radius:50%;
+    background:var(--lila);
+    color:white;
+    display:flex;align-items:center;justify-content:center;
+    font-size:26px;font-weight:bold;
+    margin:0 auto 14px;
+  }
+  h1{
+    text-align:center;
+    color:#3A2E42;
+    font-size:30px;
+    margin:0 0 4px;
+  }
+  .subtitle{
+    text-align:center;
+    color:var(--grey);
+    font-family:Arial, sans-serif;
+    font-size:15px;
+    margin-bottom:26px;
+  }
+  .chat-window{
+    display:flex;
+    flex-direction:column;
+    gap:14px;
+    min-height:220px;
+    margin-bottom:18px;
+  }
+  .bubble{
+    font-family:Arial, sans-serif;
+    font-size:15px;
+    line-height:1.5;
+    padding:14px 18px;
+    border-radius:16px;
+    max-width:82%;
+    white-space:pre-line;
+  }
+  .bubble.bot{
+    background:#FFFFFF;
+    color:var(--ink);
+    align-self:flex-start;
+    box-shadow:0 1px 3px rgba(0,0,0,0.06);
+    border-bottom-left-radius:4px;
+  }
+  .bubble.user{
+    background:var(--lila-dark);
+    color:#FFFFFF;
+    align-self:flex-end;
+    border-bottom-right-radius:4px;
+  }
+  .typing{
+    align-self:flex-start;
+    display:flex;
+    gap:4px;
+    padding:14px 18px;
+    background:#FFFFFF;
+    border-radius:16px;
+    border-bottom-left-radius:4px;
+    box-shadow:0 1px 3px rgba(0,0,0,0.06);
+  }
+  .typing span{
+    width:6px;height:6px;border-radius:50%;
+    background:var(--grey);
+    opacity:0.4;
+    animation:blink 1.2s infinite;
+  }
+  .typing span:nth-child(2){animation-delay:0.2s;}
+  .typing span:nth-child(3){animation-delay:0.4s;}
+  @keyframes blink{0%,80%,100%{opacity:0.25;}40%{opacity:0.9;}}
+
+  .quick-replies{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+    justify-content:center;
+    margin-bottom:20px;
+  }
+  .pill{
+    font-family:Arial, sans-serif;
+    font-size:14px;
+    color:#5C4A63;
+    background:rgba(255,255,255,0.7);
+    border:1px solid #DECFE0;
+    border-radius:24px;
+    padding:10px 18px;
+    cursor:pointer;
+    transition:background 0.15s;
+  }
+  .pill:hover{background:#FFFFFF;}
+  .input-row{
+    display:flex;
+    gap:10px;
+    border-top:1px solid #E9DEE8;
+    padding-top:16px;
+  }
+  #textInput{
+    flex:1;
+    font-family:Arial, sans-serif;
+    font-size:15px;
+    padding:12px 18px;
+    border-radius:24px;
+    border:1px solid #DECFE0;
+    background:#FFFFFF;
+    outline:none;
+    color:var(--ink);
+  }
+  #textInput:focus{border-color:var(--lila);}
+  #sendBtn{
+    width:46px;height:46px;
+    border-radius:50%;
+    border:none;
+    background:var(--lila-dark);
+    color:white;
+    font-size:18px;
+    cursor:pointer;
+    flex-shrink:0;
+  }
+  #sendBtn:hover{background:var(--lila);}
+  .footnote{
+    text-align:center;
+    font-family:Arial, sans-serif;
+    font-size:11px;
+    color:#A99BA6;
+    margin-top:14px;
+  }
+</style>
+</head>
+<body>
+<div class="app">
+  <div class="eyebrow">KIT DIGITAL &middot; EMPRENDE DESDE CASA</div>
+  <div class="avatar">M</div>
+  <h1>Chat con Melisa</h1>
+  <div class="subtitle">Tu consultora de emprendimiento, disponible 24/7</div>
+
+  <div class="chat-window" id="chatWindow">
+    <div class="bubble bot">¡Hola! Soy Melisa AI 💜 Estoy aquí para ayudarte con tu idea de negocio, tus precios, tu cliente ideal o lo que necesites para dar el siguiente paso. ¿Por dónde empezamos?</div>
+  </div>
+
+  <div class="quick-replies" id="quickReplies">
+    <div class="pill" data-msg="No sé qué idea tener">No sé qué idea tener</div>
+    <div class="pill" data-msg="¿Cómo pongo mi precio?">¿Cómo pongo mi precio?</div>
+    <div class="pill" data-msg="Tengo miedo de lanzar">Tengo miedo de lanzar</div>
+    <div class="pill" data-msg="Mis primeras ventas">Mis primeras ventas</div>
+  </div>
+
+  <div class="input-row">
+    <input type="text" id="textInput" placeholder="Escríbele a Melisa..." />
+    <button id="sendBtn" aria-label="Enviar">&#10148;</button>
+  </div>
+  <div class="footnote">Respuestas generadas con la metodología de Mi Plan de Vuelo</div>
+</div>
+
+<script>
+const chatWindow = document.getElementById('chatWindow');
+const textInput = document.getElementById('textInput');
+const sendBtn = document.getElementById('sendBtn');
+const quickReplies = document.getElementById('quickReplies');
+
+const responses = [
+  {
+    keys: ['idea','no se que vender','no sé qué vender','no tengo idea','cero ideas','emprender que'],
+    reply: "La mayoría de mamás no tienen falta de ideas, tienen exceso de ideas y falta de foco 💜\n\nHaz este ejercicio rápido:\n1. Escribe 3 cosas que sabes hacer bien.\n2. Piensa qué te preguntan otras mamás a tu alrededor.\n3. Cruza ambas listas.\n\nAsí encontró Sofía la suya: llevaba meses queriendo \"algo con la comida saludable\" sin definir qué, hasta que notó que 3 amigas ya le pedían sus menús semanales por WhatsApp. Ahí estaba su idea, esperando ser nombrada.\n\n¿Quieres que exploremos juntas tus habilidades?"
+  },
+  {
+    keys: ['precio','cobrar','cuanto cobro','cuánto cobro','tarifa'],
+    reply: "Poner precio da miedo, pero se resuelve con 3 preguntas:\n\n1. ¿Cuánto tiempo real te toma crearlo?\n2. ¿Cuáles son tus costos (materiales, plataformas)?\n3. ¿Qué transformación le das a tu cliente?\n\nEmpieza con un precio de entrada accesible — siempre puedes subirlo después con clientas reales. Sofía calculó que su plan de menús le tomaba 3 horas crear y empezó cobrando $10. Con sus primeras 3 ventas, subió a $15 sin perder clientas.\n\n¿Ya tienes una cifra en mente o la calculamos juntas?"
+  },
+  {
+    keys: ['miedo','no me atrevo','me da pena','vergüenza','vergonzoso','bloqueo','no puedo lanzar'],
+    reply: "Ese miedo es más común de lo que crees, y tiene solución 💜\n\nSofía tenía todo listo pero no se atrevía a decir \"esto cuesta $10\". Su bloqueo: \"¿y si piensan que es muy caro?\". Lo que hizo:\n→ Escribió su oferta como si le hablara a UNA amiga.\n→ No usó lenguaje de ventas, usó lenguaje de ayuda.\n→ Su mensaje: \"Hice algo que me hubiera encantado tener cuando no sabía qué cocinar. ¿Te lo muestro?\"\n\nResultado: 8 de 10 personas dijeron \"sí, muéstrame\". 3 compraron ese mismo día.\n\nSi te da miedo vender, cambia la palabra: no estás vendiendo, estás ofreciendo una solución a alguien que ya tiene el problema."
+  },
+  {
+    keys: ['ventas','vender','clientes','conseguir clientes','primeras ventas'],
+    reply: "Tener el producto listo no es suficiente — necesitas un plan simple para conseguir clientes 💜\n\nNo necesitas seguidores ni publicidad. Necesitas 3 canales activos:\n→ Red cálida: familia y amigos. No vendes, informas que tienes algo nuevo.\n→ Comunidades online: grupos de mamás. Aportas valor primero, luego ofreces.\n→ Contacto directo: mensajes personalizados a quien tiene el problema.\n\nSofía envió 15 mensajes a su red cálida. 8 respondieron, 3 pidieron info y 2 compraron en la primera semana. Tasa de conversión: 13%, normal para empezar.\n\n¿Quieres el mensaje exacto que puedes usar para tu red cálida?"
+  },
+  {
+    keys: ['cliente ideal','a quien le vendo','a quién le vendo','mi cliente'],
+    reply: "Venderle a \"todas las mamás\" es venderle a nadie 💜\n\nEntre más específica seas sobre quién tiene ese problema con más urgencia, más fácil será vender. Completa esta frase:\n\n\"Ayudo a [quién] a [lograr qué] sin [obstáculo principal]\"\n\nEjemplo de Sofía: \"Ayudo a mamás ocupadas a cocinar saludable toda la semana sin pensar qué preparar cada día.\"\n\n¿Quieres intentar completar tu propia frase? Cuéntame a quién quieres ayudar."
+  },
+  {
+    keys: ['tiempo','organizar','hijos','no tengo tiempo','ocupada','cansada'],
+    reply: "Emprender siendo mamá no es cuestión de tener más tiempo, sino de usar mejor el que tienes 💜\n\nNo necesitas 8 horas. Necesitas bloques de 20 minutos bien usados: la siesta, después de acostar a los niños, mientras esperas en el parque.\n\nSofía tiene 2 hijos pequeños y solo 2 bloques de 20 minutos al día. Con ese sistema lanzó su negocio en 3 semanas.\n\n\"No se trata de encontrar tiempo. Se trata de decidir qué haces con el que ya tienes.\"\n\n¿Cuáles son tus bloques reales del día?"
+  },
+  {
+    keys: ['validar','validacion','validación','va a funcionar','funcionara','funcionará'],
+    reply: "Antes de crear todo, valida en 48 horas sin gastar nada 💜\n\n1. Pregunta directa: publica 1 línea en tus historias sobre el problema que resuelves.\n2. Los 5 DMs de sondeo: escribe a 5 personas y pregúntales directamente si pagarían.\n3. Búsqueda de mercado: revisa si existen productos similares (encontrar competencia es buena señal).\n\nSi tienes 3+ respuestas positivas → crea tu producto. Si tienes 1-2 → ajusta la idea. Si tienes 0 → replantea el problema que resuelves.\n\n¿Ya tienes a quién preguntarle?"
+  }
+];
+
+const fallback = "Cuéntame un poco más 💜 Puedo ayudarte con: tu idea de negocio, cómo poner tu precio, tu cliente ideal, el miedo a lanzar, tus primeras ventas, cómo organizar tu tiempo con hijos, o cómo validar tu idea. ¿Cuál de estos te sirve ahora mismo?";
+
+function findResponse(text){
+  const t = text.toLowerCase();
+  for(const item of responses){
+    if(item.keys.some(k => t.includes(k))) return item.reply;
+  }
+  return fallback;
+}
+
+function addBubble(text, sender){
+  const div = document.createElement('div');
+  div.className = 'bubble ' + sender;
+  div.textContent = text;
+  chatWindow.appendChild(div);
+  chatWindow.scrollTop = chatWindow.scrollHeight;
+}
+
+function showTyping(){
+  const div = document.createElement('div');
+  div.className = 'typing';
+  div.id = 'typingIndicator';
+  div.innerHTML = '<span></span><span></span><span></span>';
+  chatWindow.appendChild(div);
+  chatWindow.scrollTop = chatWindow.scrollHeight;
+}
+
+function removeTyping(){
+  const el = document.getElementById('typingIndicator');
+  if(el) el.remove();
+}
+
+function handleUserMessage(text){
+  if(!text.trim()) return;
+  addBubble(text, 'user');
+  textInput.value = '';
+  showTyping();
+  setTimeout(function(){
+    removeTyping();
+    addBubble(findResponse(text), 'bot');
+  }, 700);
+}
+
+sendBtn.addEventListener('click', function(){
+  handleUserMessage(textInput.value);
+});
+textInput.addEventListener('keydown', function(e){
+  if(e.key === 'Enter') handleUserMessage(textInput.value);
+});
+quickReplies.addEventListener('click', function(e){
+  const pill = e.target.closest('.pill');
+  if(pill) handleUserMessage(pill.getAttribute('data-msg'));
+});
+</script>
+</body>
+</html>
