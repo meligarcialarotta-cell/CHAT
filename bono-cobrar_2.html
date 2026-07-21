@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bono 2: Formas de Cobrar a tus Clientes · Mi Plan de Vuelo</title>
+<style>
+  :root{
+    --lila:#9B7EBD; --lila-dark:#6E4E9E; --rose:#C98CA7; --olive:#7C8A5E;
+    --ink:#3A3A3A; --grey:#6B6B6B; --bg1:#F3E9F2; --bg2:#FBF0E9;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0; font-family:'Georgia','Times New Roman',serif;
+    background:linear-gradient(160deg, var(--bg1) 0%, var(--bg2) 100%);
+    min-height:100vh; display:flex; justify-content:center; padding:40px 16px;
+    color:var(--ink);
+  }
+  .page{width:100%; max-width:720px;}
+  .eyebrow{text-align:center; letter-spacing:2px; font-size:12px; color:var(--rose);
+    font-family:Arial, sans-serif; font-weight:bold; margin-bottom:16px;}
+  .avatar{width:60px;height:60px;border-radius:50%;background:var(--lila);color:white;
+    display:flex;align-items:center;justify-content:center;font-size:26px;margin:0 auto 18px;}
+  h1{text-align:center;color:#3A2E42;font-size:30px;margin:0 0 8px;}
+  .subtitle{text-align:center;color:var(--grey);font-family:Arial, sans-serif;font-size:15px;margin-bottom:8px;line-height:1.5;}
+  .intro{
+    font-family:Arial, sans-serif; font-size:15px; line-height:1.6; color:var(--ink);
+    background:#FFFFFF; border-radius:16px; padding:20px 24px; margin:24px 0;
+    box-shadow:0 1px 3px rgba(0,0,0,0.06);
+  }
+  .section-label{
+    font-family:Arial, sans-serif; font-size:13px; font-weight:bold; letter-spacing:1px;
+    color:var(--olive); text-transform:uppercase; margin:32px 0 14px; text-align:center;
+  }
+  .card{
+    background:#FFFFFF; border-radius:16px; padding:20px 24px; margin-bottom:14px;
+    box-shadow:0 1px 3px rgba(0,0,0,0.06); font-family:Arial, sans-serif;
+  }
+  .card h2{
+    font-family:Georgia, serif; font-size:18px; color:var(--lila-dark); margin:0 0 8px;
+    display:flex; align-items:center; gap:8px;
+  }
+  .num{
+    display:inline-flex; align-items:center; justify-content:center;
+    width:24px; height:24px; border-radius:50%; background:var(--lila);
+    color:#fff; font-family:Arial, sans-serif; font-size:12px; font-weight:bold; flex-shrink:0;
+  }
+  .card p{font-size:14.5px; line-height:1.6; color:var(--ink); margin:6px 0;}
+  .card ul{margin:8px 0; padding-left:20px;}
+  .card ul li{font-size:14px; line-height:1.6; color:var(--ink);}
+  .best-for{
+    margin-top:10px; padding:9px 14px; background:#F5EFF8; border-radius:10px;
+    font-size:13.5px; color:var(--lila-dark);
+  }
+  .tips-card, .checklist-card{
+    font-family:Arial, sans-serif; background:#FFFFFF; border-radius:16px; padding:22px 24px;
+    margin:16px 0; box-shadow:0 1px 3px rgba(0,0,0,0.06);
+  }
+  .tips-card h2, .checklist-card h2{font-family:Georgia, serif; font-size:19px; color:var(--lila-dark); margin:0 0 14px;}
+  .tip-item{display:flex; gap:10px; margin-bottom:10px; font-size:14.5px; line-height:1.5;}
+  .tip-item .check{color:var(--olive); font-weight:bold; flex-shrink:0;}
+  .checklist-item{
+    display:flex; align-items:flex-start; gap:10px; margin-bottom:10px;
+    font-size:14.5px; line-height:1.4; cursor:pointer;
+  }
+  .checklist-item input{
+    width:18px; height:18px; margin-top:2px; accent-color:var(--olive); cursor:pointer; flex-shrink:0;
+  }
+  .checklist-item.checked span{ text-decoration:line-through; color:var(--grey); }
+  .warning{
+    font-family:Arial, sans-serif; background:#FBF0E0; border-left:4px solid var(--rose);
+    border-radius:10px; padding:16px 18px; margin:24px 0; font-size:14px; line-height:1.6; color:var(--ink);
+  }
+  .closing{
+    text-align:center; font-family:Georgia, serif; font-style:italic; color:var(--lila-dark);
+    font-size:16px; margin:28px 0 8px; padding:0 10px;
+  }
+  .footnote{text-align:center;font-family:Arial, sans-serif;font-size:11px;color:#A99BA6;margin-top:20px;}
+
+  .selector-card{
+    font-family:Arial, sans-serif; background:#FFFFFF; border-radius:16px; padding:24px;
+    margin:24px 0; box-shadow:0 2px 6px rgba(0,0,0,0.08); border:1px solid #EDE0F2;
+  }
+  .selector-card h2{font-family:Georgia, serif; font-size:20px; color:var(--lila-dark); margin:0 0 6px; text-align:center;}
+  .selector-card > p{font-size:14px; color:var(--grey); text-align:center; margin:0 0 20px;}
+  .quiz-step{margin-bottom:18px;}
+  .quiz-question{font-size:14.5px; font-weight:bold; color:var(--ink); margin-bottom:10px;}
+  .quiz-options{display:flex; flex-wrap:wrap; gap:8px;}
+  .quiz-btn{
+    font-family:Arial, sans-serif; font-size:13.5px; color:var(--lila-dark);
+    background:#F5EFF8; border:1.5px solid #DECFE0; border-radius:20px;
+    padding:9px 16px; cursor:pointer; transition:all 0.15s;
+  }
+  .quiz-btn:hover{background:#EDE0F2;}
+  .quiz-btn.selected{background:var(--lila-dark); color:#fff; border-color:var(--lila-dark);}
+  .quiz-result{
+    margin-top:20px; padding:20px; background:#FBF6EF; border-radius:14px;
+    border:1.5px dashed var(--olive);
+  }
+  .quiz-result .result-title{font-size:13px; font-weight:bold; color:var(--olive); text-transform:uppercase; letter-spacing:0.5px; margin-bottom:8px;}
+  .quiz-result .result-main{font-size:16px; font-weight:bold; color:var(--lila-dark); margin-bottom:8px;}
+  .quiz-result .result-secondary{font-size:14px; color:var(--ink); margin-bottom:8px;}
+  .quiz-result .result-reason{font-size:13.5px; color:var(--grey); font-style:italic;}
+  .quiz-reset{
+    display:block; text-align:center; margin-top:14px; font-size:13px; color:var(--rose);
+    cursor:pointer; text-decoration:underline; background:none; border:none; font-family:Arial, sans-serif;
+  }
+</style>
+</head>
+<body>
+<div class="page">
+  <div class="eyebrow">BONO 2 &middot; MI PLAN DE VUELO</div>
+  <div class="avatar">💳</div>
+  <h1>Formas de Cobrar a tus Clientes</h1>
+  <div class="subtitle">Vender es importante, pero cobrar de manera fácil y profesional es lo que realmente convierte una venta en ingresos.</div>
+
+  <div class="intro">
+    Este bono reúne las principales opciones para recibir pagos, tanto si vendes productos
+    físicos como digitales o servicios — para que elijas la que mejor se ajuste a tu negocio.
+  </div>
+
+  <div class="selector-card">
+    <h2>🎯 ¿Cuál método me conviene?</h2>
+    <p>Responde estas 3 preguntas y te decimos qué usar, sin tener que leer las 12 opciones.</p>
+
+    <div class="quiz-step">
+      <div class="quiz-question">1. ¿Vendes solo en tu país o también fuera de tu país?</div>
+      <div class="quiz-options">
+        <button class="quiz-btn" data-q="scope" data-v="local">Solo en mi país</button>
+        <button class="quiz-btn" data-q="scope" data-v="intl">También fuera de mi país</button>
+      </div>
+    </div>
+
+    <div class="quiz-step">
+      <div class="quiz-question">2. ¿Qué vendes?</div>
+      <div class="quiz-options">
+        <button class="quiz-btn" data-q="type" data-v="digital">Producto digital</button>
+        <button class="quiz-btn" data-q="type" data-v="fisico">Producto físico</button>
+        <button class="quiz-btn" data-q="type" data-v="servicio">Servicio / sesiones</button>
+      </div>
+    </div>
+
+    <div class="quiz-step">
+      <div class="quiz-question">3. ¿Quieres que se entregue automático, o lo haces tú manualmente?</div>
+      <div class="quiz-options">
+        <button class="quiz-btn" data-q="auto" data-v="auto">Automático</button>
+        <button class="quiz-btn" data-q="auto" data-v="manual">Manual, yo lo hago</button>
+      </div>
+    </div>
+
+    <div class="quiz-result" id="quizResult" style="display:none;">
+      <div class="result-title">Para tu caso, te recomendamos</div>
+      <div class="result-main" id="resultMain"></div>
+      <div class="result-secondary" id="resultSecondary"></div>
+      <div class="result-reason" id="resultReason"></div>
+      <button class="quiz-reset" id="quizReset">Volver a responder</button>
+    </div>
+  </div>
+
+  <div class="section-label">Métodos de pago</div>
+
+  <div class="card">
+    <h2><span class="num">1</span> Transferencias Bancarias</h2>
+    <p>Es una de las formas más utilizadas para recibir pagos. Puedes compartir con tu cliente:</p>
+    <ul>
+      <li>Nombre del titular.</li>
+      <li>Tipo de cuenta.</li>
+      <li>Número de cuenta.</li>
+      <li>Banco.</li>
+    </ul>
+    <div class="best-for">✔ Ideal para: servicios, consultorías y ventas directas.</div>
+  </div>
+
+  <div class="card">
+    <h2><span class="num">2</span> Nequi</h2>
+    <p>Permite recibir pagos de manera inmediata usando el número de celular.</p>
+    <ul>
+      <li>Sin efectivo.</li>
+      <li>Muy usado en Colombia.</li>
+      <li>Fácil para clientes.</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h2><span class="num">3</span> Daviplata</h2>
+    <p>Otra billetera digital muy popular. Permite:</p>
+    <ul>
+      <li>Recibir dinero.</li>
+      <li>Enviar pagos.</li>
+      <li>Hacer cobros rápidos.</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h2><span class="num">4</span> Bancolombia A la Mano / Mi Bancolombia</h2>
+    <p>Si eres cliente de Bancolombia, puedes recibir pagos directamente desde la aplicación.</p>
+  </div>
+
+  <div class="card">
+    <h2><span class="num">5</span> QR de Pago</h2>
+    <p>La mayoría de bancos permiten generar un código QR para que el cliente simplemente lo escanee y pague.</p>
+    <p>Es rápido, profesional y evita errores al escribir números de cuenta.</p>
+  </div>
+
+  <div class="card">
+    <h2><span class="num">6</span> Link de Pago</h2>
+    <p>Un enlace de pago permite que el cliente pague con tarjeta de crédito o débito sin necesidad de tener una página web.</p>
+    <p>Es ideal para vender por:</p>
+    <ul>
+      <li>WhatsApp</li>
+      <li>Instagram</li>
+      <li>Facebook</li>
+      <li>Correo electrónico</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h2><span class="num">7</span> Wompi</h2>
+    <p>Una plataforma que permite cobrar con:</p>
+    <ul>
+      <li>Tarjetas de crédito.</li>
+      <li>Tarjetas débito.</li>
+      <li>PSE.</li>
+      <li>Nequi.</li>
+      <li>Botón de pago.</li>
+    </ul>
+    <div class="best-for">✔ Ideal para quienes venden por internet.</div>
+  </div>
+
+  <div class="card">
+    <h2><span class="num">8</span> Mercado Pago</h2>
+    <p>Permite generar:</p>
+    <ul>
+      <li>Links de pago.</li>
+      <li>Botones de pago.</li>
+      <li>Cobros con tarjeta.</li>
+      <li>Pagos por PSE (según disponibilidad).</li>
+    </ul>
+    <div class="best-for">✔ Muy útil para pequeños negocios.</div>
+  </div>
+
+  <div class="card">
+    <h2><span class="num">9</span> PayU</h2>
+    <p>Pasarela de pago utilizada por miles de comercios electrónicos en Latinoamérica.</p>
+    <p>Permite aceptar diferentes métodos de pago desde una misma plataforma.</p>
+  </div>
+
+  <div class="card">
+    <h2><span class="num">10</span> Hotmart</h2>
+    <p>Si vendes cursos, ebooks, plantillas o productos digitales, Hotmart procesa los pagos y entrega automáticamente el producto al comprador.</p>
+    <p>Además permite vender a clientes de diferentes países.</p>
+  </div>
+
+  <div class="card">
+    <h2><span class="num">11</span> Stripe</h2>
+    <p>Ideal para quienes venden internacionalmente. Acepta:</p>
+    <ul>
+      <li>Tarjetas Visa.</li>
+      <li>Mastercard.</li>
+      <li>American Express.</li>
+      <li>Apple Pay.</li>
+      <li>Google Pay (según disponibilidad).</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h2><span class="num">12</span> PayPal</h2>
+    <p>Muy utilizado para recibir pagos desde otros países.</p>
+    <p>Es una excelente opción para freelancers y negocios digitales.</p>
+  </div>
+
+  <div class="tips-card">
+    <h2>✨ Consejos para cobrar de forma profesional</h2>
+    <div class="tip-item"><span class="check">✔</span><span>Comparte siempre el valor exacto que debe pagar el cliente.</span></div>
+    <div class="tip-item"><span class="check">✔</span><span>Envía un comprobante o confirmación cuando recibas el pago.</span></div>
+    <div class="tip-item"><span class="check">✔</span><span>Si usas varios métodos de pago, ofrécelos todos para facilitar la compra.</span></div>
+    <div class="tip-item"><span class="check">✔</span><span>Mantén separados los ingresos del negocio y tus finanzas personales.</span></div>
+    <div class="tip-item"><span class="check">✔</span><span>Lleva un registro de cada pago recibido para controlar tus ventas y flujo de caja.</span></div>
+  </div>
+
+  <div class="checklist-card">
+    <h2>📋 Checklist antes de cobrar</h2>
+    <label class="checklist-item"><input type="checkbox"><span>Confirmé el valor con el cliente.</span></label>
+    <label class="checklist-item"><input type="checkbox"><span>Envié el método de pago.</span></label>
+    <label class="checklist-item"><input type="checkbox"><span>Recibí el comprobante.</span></label>
+    <label class="checklist-item"><input type="checkbox"><span>Verifiqué el ingreso del dinero.</span></label>
+    <label class="checklist-item"><input type="checkbox"><span>Entregué el producto o servicio.</span></label>
+    <label class="checklist-item"><input type="checkbox"><span>Registré la venta en mi control financiero.</span></label>
+  </div>
+
+  <div class="warning">
+    ⚠️ <strong>Un cuidado importante:</strong> verifica siempre el ingreso real del dinero en tu
+    cuenta antes de entregar el producto o servicio — no te quedes solo con la captura de pantalla
+    que te envía el cliente, ya que se puede falsificar.
+  </div>
+
+  <div class="closing">"Recuerda: mientras más fácil sea pagar, más probabilidades tendrás de cerrar la venta."</div>
+
+  <div class="footnote">Bono 2 · Mi Plan de Vuelo — contenido sujeto a actualización según cambios en las plataformas</div>
+</div>
+
+<script>
+  document.querySelectorAll('.checklist-item input').forEach(function(cb){
+    cb.addEventListener('change', function(){
+      cb.closest('.checklist-item').classList.toggle('checked', cb.checked);
+    });
+  });
+
+  // --- Selector de "¿cuál método me conviene?" ---
+  const answers = {};
+
+  document.querySelectorAll('.quiz-btn').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      const q = btn.getAttribute('data-q');
+      const v = btn.getAttribute('data-v');
+      answers[q] = v;
+
+      // Marca visualmente solo el botón elegido dentro de su propia pregunta
+      document.querySelectorAll('.quiz-btn[data-q="' + q + '"]').forEach(function(b){
+        b.classList.remove('selected');
+      });
+      btn.classList.add('selected');
+
+      if(answers.scope && answers.type && answers.auto){
+        showResult(answers);
+      }
+    });
+  });
+
+  document.getElementById('quizReset').addEventListener('click', function(){
+    delete answers.scope; delete answers.type; delete answers.auto;
+    document.querySelectorAll('.quiz-btn').forEach(function(b){ b.classList.remove('selected'); });
+    document.getElementById('quizResult').style.display = 'none';
+  });
+
+  function showResult(a){
+    let primary = [], secondary = [], reason = '';
+
+    if(a.type === 'digital' && a.auto === 'auto'){
+      primary = ['Hotmart'];
+      reason = 'Como quieres automatizar la entrega, Hotmart cobra y entrega tu producto digital sin que hagas nada manual' +
+        (a.scope === 'intl' ? ', y además acepta compradoras de otros países.' : '.');
+    } else if(a.type === 'digital' && a.auto === 'manual'){
+      if(a.scope === 'local'){
+        primary = ['Nequi', 'Daviplata', 'Transferencia bancaria'];
+        secondary = ['Link de pago (Wompi o Mercado Pago), si quieres verte más profesional'];
+        reason = 'Como entregas tú misma y vendes local, estas opciones son rápidas y sin comisión.';
+      } else {
+        primary = ['PayPal', 'Stripe'];
+        reason = 'Como vendes también fuera de tu país y entregas tú misma, necesitas un método que acepte pagos internacionales.';
+      }
+    } else if(a.type === 'fisico'){
+      if(a.scope === 'local'){
+        primary = ['Nequi', 'Daviplata', 'Transferencia bancaria', 'QR de pago'];
+        reason = 'Para producto físico y ventas locales, estas son las opciones más simples y sin comisión.';
+      } else {
+        primary = ['Nequi', 'Daviplata', 'Transferencia bancaria'];
+        secondary = ['PayPal, para tus clientas que te compren desde otros países'];
+        reason = 'Usa las locales para tu país, y suma PayPal para quienes te compren desde fuera.';
+      }
+    } else if(a.type === 'servicio'){
+      if(a.scope === 'local'){
+        primary = ['Nequi', 'Daviplata', 'Transferencia bancaria'];
+        reason = 'Para servicios y consultorías locales, esto es lo más simple y directo.';
+      } else {
+        primary = ['PayPal', 'Stripe'];
+        secondary = ['Nequi o Daviplata, si también tienes clientas locales'];
+        reason = 'Para servicios internacionales necesitas un método que acepte tarjetas de otros países.';
+      }
+    }
+
+    document.getElementById('resultMain').textContent = primary.join(' · ');
+    const secDiv = document.getElementById('resultSecondary');
+    if(secondary.length){
+      secDiv.textContent = 'También puedes sumar: ' + secondary.join(', ');
+      secDiv.style.display = 'block';
+    } else {
+      secDiv.style.display = 'none';
+    }
+    document.getElementById('resultReason').textContent = reason;
+    document.getElementById('quizResult').style.display = 'block';
+  }
+</script>
+</body>
+</html>
