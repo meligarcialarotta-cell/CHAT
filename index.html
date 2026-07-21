@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Chat con Melisa · Mi Plan de Vuelo</title>
+<title>Asistente Mi Plan de Vuelo</title>
 <style>
   :root{
     --lila:#9B7EBD;
@@ -163,31 +163,96 @@
     color:#A99BA6;
     margin-top:14px;
   }
+  .calc-card{
+    font-family:Arial, sans-serif;
+    background:#FFFFFF;
+    border:1px solid #E9DEE8;
+    border-radius:16px;
+    padding:16px 18px;
+    max-width:88%;
+    align-self:flex-start;
+    box-shadow:0 1px 3px rgba(0,0,0,0.06);
+  }
+  .calc-card h4{
+    margin:0 0 10px;
+    font-size:14px;
+    color:var(--lila-dark);
+  }
+  .calc-field{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    margin-bottom:8px;
+  }
+  .calc-field label{
+    flex:1;
+    font-size:13px;
+    color:var(--ink);
+  }
+  .calc-field input{
+    width:90px;
+    padding:6px 10px;
+    border-radius:8px;
+    border:1px solid #DECFE0;
+    font-size:13px;
+  }
+  .calc-btn{
+    margin-top:6px;
+    background:var(--olive);
+    color:white;
+    border:none;
+    border-radius:20px;
+    padding:8px 16px;
+    font-size:13px;
+    cursor:pointer;
+  }
+  .calc-btn:hover{opacity:0.9;}
+  .calc-result{
+    margin-top:10px;
+    font-size:14px;
+    font-weight:bold;
+    color:var(--lila-dark);
+    display:none;
+  }
+  .speak-btn{
+    font-family:Arial, sans-serif;
+    font-size:13px;
+    color:var(--lila-dark);
+    background:#F5EFF8;
+    border:1px solid #DECFE0;
+    border-radius:20px;
+    padding:8px 16px;
+    cursor:pointer;
+    align-self:flex-start;
+    margin-top:-6px;
+  }
+  .speak-btn:hover{background:#EDE0F2;}
+  .speak-btn.playing{background:var(--lila-dark);color:#FFFFFF;}
 </style>
 </head>
 <body>
 <div class="app">
   <div class="eyebrow">KIT DIGITAL &middot; EMPRENDE DESDE CASA</div>
-  <div class="avatar">M</div>
-  <h1>Chat con Melisa</h1>
-  <div class="subtitle">Tu consultora de emprendimiento, disponible 24/7</div>
+  <div class="avatar">
+    <svg width="30" height="30" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M21.5 2.5L2.5 10.8C2.1 11 2.1 11.6 2.5 11.8L10 15L13.2 21.6C13.4 22 14 22 14.2 21.6L21.9 3.1C22.1 2.7 21.8 2.3 21.5 2.5Z" fill="white" stroke="white" stroke-width="0.6" stroke-linejoin="round"/>
+      <path d="M10 15L13 12L21.5 2.5" stroke="#9B7EBD" stroke-width="0.7" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </div>
+  <h1>Asistente Mi Plan de Vuelo</h1>
+  <div class="subtitle">Tu acompañante para estructurar tu negocio, disponible 24/7</div>
 
   <div class="chat-window" id="chatWindow">
-    <div class="bubble bot">¡Hola! Soy Melisa AI 💜 Estoy aquí para ayudarte con tu idea de negocio, tus precios, tu cliente ideal o lo que necesites para dar el siguiente paso. ¿Por dónde empezamos?</div>
+    <div class="bubble bot">¡Hola! Soy el Asistente de Mi Plan de Vuelo 💜 Estoy aquí para ayudarte con tu idea de negocio, tus precios, tu cliente ideal o lo que necesites para dar el siguiente paso. ¿Por dónde empezamos?</div>
   </div>
 
-  <div class="quick-replies" id="quickReplies">
-    <div class="pill" data-msg="No sé qué idea tener">No sé qué idea tener</div>
-    <div class="pill" data-msg="¿Cómo pongo mi precio?">¿Cómo pongo mi precio?</div>
-    <div class="pill" data-msg="Tengo miedo de lanzar">Tengo miedo de lanzar</div>
-    <div class="pill" data-msg="Mis primeras ventas">Mis primeras ventas</div>
-  </div>
+  <div class="quick-replies" id="quickReplies"></div>
 
   <div class="input-row">
-    <input type="text" id="textInput" placeholder="Escríbele a Melisa..." />
+    <input type="text" id="textInput" placeholder="Escribe tu pregunta aquí..." />
     <button id="sendBtn" aria-label="Enviar">&#10148;</button>
   </div>
-  <div class="footnote">Respuestas generadas con la metodología de Mi Plan de Vuelo</div>
+  <div class="footnote">Asistente entrenado con la metodología de Mi Plan de Vuelo</div>
 </div>
 
 <script>
@@ -198,44 +263,303 @@ const quickReplies = document.getElementById('quickReplies');
 
 const responses = [
   {
+    id: 'idea',
     keys: ['idea','no se que vender','no sé qué vender','no tengo idea','cero ideas','emprender que'],
-    reply: "La mayoría de mamás no tienen falta de ideas, tienen exceso de ideas y falta de foco 💜\n\nHaz este ejercicio rápido:\n1. Escribe 3 cosas que sabes hacer bien.\n2. Piensa qué te preguntan otras mamás a tu alrededor.\n3. Cruza ambas listas.\n\nAsí encontró Sofía la suya: llevaba meses queriendo \"algo con la comida saludable\" sin definir qué, hasta que notó que 3 amigas ya le pedían sus menús semanales por WhatsApp. Ahí estaba su idea, esperando ser nombrada.\n\n¿Quieres que exploremos juntas tus habilidades?"
+    reply: "La mayoría de mamás no tienen falta de ideas, tienen exceso de ideas y falta de foco 💜\n\nHaz este ejercicio rápido:\n1. Escribe 3 cosas que sabes hacer bien.\n2. Piensa qué te preguntan otras mamás a tu alrededor.\n3. Cruza ambas listas.\n\nAsí encontró Sofía la suya: llevaba meses queriendo \"algo con la comida saludable\" sin definir qué, hasta que notó que 3 amigas ya le pedían sus menús semanales por WhatsApp. Ahí estaba su idea, esperando ser nombrada.\n\n¿Quieres que exploremos juntas tus habilidades?",
+    followUp: "Perfecto, vamos a explorarlas 💜 Responde estas 3 preguntas (puedes escribírmelas o solo pensarlas):\n\n1. ¿Qué te piden ayuda otras mamás seguido? (organizar, cocinar, enseñar algo a los niños, arreglar algo...)\n2. ¿Qué hacías bien antes de ser mamá (trabajo, hobby, estudio) que podrías retomar en pequeño?\n3. Si tuvieras que enseñarle algo a una amiga en 1 hora, ¿qué sería?\n\nLa idea casi siempre está en el cruce de esas 3 respuestas. Cuando la tengas, cuéntamela y seguimos con el siguiente paso: validarla sin gastar nada.",
+    chainTo: 'validar'
   },
   {
-    keys: ['precio','cobrar','cuanto cobro','cuánto cobro','tarifa'],
-    reply: "Poner precio da miedo, pero se resuelve con 3 preguntas:\n\n1. ¿Cuánto tiempo real te toma crearlo?\n2. ¿Cuáles son tus costos (materiales, plataformas)?\n3. ¿Qué transformación le das a tu cliente?\n\nEmpieza con un precio de entrada accesible — siempre puedes subirlo después con clientas reales. Sofía calculó que su plan de menús le tomaba 3 horas crear y empezó cobrando $10. Con sus primeras 3 ventas, subió a $15 sin perder clientas.\n\n¿Ya tienes una cifra en mente o la calculamos juntas?"
+    id: 'precio',
+    keys: ['precio','cobrar','cuanto cobro','cuánto cobro','tarifa','calcula mi precio','calculame el precio','calcúlame el precio'],
+    reply: "Poner precio da miedo, pero se resuelve con 3 preguntas:\n\n1. ¿Cuánto tiempo real te toma crearlo?\n2. ¿Cuáles son tus costos (materiales, plataformas)?\n3. ¿Qué transformación le das a tu cliente?\n\nEmpieza con un precio de entrada accesible — siempre puedes subirlo después con clientas reales. Sofía calculó que su plan de menús le tomaba 3 horas crear y empezó cobrando $10. Con sus primeras 3 ventas, subió a $15 sin perder clientas.\n\n¿Ya tienes una cifra en mente o la calculamos juntas?",
+    followUp: "Vamos a calcularla juntas 💜 Necesitas 3 datos (puedes escribirlos en tu próximo mensaje o solo pensarlos):\n\n1. Horas que te toma crear y entregar tu producto.\n2. Costos directos (plataformas, materiales, comisiones).\n3. Cuánto vale tu hora idealmente (aunque sea un estimado).\n\nFórmula simple: (horas × valor de tu hora) + costos directos = tu precio mínimo. Luego ajusta según lo que el mercado esté dispuesto a pagar por ese resultado. Empieza un poco por debajo de ese número para tus primeras ventas, y sube con testimonios reales."
   },
   {
+    id: 'miedo',
     keys: ['miedo','no me atrevo','me da pena','vergüenza','vergonzoso','bloqueo','no puedo lanzar'],
-    reply: "Ese miedo es más común de lo que crees, y tiene solución 💜\n\nSofía tenía todo listo pero no se atrevía a decir \"esto cuesta $10\". Su bloqueo: \"¿y si piensan que es muy caro?\". Lo que hizo:\n→ Escribió su oferta como si le hablara a UNA amiga.\n→ No usó lenguaje de ventas, usó lenguaje de ayuda.\n→ Su mensaje: \"Hice algo que me hubiera encantado tener cuando no sabía qué cocinar. ¿Te lo muestro?\"\n\nResultado: 8 de 10 personas dijeron \"sí, muéstrame\". 3 compraron ese mismo día.\n\nSi te da miedo vender, cambia la palabra: no estás vendiendo, estás ofreciendo una solución a alguien que ya tiene el problema."
+    reply: "Ese miedo es más común de lo que crees, y tiene solución 💜\n\nSofía tenía todo listo pero no se atrevía a decir \"esto cuesta $10\". Su bloqueo: \"¿y si piensan que es muy caro?\". Lo que hizo:\n→ Escribió su oferta como si le hablara a UNA amiga.\n→ No usó lenguaje de ventas, usó lenguaje de ayuda.\n→ Su mensaje: \"Hice algo que me hubiera encantado tener cuando no sabía qué cocinar. ¿Te lo muestro?\"\n\nResultado: 8 de 10 personas dijeron \"sí, muéstrame\". 3 compraron ese mismo día.\n\nSi te da miedo vender, cambia la palabra: no estás vendiendo, estás ofreciendo una solución a alguien que ya tiene el problema.\n\n¿Quieres que revisemos las creencias que más frenan a las mamás a la hora de lanzar?",
+    followUp: "Aquí están las 6 creencias limitantes más comunes que frenan a las mamás emprendedoras, y cómo se les da la vuelta 💜\n\n1. \"No soy experta suficiente\" → No necesitas ser la más experta, necesitas ir un paso adelante de a quien ayudas. Sofía no era nutricionista, solo sabía organizar menús mejor que sus amigas.\n\n2. \"Nadie va a pagar por esto\" → Eso se responde validando (Módulo 4), no adivinando. La única forma de saberlo es preguntar a personas reales.\n\n3. \"Ya hay mucha competencia\" → Que exista competencia confirma que hay mercado. Tu ventaja es tu cercanía, no ser la única.\n\n4. \"Debo tener todo perfecto antes de lanzar\" → Un producto al 80% que ya se vende, vale más que uno perfecto que nunca sale. Se mejora con clientas reales.\n\n5. \"Si fracaso, quedaré mal\" → Nadie lleva la cuenta de tus intentos como tú crees. Y un primer intento que no funciona es información, no fracaso.\n\n6. \"No merezco cobrar por esto, es como ayudar a una amiga\" → Ayudar y cobrar no son opuestos. Cobrar es lo que te permite sostener esa ayuda en el tiempo, sin agotarte.\n\n¿Cuál de estas 6 es la que más se parece a lo que sientes tú? Cuéntamela con tus palabras y te doy ejercicios concretos para trabajarla."
   },
   {
+    id: 'creencias',
+    keys: ['creencias limitantes','creencia limitante'],
+    reply: "Las creencias limitantes son pensamientos automáticos, no hechos — y la buena noticia es que se pueden identificar y cuestionar 💜\n\nLas 6 más comunes en mamás emprendedoras:\n\n1. \"No soy experta suficiente\" → No necesitas ser la más experta, necesitas ir un paso adelante de a quien ayudas.\n\n2. \"Nadie va a pagar por esto\" → Se responde validando con personas reales (Módulo 4), no adivinando en tu cabeza.\n\n3. \"Ya hay mucha competencia\" → Que exista competencia confirma que hay mercado. Tu ventaja es tu cercanía, no ser la única.\n\n4. \"Debo tener todo perfecto antes de lanzar\" → Un producto al 80% que ya se vende vale más que uno perfecto que nunca sale.\n\n5. \"Si fracaso, quedaré mal\" → Un primer intento que no funciona es información, no fracaso. Nadie lleva la cuenta de tus intentos como tú crees.\n\n6. \"No merezco cobrar, es como ayudar a una amiga\" → Cobrar es lo que te permite sostener esa ayuda en el tiempo, sin agotarte.\n\n¿Cuál de estas se parece más a lo que sientes tú ahora mismo? Cuéntamela con tus palabras y te doy ejercicios concretos para trabajarla."
+  },
+  {
+    id: 'ventas',
     keys: ['ventas','vender','clientes','conseguir clientes','primeras ventas'],
-    reply: "Tener el producto listo no es suficiente — necesitas un plan simple para conseguir clientes 💜\n\nNo necesitas seguidores ni publicidad. Necesitas 3 canales activos:\n→ Red cálida: familia y amigos. No vendes, informas que tienes algo nuevo.\n→ Comunidades online: grupos de mamás. Aportas valor primero, luego ofreces.\n→ Contacto directo: mensajes personalizados a quien tiene el problema.\n\nSofía envió 15 mensajes a su red cálida. 8 respondieron, 3 pidieron info y 2 compraron en la primera semana. Tasa de conversión: 13%, normal para empezar.\n\n¿Quieres el mensaje exacto que puedes usar para tu red cálida?"
+    reply: "Tener el producto listo no es suficiente — necesitas un plan simple para conseguir clientes 💜\n\nNo necesitas seguidores ni publicidad. Necesitas 3 canales activos:\n→ Red cálida: familia y amigos. No vendes, informas que tienes algo nuevo.\n→ Comunidades online: grupos de mamás. Aportas valor primero, luego ofreces.\n→ Contacto directo: mensajes personalizados a quien tiene el problema.\n\nSofía envió 15 mensajes a su red cálida. 8 respondieron, 3 pidieron info y 2 compraron en la primera semana. Tasa de conversión: 13%, normal para empezar.\n\n¿Quieres el mensaje exacto que puedes usar para tu red cálida?",
+    followUp: "Aquí tienes la plantilla exacta que usó Sofía 💜\n\n\"Hola [nombre], ¿cómo estás? Te cuento que estoy empezando un proyecto de [tu producto/servicio] para [cliente ideal]. No te estoy vendiendo nada 😊 solo quiero que lo sepas por si conoces a alguien que le pueda servir. ¿Te puedo contar más?\"\n\nCámbiala con tus propias palabras, pero mantén la esencia: informas, no presionas. Envíasela a 10-15 personas de tu círculo esta semana y anota quién responde.\n\nY algo que muy pocas hacen: la venta no termina cuando cobras. ¿Quieres ideas para que tu clienta se sienta acompañada después de comprar? Eso es lo que hace que vuelva y te recomiende.",
+    chainTo: 'acompanamiento'
   },
   {
+    id: 'acompanamiento',
+    keys: ['acompañada','acompañamiento','hacer sentir','experiencia de compra','cuidar a mis clientas','fidelizar','que vuelvan a comprar','recomendaciones','base de datos','pedir feedback','feedback de mis clientas'],
+    reply: "Esto es lo que más diferencia a un negocio que vende una vez, de uno que las clientas recomiendan 💜\n\n7 momentos donde puedes hacerla sentir acompañada, no solo \"una venta más\":\n\n1. 💌 Mensaje de bienvenida (minuto 1)\nApenas compra, un mensaje personal con su nombre: \"¡Hola [nombre]! Qué alegría tenerte aquí. Esto no es solo un PDF, es un acompañamiento — cualquier duda, aquí estoy.\"\n\n2. 🌱 Check-in a los 3-4 días\nUn mensaje corto, sin vender nada: \"¿Cómo vas con el Módulo 1? Cuéntame si algo no quedó claro.\" Esto solo el 5% de creadoras lo hace, y es lo que más se recuerda.\n\n3. 🎉 Celebrar sus avances\nSi te cuenta que avanzó o logró algo (aunque sea pequeño), celébralo genuinamente. Para ella es un paso grande, aunque a ti te parezca simple.\n\n4. 🤝 Espacio de comunidad\nUn grupo de WhatsApp o similar entre compradoras, aunque sea pequeño, genera pertenencia — ya no están solas en el proceso.\n\n5. 📋 Construye tu base de datos de clientas\nDesde tu primera venta, guarda en un lugar simple (una hoja de Excel o Google Sheets) el nombre, contacto, fecha de compra y qué le compró cada clienta. Esto te permite escribirle más adelante, avisarle de un nuevo producto, o recordarle que existes — sin depender solo de tu memoria o de que ella te siga en Instagram.\n\n6. 🗣️ Pide feedback activamente\nUnas semanas después de la compra, pregúntale directo: \"¿Qué te ha servido más? ¿Qué le agregarías?\". Esto no solo mejora tu producto — hace que la clienta sienta que su opinión importa, y muchas de esas respuestas se convierten en testimonios (con su permiso) que te ayudan a vender más.\n\n7. 🏁 Mensaje de cierre\nCuando termina el kit: \"Llegaste hasta acá, eso ya dice mucho de ti. Estoy orgullosa de acompañarte en este paso.\"\n\nNo necesitas hacer las 7 desde el día 1. Empieza con el mensaje de bienvenida, tu base de datos, y el check-in — son las de mayor impacto con menor esfuerzo."
+  },
+  {
+    id: 'cliente',
     keys: ['cliente ideal','a quien le vendo','a quién le vendo','mi cliente'],
     reply: "Venderle a \"todas las mamás\" es venderle a nadie 💜\n\nEntre más específica seas sobre quién tiene ese problema con más urgencia, más fácil será vender. Completa esta frase:\n\n\"Ayudo a [quién] a [lograr qué] sin [obstáculo principal]\"\n\nEjemplo de Sofía: \"Ayudo a mamás ocupadas a cocinar saludable toda la semana sin pensar qué preparar cada día.\"\n\n¿Quieres intentar completar tu propia frase? Cuéntame a quién quieres ayudar."
   },
   {
-    keys: ['tiempo','organizar','hijos','no tengo tiempo','ocupada','cansada'],
+    id: 'problema',
+    keys: ['que problema resuelvo','qué problema resuelvo','cual es el problema','cuál es el problema','problema real','dolor del cliente','que problema estoy resolviendo','qué problema estoy resolviendo'],
+    reply: "Esto es la base de todo lo demás — sin esto claro, ni el precio, ni el marketing, ni las ventas terminan de cuadrar 💜\n\nLa mayoría de emprendedoras piensan primero en \"qué voy a vender\" y después en \"qué problema resuelvo\" — y por eso terminan con productos que no conectan del todo.\n\nHazte estas 3 preguntas:\n1. ¿Qué le está costando tiempo, dinero o tranquilidad a tu cliente ideal, ahora mismo?\n2. ¿Qué ha intentado ya para resolverlo, y por qué no le ha funcionado del todo?\n3. ¿Qué pasa si NO lo resuelve? (ahí está la urgencia real, no inventada)\n\nCuando tienes esta respuesta clara:\n→ Tu precio se siente justificado (estás cobrando por resolver algo real, no por un PDF).\n→ Tu contenido y tus mensajes de venta se escriben casi solos.\n→ Vender deja de sentirse como \"convencer\" y empieza a sentirse como \"ayudar\".\n\nEsto se conecta directo con tu Módulo 3 (Cliente) y Módulo 6 (Canvas) del kit, donde ya tienes espacio para escribirlo con calma.\n\n¿Quieres intentar responder esas 3 preguntas para tu propia idea?",
+    followUp: "Vamos paso a paso 💜 Completa esto con tus propias palabras (puedes escribírmelo aquí, o solo pensarlo por ahora):\n\n1. Lo que le cuesta a mi cliente hoy es: ___\n2. Ya intentó: ___, pero no le funcionó porque: ___\n3. Si no lo resuelve, lo que le pasa es: ___\n\nEjemplo de Sofía, para que te guíes:\n1. Le cuesta decidir qué cocinar cada día, y termina pidiendo domicilio o repitiendo lo mismo.\n2. Ya intentó buscar recetas en Pinterest, pero no le funcionó porque nunca sabía cuál elegir ni si sus hijos se la comerían.\n3. Si no lo resuelve, sigue gastando más en domicilios y sintiéndose culpable por no cocinar saludable.\n\nCuando tengas tus 3 respuestas, ya tienes la base completa de tu propuesta de valor. Puedes registrarlas directo en el Módulo 3 de tu Excel."
+  },
+  {
+    id: 'tiempo',
+    keys: ['tiempo','organizar','hijos','no tengo tiempo','ocupada'],
     reply: "Emprender siendo mamá no es cuestión de tener más tiempo, sino de usar mejor el que tienes 💜\n\nNo necesitas 8 horas. Necesitas bloques de 20 minutos bien usados: la siesta, después de acostar a los niños, mientras esperas en el parque.\n\nSofía tiene 2 hijos pequeños y solo 2 bloques de 20 minutos al día. Con ese sistema lanzó su negocio en 3 semanas.\n\n\"No se trata de encontrar tiempo. Se trata de decidir qué haces con el que ya tienes.\"\n\n¿Cuáles son tus bloques reales del día?"
   },
   {
+    id: 'validar',
     keys: ['validar','validacion','validación','va a funcionar','funcionara','funcionará'],
-    reply: "Antes de crear todo, valida en 48 horas sin gastar nada 💜\n\n1. Pregunta directa: publica 1 línea en tus historias sobre el problema que resuelves.\n2. Los 5 DMs de sondeo: escribe a 5 personas y pregúntales directamente si pagarían.\n3. Búsqueda de mercado: revisa si existen productos similares (encontrar competencia es buena señal).\n\nSi tienes 3+ respuestas positivas → crea tu producto. Si tienes 1-2 → ajusta la idea. Si tienes 0 → replantea el problema que resuelves.\n\n¿Ya tienes a quién preguntarle?"
+    reply: "Antes de crear todo, valida en 48 horas sin gastar nada 💜\n\n1. Pregunta directa: publica 1 línea en tus historias sobre el problema que resuelves.\n2. Los 5 DMs de sondeo: escribe a 5 personas y pregúntales directamente si pagarían.\n3. Búsqueda de mercado: revisa si existen productos similares (encontrar competencia es buena señal).\n\nSi tienes 3+ respuestas positivas → crea tu producto. Si tienes 1-2 → ajusta la idea. Si tienes 0 → replantea el problema que resuelves.\n\n¿Ya tienes a quién preguntarle?",
+    followUp: "Genial 💜 Aquí tienes el mensaje exacto para tus 5 DMs de sondeo:\n\n\"Hola [nombre], estoy validando una idea de negocio: [explica tu idea en 1 línea]. ¿Tú pagarías por algo así? Sé honesta, me ayuda muchísimo saber tu opinión real 🙏\"\n\nEnvíalo a 5 personas distintas (no solo tu círculo más cercano) y anota cuántas dicen que sí pagarían. Con 3 o más, ya puedes crear tu producto con confianza."
+  },
+  {
+    id: 'mercado',
+    keys: ['mercado','competencia','hay mucha competencia','otros cursos','cuanta gente vende','cuánta gente vende'],
+    reply: "Buena pregunta — antes de darte el dato, aclaro algo: no conozco el detalle exacto de tu emprendimiento, así que esto es información general del mercado de infoproductos en español (no específica de tu nicho) 💜\n\nAlgunos datos de Hotmart 2026:\n→ El aprendizaje online sigue creciendo a nivel global.\n→ Los precios de cursos completos suelen ir de $27 a $997 USD, con el rango más común entre $97 y $297.\n→ Las categorías más rentables: marketing digital, administración, desarrollo personal y nichos específicos como \"mamá emprendedora\".\n\nQue exista competencia es buena señal, confirma que hay mercado. Tu ventaja no es competir en precio, es competir en cercanía y resultados reales.\n\n¿Me cuentas en qué categoría está tu idea? Elige una opción abajo para un contexto más específico:"
+  },
+  {
+    id: 'nicho-comida',
+    keys: ['comida','recetas','nutricion','nutrición','saludable','menus','menús','cocina'],
+    reply: "En el nicho de comida y nutrición saludable, la competencia suele ser: planes de menús semanales, recetarios PDF y programas de acompañamiento nutricional 💜\n\nLo que más se vende aquí no es \"la receta perfecta\", es la promesa de ahorrar tiempo y evitar la pregunta diaria de \"¿qué cocino hoy?\". Precios comunes: desde $10 (PDF simple) hasta $50-80 (programas con seguimiento).\n\nTu diferencial: si tienes una historia real (como Sofía) y un sistema claro, no necesitas competir contra cuentas grandes de nutrición — compites por cercanía con mamás que viven tu misma realidad."
+  },
+  {
+    id: 'nicho-manualidades',
+    keys: ['manualidad','artesania','artesanía','manualidades','tejido','bordado','crochet'],
+    reply: "En manualidades y artesanías, la competencia se mueve mucho por Instagram y marketplaces como Etsy o redes locales 💜\n\nLo que más se vende: cursos de una técnica específica (no \"manualidades en general\"), y kits con materiales incluidos. Precios comunes: $15-40 por curso corto, más si incluye kit físico.\n\nTu diferencial: entre más específica sea tu técnica y más muestres el proceso real (no solo el resultado final), más confianza generas frente a otras cuentas."
+  },
+  {
+    id: 'nicho-belleza',
+    keys: ['belleza','maquillaje','unas','uñas','peinados','estetica','estética'],
+    reply: "En belleza y estética, es un nicho con mucha competencia pero también mucha demanda constante 💜\n\nLo que más se vende: cursos de una técnica puntual (ej. solo diseño de uñas, o solo peinados), certificaciones cortas, y kits de inicio para quien quiere emprender en esto. Precios comunes: $20-70 por curso corto.\n\nTu diferencial: mostrar resultados reales en video/fotos y ofrecer soporte directo (grupo de WhatsApp, por ejemplo) suele pesar más que el precio."
+  },
+  {
+    id: 'nicho-coaching',
+    keys: ['coaching','consultoria','consultoría','mentoria','mentoría','acompañamiento'],
+    reply: "En coaching y consultoría, la competencia es alta porque hay pocas barreras de entrada — cualquiera puede llamarse coach 💜\n\nLo que de verdad diferencia a quien vende bien aquí: resultados medibles y specificidad (no \"coach de vida\", sino \"ayudo a X a lograr Y en Z tiempo\"). Precios comunes: sesiones sueltas $30-80, programas de acompañamiento $100-400.\n\nTu diferencial: tu propia historia y un método claro y replicable (como el de Sofía) pesan más que un título o certificación."
+  },
+  {
+    id: 'nicho-contenido',
+    keys: ['contenido digital','redes sociales','instagram','tiktok','community manager','marketing digital'],
+    reply: "En contenido digital y redes sociales, la competencia es enorme, pero también la demanda 💜\n\nLo que más se vende: plantillas de contenido, calendarios editoriales, y cursos de un formato específico (reels, por ejemplo). Precios comunes: $15-60 por curso o kit de plantillas.\n\nTu diferencial: mostrar resultados propios reales (aunque sean pequeños) genera más confianza que prometer \"hacerte viral\"."
+  },
+  {
+    id: 'nicho-diseno',
+    keys: ['diseño gráfico','diseñadora gráfica','diseño digital','logo','branding','papeleria digital','papelería digital'],
+    reply: "En diseño gráfico y digital, la competencia va desde freelancers sueltos hasta grandes bancos de plantillas (Canva, Etsy) 💜\n\nLo que más se vende: plantillas editables listas para usar (invitaciones, menús, redes), mini-kits de branding para emprendedoras, y cursos de Canva para quien no sabe diseñar. Precios comunes: $10-20 plantilla simple, $30-60 kit de branding, $80+ paquete completo de identidad visual.\n\nTu diferencial: no compites con bancos de plantillas genéricas — compites mostrando tu propio estilo y portafolio real, y enseñando a usar lo que vendes, no solo entregándolo."
+  },
+  {
+    id: 'nicho-interiores',
+    keys: ['diseño de interiores','decoracion','decoración','interiorismo','decorar casa','decoradora'],
+    reply: "En diseño de interiores, la competencia va desde diseñadores certificados hasta cuentas de inspiración en Instagram y Pinterest 💜\n\nLo que más se vende: asesorías virtuales (e-decorating) por videollamada, moodboards personalizados, guías de decoración por presupuesto. Precios comunes: $30-60 moodboard, $80-150 proyecto de una habitación, $200+ proyecto de una casa completa.\n\nTu diferencial: mostrar transformaciones reales con presupuestos reales (no solo inspiración bonita de Pinterest) es lo que más genera confianza para que alguien te contrate."
+  },
+  {
+    id: 'startup',
+    keys: ['startup','emprendimiento formal','que es una startup','qué es una startup','escalar negocio','inversion','inversión'],
+    reply: "Aclaremos esto porque se confunde seguido 💜\n\nUna startup es una empresa diseñada para crecer muy rápido, casi siempre buscando inversión externa. Un microemprendimiento (como el tuyo) es distinto: crece con tus propias ventas, a tu ritmo, sin depender de inversionistas.\n\nNo necesitas \"pensar en grande\" como startup para que tu negocio sea válido o rentable. La mayoría de negocios digitales exitosos de mamás emprendedoras empiezan así: pequeños, sin inversión externa, financiados con las primeras ventas reales.\n\nConceptos que sí te sirven, vengan o no del mundo startup:\n→ MVP (producto mínimo viable): tu primera versión simple, ya vendible.\n→ Validación: probar antes de invertir tiempo o dinero.\n→ Iterar: mejorar con la información de clientas reales, no adivinando.\n\n¿Quieres que veamos cuál de estos tres aplicar a tu negocio ahora?",
+    followUp: "Vamos con el más urgente para ti ahora: el MVP 💜\n\nTu MVP es la versión más simple de tu producto que YA se puede vender — no la versión \"perfecta\" que sigues puliendo. Por ejemplo, si quieres enseñar algo, tu MVP puede ser un PDF de 5 páginas, no un curso de 10 videos.\n\nPregúntate: ¿cuál es la versión mínima que ya resuelve el problema completo de tu cliente? Esa es la que lanzas esta semana. Los detalles se mejoran después, con dinero y feedback real de tus primeras clientas."
+  },
+  {
+    id: 'finanzas',
+    keys: ['finanzas','flujo de caja','ganancia','utilidad','margen','punto de equilibrio','contabilidad','ayudame con mis costos','ayúdame con mis costos','calcula mis costos'],
+    reply: "Vamos a lo simple, sin tecnicismos 💜\n\n4 números que sí necesitas conocer de tu negocio:\n→ Ingresos: todo el dinero que entra por ventas.\n→ Costos: lo que gastas para crear y entregar tu producto (tiempo, plataformas, materiales).\n→ Margen: lo que te queda después de restar costos a tus ingresos. Es tu ganancia real.\n→ Punto de equilibrio: cuántas ventas necesitas para cubrir tus costos antes de empezar a ganar.\n\nNo necesitas contabilidad avanzada al inicio. Necesitas anotar estos 4 números cada semana — con eso ya tomas mejores decisiones que la mayoría.\n\nEsto se conecta directo con tu Módulo 5 y tu Módulo 10 del kit: ahí ya tienes las tablas listas para registrar esto sin complicarte.\n\n¿Quieres que calculemos juntas tu punto de equilibrio?",
+    followUp: "Aquí está la fórmula, con un ejemplo para que la veas clara 💜\n\nPunto de equilibrio = Costos fijos ÷ (Precio de venta − Costo por unidad)\n\nEjemplo: si tus costos fijos del mes son $50, tu precio es $15 y te cuesta $5 producir cada uno:\n50 ÷ (15 − 5) = 5 ventas para cubrir tus costos.\n\nA partir de la venta número 6, todo es ganancia real. Reemplaza estos números por los tuyos y sabrás exactamente cuántas ventas necesitas cada mes para no perder dinero."
+  },
+  {
+    id: 'respiracion',
+    keys: ['respiracion','respiración','ansiedad','estresada','estres','estrés','agobiada','abrumada','no puedo mas','no puedo más','audio','en voz alta','escuchar'],
+    reply: "Antes de seguir con el negocio, paremos un momento contigo 💜\n\nUn ejercicio simple de respiración que puedes hacer ahora mismo, aunque tengas a tus hijos cerca:\n\n🌬️ Respiración 4-4-6\n1. Inhala contando hasta 4.\n2. Sostén el aire contando hasta 4.\n3. Exhala lento contando hasta 6.\n4. Repite 4 veces.\n\nExhalar más lento de lo que inhalas le dice a tu cuerpo que puede relajarse. Tómate 60 segundos, sin culpa, antes de volver a lo que estabas haciendo.\n\nEsto no reemplaza el acompañamiento profesional si sientes que la ansiedad o el agobio son constantes — ahí lo mejor es hablar con alguien de confianza o un profesional de salud mental.\n\n¿Quieres un ejercicio de meditación un poco más largo, de 3 minutos?",
+    followUp: "Te entiendo — el cansancio de mamá es distinto a cualquier otro 💜\n\nUna meditación exprés de 3 minutos, para cuando no tienes más tiempo que eso:\n\n🧘 Pausa de 3 minutos\n1. Minuto 1 — Cierra los ojos (o baja la mirada) y solo nota tu respiración, sin cambiarla.\n2. Minuto 2 — Repite mentalmente: \"Estoy haciendo lo que puedo, y es suficiente.\"\n3. Minuto 3 — Nota 3 cosas que puedes sentir ahora mismo (una textura, un sonido, tu propio cuerpo en la silla).\n\nNo necesitas silencio total ni una app. Puedes hacerlo en el carro, en el baño, o mientras tu bebé duerme la siesta.\n\nRecuerda: descansar también es parte de construir tu negocio. Una mamá agotada no sostiene un proyecto a largo plazo, y tú mereces cuidarte tanto como cuidas todo lo demás."
+  },
+  {
+    id: 'meditacion',
+    keys: ['meditacion','meditación','meditar','cansada','agotada','sin energia','sin energía','descansar','pausa'],
+    reply: "Te entiendo — el cansancio de mamá es distinto a cualquier otro 💜\n\nUna meditación exprés de 3 minutos, para cuando no tienes más tiempo que eso:\n\n🧘 Pausa de 3 minutos\n1. Minuto 1 — Cierra los ojos (o baja la mirada) y solo nota tu respiración, sin cambiarla.\n2. Minuto 2 — Repite mentalmente: \"Estoy haciendo lo que puedo, y es suficiente.\"\n3. Minuto 3 — Nota 3 cosas que puedes sentir ahora mismo (una textura, un sonido, tu propio cuerpo en la silla).\n\nNo necesitas silencio total ni una app. Puedes hacerlo en el carro, en el baño, o mientras tu bebé duerme la siesta.\n\nRecuerda: descansar también es parte de construir tu negocio. Una mamá agotada no sostiene un proyecto a largo plazo, y tú mereces cuidarte tanto como cuidas todo lo demás.\n\n¿Seguimos con tu negocio o prefieres otro momento de pausa?",
+    followUp: "Perfecto, retomemos con energía 💜 Cuéntame en qué seguimos: tu idea, tu precio, tu cliente ideal, tus primeras ventas, o cualquier otro tema — o elige un botón de abajo."
+  },
+  {
+    id: 'bloques',
+    keys: ['bloque de tiempo','bloques de tiempo','20 minutos','como organizo mi dia','cómo organizo mi día','rutina diaria'],
+    reply: "Aquí está tu sistema de bloques de 20 minutos 💜\n\nNo necesitas horas libres, necesitas identificar tus momentos reales:\n→ Bloque energético: cuando tienes más claridad (crear contenido, decidir cosas importantes).\n→ Bloque mecánico: tareas repetitivas, sin pensar mucho (responder mensajes, programar posts).\n→ Bloque micro (5 min): en cualquier momento suelto (grabar una nota de voz, anotar una idea).\n\nMomentos típicos donde \"aparecen\" estos bloques: la siesta, después de acostar a los niños, mientras esperas en el parque o el colegio.\n\nSofía lanzó su negocio con solo 2 bloques de 20 minutos al día. No se trata de tener más tiempo, se trata de decidir qué haces con el que ya tienes.\n\n¿Quieres que armemos juntas tu semana tipo?",
+    followUp: "Aquí tienes una plantilla simple para tu semana 💜\n\nLunes/Miércoles/Viernes → Bloque energético (20 min): crear contenido o avanzar tu producto.\nMartes/Jueves → Bloque mecánico (20 min): responder mensajes, programar publicaciones.\nTodos los días → Bloque micro (5 min): anotar una idea o grabar una nota de voz.\n\nEscribe esto en tu calendario o Excel como si fuera una cita contigo misma — con eso ya tienes un sistema sostenible, sin necesitar más horas de las que ya tienes."
   }
 ];
 
-const fallback = "Cuéntame un poco más 💜 Puedo ayudarte con: tu idea de negocio, cómo poner tu precio, tu cliente ideal, el miedo a lanzar, tus primeras ventas, cómo organizar tu tiempo con hijos, o cómo validar tu idea. ¿Cuál de estos te sirve ahora mismo?";
+const fallback = "Cuéntame un poco más 💜 Puedo ayudarte con: tu idea de negocio, cómo poner tu precio, tu cliente ideal, el miedo a lanzar y las creencias limitantes, tus primeras ventas, cómo organizar tu tiempo con hijos, cómo validar tu idea, el mercado y la competencia, conceptos de startups, finanzas básicas, o si necesitas un momento de pausa con respiración o meditación. ¿Cuál de estos te sirve ahora mismo?";
+
+const defaultPills = [
+  { label: "📍 Mi emprendimiento es...", msg: "__askniche__" },
+  { label: "No sé qué idea tener", msg: "No sé qué idea tener" },
+  { label: "¿Qué problema resuelvo?", msg: "¿Qué problema resuelvo?" },
+  { label: "¿Cómo pongo mi precio?", msg: "¿Cómo pongo mi precio?" },
+  { label: "Tengo miedo de lanzar", msg: "Tengo miedo de lanzar" },
+  { label: "Creencias limitantes", msg: "creencias limitantes" },
+  { label: "Mis primeras ventas", msg: "Mis primeras ventas" },
+  { label: "Fidelizar clientas", msg: "hacer sentir acompañada a mi clienta" },
+  { label: "¿Hay mucha competencia?", msg: "¿Hay mucha competencia?" },
+  { label: "Finanzas básicas", msg: "Finanzas básicas" },
+  { label: "Necesito una pausa", msg: "Necesito una pausa" },
+]; 
+
+const nichePills = [
+  { label: "🍲 Comida / nutrición", msg: "comida saludable" },
+  { label: "🧶 Manualidades", msg: "manualidades artesanías" },
+  { label: "💅 Belleza / estética", msg: "belleza estética" },
+  { label: "🎯 Coaching / consultoría", msg: "coaching consultoría" },
+  { label: "📱 Contenido digital", msg: "contenido digital redes sociales" },
+  { label: "🎨 Diseño gráfico", msg: "diseño gráfico" },
+  { label: "🏠 Diseño de interiores", msg: "diseño de interiores" },
+  { label: "⬅ Volver a temas generales", msg: "__reset__" },
+];
+
+function renderPills(list){
+  quickReplies.innerHTML = '';
+  list.forEach(function(p){
+    const div = document.createElement('div');
+    div.className = 'pill';
+    div.setAttribute('data-msg', p.msg);
+    div.textContent = p.label;
+    quickReplies.appendChild(div);
+  });
+}
+
+// --- "Recordar" el emprendimiento de la persona para dar ejemplos más específicos ---
+let userNiche = null; // null hasta que la persona elija una categoría
+
+const nicheSetterPills = [
+  { label: "🍲 Comida / nutrición", msg: "__niche_comida__" },
+  { label: "🧶 Manualidades", msg: "__niche_manualidades__" },
+  { label: "💅 Belleza / estética", msg: "__niche_belleza__" },
+  { label: "🎯 Coaching / consultoría", msg: "__niche_coaching__" },
+  { label: "📱 Contenido digital", msg: "__niche_contenido__" },
+  { label: "🎨 Diseño gráfico", msg: "__niche_diseno__" },
+  { label: "🏠 Diseño de interiores", msg: "__niche_interiores__" },
+  { label: "🌟 Otro", msg: "__niche_otro__" },
+  { label: "⬅ Cancelar", msg: "__reset__" },
+];
+
+const nicheData = {
+  comida: {
+    label: "comida y nutrición",
+    precio: "Precios comunes en tu nicho: $10-15 por un PDF simple de menús, $25-40 por un recetario temático completo, $50-80 por programas con seguimiento semanal.",
+    idea: "Ideas concretas para tu nicho: plan de menús semanales por edad de los niños, recetario de loncheras rápidas, guía de \"comidas en 15 minutos\", programa de acompañamiento nutricional mensual, batch cooking (cocinar 1 vez para toda la semana).",
+    cliente: "Ejemplo de cliente ideal: mamás con hijos entre 2 y 10 años, que trabajan o tienen poco tiempo, y sienten culpa o estrés por no saber qué cocinar cada día.",
+    ventas: "Lo que mejor convierte en tu nicho: mostrar el plato terminado en foto/video, regalar 1 receta gratis como anzuelo, y compartir el \"antes\" (la mamá agobiada sin saber qué cocinar) junto al \"después\" (la semana ya resuelta)."
+  },
+  manualidades: {
+    label: "manualidades y artesanías",
+    precio: "Precios comunes en tu nicho: $15-25 por un curso corto de una sola técnica, $30-40 si incluye kit de materiales, $50+ si es un curso con varias piezas o certificado.",
+    idea: "Ideas concretas para tu nicho: curso de UNA técnica específica (ej. solo amigurumi, solo macramé, solo tarjetería), kit \"todo incluido\" para principiantes, plantillas o moldes descargables, club mensual de un proyecto nuevo cada mes.",
+    cliente: "Ejemplo de cliente ideal: mamás que buscan un hobby rentable o un regalo hecho a mano, sin intención de volverse artesanas profesionales — solo aprender una técnica puntual.",
+    ventas: "Lo que mejor convierte en tu nicho: mostrar el proceso completo en video (no solo la pieza terminada), publicar el \"antes y después\" de tus propias manos aprendiendo, y ofrecer un mini-tutorial gratis como muestra."
+  },
+  belleza: {
+    label: "belleza y estética",
+    precio: "Precios comunes en tu nicho: $20-35 por un curso corto de una técnica (ej. solo diseño de uñas), $40-70 por una certificación más completa, $80+ si incluye kit de herramientas.",
+    idea: "Ideas concretas para tu nicho: curso de una técnica puntual (uñas, peinados recogidos, skincare básico), kit de inicio con productos + guía, mentoría para montar un mini-salón en casa.",
+    cliente: "Ejemplo de cliente ideal: mamás que quieren generar ingresos extra desde casa con una habilidad manual, sin necesitar un local ni una inversión grande.",
+    ventas: "Lo que mejor convierte en tu nicho: mostrar resultados reales en fotos/video de antes-después, ofrecer soporte directo por WhatsApp tras la compra, y pedir que las clientas compartan sus propios resultados como prueba social."
+  },
+  coaching: {
+    label: "coaching y consultoría",
+    precio: "Precios comunes en tu nicho: sesiones sueltas $30-80, programas de acompañamiento de 4-8 semanas $100-400, mentorías 1 a 1 más largas desde $300.",
+    idea: "Ideas concretas para tu nicho: programa corto con un resultado específico y medible (ej. \"organiza tus finanzas en 21 días\", no \"coach de vida\"), taller grupal en vivo, plantilla + sesión de seguimiento.",
+    cliente: "Ejemplo de cliente ideal: personas con un problema puntual y urgente que quieren resolver ahora (no un deseo vago de \"mejorar su vida en general\").",
+    ventas: "Lo que mejor convierte en tu nicho: contar tu propia historia de transformación, mostrar resultados medibles de clientas anteriores (con permiso), y ofrecer una sesión de diagnóstico corta y gratuita como primer contacto."
+  },
+  contenido: {
+    label: "contenido digital y redes sociales",
+    precio: "Precios comunes en tu nicho: $15-25 por un kit de plantillas, $30-45 por un curso corto de un formato (ej. solo reels), $60+ por un calendario editorial mensual con acompañamiento.",
+    idea: "Ideas concretas para tu nicho: plantillas editables de Canva para un tipo de negocio específico, calendario de contenido de 30 días, curso de \"cómo grabar reels con el celular\", banco de ideas de contenido por nicho.",
+    cliente: "Ejemplo de cliente ideal: emprendedoras que ya tienen un negocio pero no tienen tiempo ni ganas de crear contenido desde cero cada semana.",
+    ventas: "Lo que mejor convierte en tu nicho: mostrar resultados propios reales (aunque sean pequeños, como \"pasé de 0 a 50 seguidores en un mes\"), no prometer \"hacerte viral\", y regalar 1 plantilla gratis como muestra de calidad."
+  },
+  diseno: {
+    label: "diseño gráfico y digital",
+    precio: "Precios comunes en tu nicho: $10-20 por una plantilla o logo simple, $30-60 por un kit de papelería/branding básico, $80+ por un paquete completo de identidad visual.",
+    idea: "Ideas concretas para tu nicho: plantillas editables (invitaciones, menús, tarjetas de presentación), mini-kits de branding para emprendedoras (logo + paleta de colores + fuentes), curso de Canva para no diseñadoras, papelería digital para fiestas infantiles.",
+    cliente: "Ejemplo de cliente ideal: otras emprendedoras o mamás que necesitan verse profesionales (invitaciones, logo, redes) pero no tienen presupuesto para un diseñador a la medida.",
+    ventas: "Lo que mejor convierte en tu nicho: mostrar tu portafolio con ejemplos reales de antes/después, ofrecer plantillas ya armadas como \"entrada\" antes de vender diseño personalizado, y dejar que tus clientas compartan cómo usaron tu diseño."
+  },
+  interiores: {
+    label: "diseño de interiores",
+    precio: "Precios comunes en tu nicho: $30-60 por un moodboard o propuesta de diseño de un espacio, $80-150 por asesoría virtual de una habitación completa, $200+ por proyectos de una casa completa.",
+    idea: "Ideas concretas para tu nicho: asesoría virtual (e-decorating) por videollamada, moodboards personalizados por estilo (minimalista, boho, escandinavo), guía de decoración \"low cost\" con lo que ya tienes en casa, plan de renovación de un cuarto por presupuesto.",
+    cliente: "Ejemplo de cliente ideal: mamás que quieren renovar un espacio puntual de su casa (cuarto de bebé, sala, oficina en casa) sin pagar un diseñador de interiores tradicional.",
+    ventas: "Lo que mejor convierte en tu nicho: mostrar transformaciones reales de antes/después con presupuestos reales (no solo inspiración de Pinterest), y ofrecer una mini-asesoría gratuita de 15 minutos como muestra."
+  },
+  otro: {
+    label: "tu emprendimiento"
+    // Sin tips específicos: para categorías fuera de las principales,
+    // el asistente se queda con la respuesta general en vez de inventar datos que podrían no aplicar.
+  }
+};
+
+// --- Ejercicios específicos por creencia limitante (se activan por contexto, ver pendingBelief) ---
+let pendingBelief = false;
+let pendingChainReply = null; // guarda el id de un tema al que "encadenar" tras un followUp (ver campo chainTo)
+
+const beliefExercises = [
+  {
+    keys: ['experta','impostora','impostor','no soy suficiente','no se lo suficiente','no sé lo suficiente','1','uno','la primera','primera'],
+    label: '"No soy experta suficiente"',
+    exercises: "Vamos a trabajar \"No soy experta suficiente\" con 4 ejercicios 💜\n\n1. Lista de evidencia: escribe 5 cosas que sabes hacer o has vivido que prueban que sí tienes algo valioso que ofrecer. No las minimices.\n\n2. El \"paso adelante\": no necesitas saber más que nadie en el mundo, solo un paso más que a quien vas a ayudar. Escribe a quién ya ayudaste con esto, aunque fuera gratis o sin darte cuenta.\n\n3. Carta a tu yo de hace 1 año: escribe 3 cosas que no sabías entonces y sí sabes hoy. Eso ya es experiencia real.\n\n4. Pregunta a 3 personas cercanas: \"¿en qué sientes que te he ayudado?\". Sus respuestas casi siempre te sorprenden — a veces ni te habías dado cuenta de tu propio valor."
+  },
+  {
+    keys: ['nadie va a pagar','nadie paga','no van a pagar','2','dos','la segunda','segunda'],
+    label: '"Nadie va a pagar por esto"',
+    exercises: "Vamos a trabajar \"Nadie va a pagar por esto\" con 4 ejercicios 💜\n\n1. Validación real (Módulo 4): pregunta directo a 5 personas si pagarían — no lo adivines encerrada en tu cabeza.\n\n2. Busca 3 negocios que ya cobran por algo parecido a lo tuyo. Si ellos cobran y tienen clientas, el mercado sí paga.\n\n3. Revisa tus mensajes pasados: ¿alguien ya te preguntó \"cuánto cuesta\" o mostró interés? Eso ya es evidencia real, no suposición.\n\n4. Pon un precio bajo de entrada solo para probar. Muchas veces el miedo baja apenas ves la primera venta real, aunque sea pequeña."
+  },
+  {
+    keys: ['ya hay mucha competencia','mucha competencia','demasiada competencia','3','tres','la tercera','tercera'],
+    label: '"Ya hay mucha competencia"',
+    exercises: "Vamos a trabajar \"Ya hay mucha competencia\" con 4 ejercicios 💜\n\n1. Lista 3 competidores y anota qué NO están haciendo bien o qué les falta — ahí está tu espacio.\n\n2. Escribe tu diferencial en 3 líneas: tu historia, tu forma de acompañar, o algo que viviste que nadie más tiene.\n\n3. Pregunta a 3 clientas potenciales: \"¿qué te haría elegirme a mí en vez de otra opción?\". Sus respuestas te dan tu verdadero diferencial, no el que tú supones.\n\n4. Recuerda: que exista competencia significa que ya hay gente pagando por esto. Sería peor que nadie comprara nada en tu categoría."
+  },
+  {
+    keys: ['debo tener todo perfecto','perfecto antes de lanzar','todo perfecto','perfeccionismo','4','cuatro','la cuarta','cuarta'],
+    label: '"Debo tener todo perfecto antes de lanzar"',
+    exercises: "Vamos a trabajar \"Debo tener todo perfecto antes de lanzar\" con 4 ejercicios 💜\n\n1. Haz 2 listas: qué es indispensable en tu producto, y qué es \"bonito pero no urgente\". Lanza solo con lo indispensable.\n\n2. Ponte una fecha límite no negociable, escrita en un lugar visible (tu espejo, tu celular).\n\n3. Comparte tu versión actual con 1 persona de confianza y pide feedback honesto, antes de seguir puliéndola tú sola.\n\n4. Ejercicio del \"peor escenario\": escribe qué pasaría si lanzas y algo sale mal. Casi siempre, al escribirlo, ves que es manejable y arreglable."
+  },
+  {
+    keys: ['si fracaso','miedo al fracaso','quedare mal','quedaré mal','fracasar','5','cinco','la quinta','quinta'],
+    label: '"Si fracaso, quedaré mal"',
+    exercises: "Vamos a trabajar \"Si fracaso, quedaré mal\" con 4 ejercicios 💜\n\n1. Ejercicio de \"quién realmente está mirando\": haz una lista de quién de verdad estaría pendiente de tu resultado. Casi siempre es una lista muy corta, más corta de lo que imaginas.\n\n2. Redefine \"fracaso\": escribe qué aprenderías de cada resultado posible, incluso el peor. Un intento que no funciona es información, no un fracaso.\n\n3. Recuerda a Sofía: tuvo semanas donde nadie respondía sus mensajes. Siguió, ajustó su oferta, y llegó a su primera venta.\n\n4. Visualización: imagina que en 1 año miras hacia atrás. ¿Qué pesará más — haber lanzado e intentado, o no haberlo hecho nunca?"
+  },
+  {
+    keys: ['no merezco cobrar','merezco cobrar','ayudar a una amiga','es como ayudar','6','seis','la sexta','sexta'],
+    label: '"No merezco cobrar, es como ayudar a una amiga"',
+    exercises: "Vamos a trabajar \"No merezco cobrar, es como ayudar a una amiga\" con 4 ejercicios 💜\n\n1. Calcula cuánto tiempo le has regalado gratis a otras personas este último mes — ese tiempo también tiene valor real.\n\n2. Ejercicio del espejo: si una diseñadora o una entrenadora te ayuda porque \"le apasiona\", ¿esperarías que lo hiciera siempre gratis?\n\n3. Reescribe esta frase en voz alta, aunque se sienta raro al principio: \"Cobrar me permite seguir ayudando sin agotarme.\"\n\n4. Si ya tuviste una venta, aunque haya sido pequeña, pregúntale a esa persona cómo se sintió pagando. Casi siempre dicen que sintieron que valió la pena — eso te ayuda a creerlo tú también."
+  }
+];
+
+function matchBelief(text){
+  const t = text.toLowerCase().trim();
+  return beliefExercises.find(b => b.keys.some(k => t === k || t.includes(k)));
+}
 
 function findResponse(text){
   const t = text.toLowerCase();
   for(const item of responses){
-    if(item.keys.some(k => t.includes(k))) return item.reply;
+    if(item.keys.some(k => t.includes(k))) return item;
   }
-  return fallback;
+  return { reply: fallback };
 }
+
+// Detecta respuestas cortas de tipo "sí" para poder ligarlas al último tema que preguntó algo
+const AFFIRMATIVE = ['si','sí','sii','siii','dale','va','claro','ok','okay','bueno','obvio','porfa','por favor','de una','simon','sale'];
+function isAffirmative(text){
+  const clean = text.trim().toLowerCase().replace(/[.!¡¿?]/g, '');
+  return AFFIRMATIVE.includes(clean);
+}
+
+let pendingFollowUp = null; // guarda el id del último tema que ofreció algo extra
 
 function addBubble(text, sender){
   const div = document.createElement('div');
@@ -243,6 +567,264 @@ function addBubble(text, sender){
   div.textContent = text;
   chatWindow.appendChild(div);
   chatWindow.scrollTop = chatWindow.scrollHeight;
+}
+
+// Lee el texto en voz alta usando la función nativa del navegador (gratis, sin API externa)
+function speakText(text, btn){
+  if(!('speechSynthesis' in window)){
+    btn.textContent = 'Tu navegador no soporta audio 😕';
+    return;
+  }
+
+  // Si ya está leyendo, lo detenemos (funciona como pausa)
+  if(window.speechSynthesis.speaking){
+    window.speechSynthesis.cancel();
+    btn.textContent = '🔊 Escuchar';
+    btn.classList.remove('playing');
+    return;
+  }
+
+  const voices = window.speechSynthesis.getVoices();
+  if(voices.length === 0){
+    // Las voces del navegador a veces cargan un instante después — reintentamos una sola vez
+    window.speechSynthesis.onvoiceschanged = function(){
+      speakText(text, btn);
+    };
+    return;
+  }
+
+  playUtterance(text, btn, voices);
+}
+
+function playUtterance(text, btn, voices){
+  // Limpiamos emojis y símbolos para que la lectura suene más natural
+  const clean = text.replace(/[💜🌬️🧘→]/g, '').replace(/\n+/g, '. ');
+  const utterance = new SpeechSynthesisUtterance(clean);
+  utterance.lang = 'es-CO';
+  utterance.rate = 0.8;   // más despacio
+  utterance.pitch = 1.12; // un poco más agudo/suave, tono más dulce
+
+  // 1) Buscamos una voz específicamente colombiana
+  let chosenVoice = voices.find(v => v.lang && v.lang.toLowerCase() === 'es-co');
+  // 2) Si no existe, buscamos una voz femenina en español (nombres comunes en distintos sistemas)
+  if(!chosenVoice){
+    chosenVoice = voices.find(v => v.lang && v.lang.toLowerCase().startsWith('es') &&
+      /female|mujer|mónica|monica|paulina|sabina|lucia|lucía|elena|isabela|camila/i.test(v.name));
+  }
+  // 3) Si tampoco, cualquier voz en español disponible
+  if(!chosenVoice){
+    chosenVoice = voices.find(v => v.lang && v.lang.toLowerCase().startsWith('es'));
+  }
+  if(chosenVoice) utterance.voice = chosenVoice;
+
+  utterance.onend = function(){
+    btn.textContent = '🔊 Escuchar';
+    btn.classList.remove('playing');
+  };
+
+  btn.textContent = '⏸ Detener';
+  btn.classList.add('playing');
+  window.speechSynthesis.speak(utterance);
+}
+
+function addSpeakButton(text){
+  const btn = document.createElement('button');
+  btn.className = 'speak-btn';
+  btn.textContent = '🔊 Escuchar';
+  btn.addEventListener('click', function(){ speakText(text, btn); });
+  chatWindow.appendChild(btn);
+  chatWindow.scrollTop = chatWindow.scrollHeight;
+}
+
+// --- Sonido ambiental de lluvia + pájaros para meditar (generado en el navegador, sin archivos ni derechos de autor) ---
+let meditationCtx = null;
+let meditationNodes = [];
+let meditationTimeouts = [];
+let meditationPlaying = false;
+
+function toggleMeditationMusic(btn){
+  // Si ya está sonando, la detenemos
+  if(meditationCtx){
+    meditationPlaying = false;
+    meditationTimeouts.forEach(function(id){ clearTimeout(id); });
+    meditationTimeouts = [];
+    meditationNodes.forEach(function(n){ try{ n.stop(); }catch(e){} });
+    meditationCtx.close();
+    meditationCtx = null;
+    meditationNodes = [];
+    btn.textContent = '🌧️ Lluvia y pájaros';
+    btn.classList.remove('playing');
+    return;
+  }
+
+  const AudioCtx = window.AudioContext || window.webkitAudioContext;
+  if(!AudioCtx){
+    btn.textContent = 'Tu navegador no soporta audio 😕';
+    return;
+  }
+  meditationCtx = new AudioCtx();
+  meditationPlaying = true;
+
+  const masterGain = meditationCtx.createGain();
+  masterGain.gain.value = 0;
+  masterGain.connect(meditationCtx.destination);
+  masterGain.gain.linearRampToValueAtTime(1, meditationCtx.currentTime + 2); // entra suave, sin clics
+
+  // --- Capa 1: lluvia (ruido blanco filtrado, en loop) ---
+  const bufferSize = 2 * meditationCtx.sampleRate;
+  const noiseBuffer = meditationCtx.createBuffer(1, bufferSize, meditationCtx.sampleRate);
+  const output = noiseBuffer.getChannelData(0);
+  for(let i = 0; i < bufferSize; i++){ output[i] = Math.random() * 2 - 1; }
+
+  const noiseSource = meditationCtx.createBufferSource();
+  noiseSource.buffer = noiseBuffer;
+  noiseSource.loop = true;
+
+  const rainFilterLow = meditationCtx.createBiquadFilter();
+  rainFilterLow.type = 'lowpass';
+  rainFilterLow.frequency.value = 2800; // suaviza el "siseo", más parecido a lluvia que a estática
+
+  const rainFilterHigh = meditationCtx.createBiquadFilter();
+  rainFilterHigh.type = 'highpass';
+  rainFilterHigh.frequency.value = 300; // le quita el retumbo grave
+
+  const rainGain = meditationCtx.createGain();
+  rainGain.gain.value = 0.18;
+
+  noiseSource.connect(rainFilterLow);
+  rainFilterLow.connect(rainFilterHigh);
+  rainFilterHigh.connect(rainGain);
+  rainGain.connect(masterGain);
+  noiseSource.start();
+  meditationNodes.push(noiseSource);
+
+  // Ligera variación de intensidad, para que la lluvia no suene plana
+  const rainLfo = meditationCtx.createOscillator();
+  rainLfo.frequency.value = 0.06;
+  const rainLfoGain = meditationCtx.createGain();
+  rainLfoGain.gain.value = 0.04;
+  rainLfo.connect(rainLfoGain);
+  rainLfoGain.connect(rainGain.gain);
+  rainLfo.start();
+  meditationNodes.push(rainLfo);
+
+  // --- Capa 2: pájaros (trinos cortos, aleatorios en el tiempo) ---
+  function playChirp(){
+    if(!meditationCtx || !meditationPlaying) return;
+    const now = meditationCtx.currentTime;
+    const startFreq = 2200 + Math.random() * 1400;
+
+    const osc = meditationCtx.createOscillator();
+    osc.type = 'sine';
+    osc.frequency.setValueAtTime(startFreq, now);
+    osc.frequency.exponentialRampToValueAtTime(startFreq * 1.4, now + 0.07);
+    osc.frequency.exponentialRampToValueAtTime(startFreq * 0.85, now + 0.16);
+
+    const chirpGain = meditationCtx.createGain();
+    chirpGain.gain.setValueAtTime(0, now);
+    chirpGain.gain.linearRampToValueAtTime(0.09, now + 0.02);
+    chirpGain.gain.linearRampToValueAtTime(0, now + 0.2);
+
+    osc.connect(chirpGain);
+    if(meditationCtx.createStereoPanner){
+      const panner = meditationCtx.createStereoPanner();
+      panner.pan.value = Math.random() * 1.6 - 0.8;
+      chirpGain.connect(panner);
+      panner.connect(masterGain);
+    } else {
+      chirpGain.connect(masterGain);
+    }
+
+    osc.start(now);
+    osc.stop(now + 0.25);
+  }
+
+  function scheduleNextChirp(){
+    if(!meditationPlaying) return;
+    const delay = 1800 + Math.random() * 3500; // entre 1.8 y 5.3 segundos
+    const id = setTimeout(function(){
+      // A veces canta 1 vez, a veces un par de trinos seguidos (más natural)
+      playChirp();
+      if(Math.random() > 0.5){
+        const id2 = setTimeout(playChirp, 140 + Math.random() * 120);
+        meditationTimeouts.push(id2);
+      }
+      scheduleNextChirp();
+    }, delay);
+    meditationTimeouts.push(id);
+  }
+  scheduleNextChirp();
+
+  btn.textContent = '⏸ Detener sonido';
+  btn.classList.add('playing');
+}
+
+function addMusicButton(){
+  const btn = document.createElement('button');
+  btn.className = 'speak-btn';
+  btn.textContent = '🌧️ Lluvia y pájaros';
+  btn.addEventListener('click', function(){ toggleMeditationMusic(btn); });
+  chatWindow.appendChild(btn);
+  chatWindow.scrollTop = chatWindow.scrollHeight;
+}
+
+function addCalculator(kind){
+  const card = document.createElement('div');
+  card.className = 'calc-card';
+
+  if(kind === 'precio'){
+    card.innerHTML = `
+      <h4>🧮 Calculadora de precio</h4>
+      <div class="calc-field"><label>Horas que te toma crearlo</label><input type="number" id="calcHoras" min="0" step="0.5"></div>
+      <div class="calc-field"><label>Valor de tu hora ($)</label><input type="number" id="calcValorHora" min="0" step="1"></div>
+      <div class="calc-field"><label>Costos directos ($)</label><input type="number" id="calcCostos" min="0" step="1"></div>
+      <button class="calc-btn" id="calcBtnPrecio">Calcular mi precio</button>
+      <div class="calc-result" id="calcResultPrecio"></div>
+    `;
+    chatWindow.appendChild(card);
+    chatWindow.scrollTop = chatWindow.scrollHeight;
+
+    document.getElementById('calcBtnPrecio').addEventListener('click', function(){
+      const horas = parseFloat(document.getElementById('calcHoras').value) || 0;
+      const valorHora = parseFloat(document.getElementById('calcValorHora').value) || 0;
+      const costos = parseFloat(document.getElementById('calcCostos').value) || 0;
+      const precio = (horas * valorHora) + costos;
+      const resultDiv = document.getElementById('calcResultPrecio');
+      resultDiv.style.display = 'block';
+      if(precio <= 0){
+        resultDiv.textContent = 'Escribe al menos tus horas y el valor de tu hora para calcular 💜';
+      } else {
+        resultDiv.textContent = `Tu precio mínimo sugerido: $${precio.toFixed(2)}. Puedes empezar un poco por debajo para tus primeras ventas y subir con testimonios reales.`;
+      }
+    });
+
+  } else if(kind === 'equilibrio'){
+    card.innerHTML = `
+      <h4>🧮 Calculadora de punto de equilibrio</h4>
+      <div class="calc-field"><label>Costos fijos del mes ($)</label><input type="number" id="calcFijos" min="0" step="1"></div>
+      <div class="calc-field"><label>Precio de venta ($)</label><input type="number" id="calcPrecioVenta" min="0" step="1"></div>
+      <div class="calc-field"><label>Costo por unidad ($)</label><input type="number" id="calcCostoUnidad" min="0" step="1"></div>
+      <button class="calc-btn" id="calcBtnEquilibrio">Calcular ventas necesarias</button>
+      <div class="calc-result" id="calcResultEquilibrio"></div>
+    `;
+    chatWindow.appendChild(card);
+    chatWindow.scrollTop = chatWindow.scrollHeight;
+
+    document.getElementById('calcBtnEquilibrio').addEventListener('click', function(){
+      const fijos = parseFloat(document.getElementById('calcFijos').value) || 0;
+      const precioVenta = parseFloat(document.getElementById('calcPrecioVenta').value) || 0;
+      const costoUnidad = parseFloat(document.getElementById('calcCostoUnidad').value) || 0;
+      const margen = precioVenta - costoUnidad;
+      const resultDiv = document.getElementById('calcResultEquilibrio');
+      resultDiv.style.display = 'block';
+      if(margen <= 0){
+        resultDiv.textContent = 'Tu precio de venta debe ser mayor que tu costo por unidad para poder calcularlo 💜';
+      } else {
+        const ventas = Math.ceil(fijos / margen);
+        resultDiv.textContent = `Necesitas ${ventas} ventas al mes para cubrir tus costos. A partir de la venta ${ventas + 1}, todo es ganancia real.`;
+      }
+    });
+  }
 }
 
 function showTyping(){
@@ -261,12 +843,95 @@ function removeTyping(){
 
 function handleUserMessage(text){
   if(!text.trim()) return;
+
+  if(text === '__reset__'){
+    renderPills(defaultPills);
+    return;
+  }
+
+  if(text === '__askniche__'){
+    addBubble('¿Cuál de estas se parece más a tu emprendimiento?', 'bot');
+    renderPills(nicheSetterPills);
+    return;
+  }
+
+  if(text.startsWith('__niche_')){
+    const key = text.replace(/__niche_|__/g, ''); // ej. "comida"
+    userNiche = key;
+    renderPills(defaultPills);
+    if(key === 'otro'){
+      addBubble("Entendido 💜 Tu emprendimiento no encaja exactamente en las 5 categorías, así que voy a darte las respuestas generales de la metodología — igual son útiles y aplican a cualquier tipo de negocio. Si más adelante quieres, puedes contarme más detalles y los tengo en cuenta.", 'bot');
+    } else {
+      addBubble(`Perfecto, ya sé que tu emprendimiento es de ${nicheData[key].label} 💜 De ahora en adelante te voy a dar ejemplos y precios más cercanos a tu categoría en los temas de idea, precio, cliente ideal y ventas.`, 'bot');
+    }
+    return;
+  }
+
   addBubble(text, 'user');
   textInput.value = '';
   showTyping();
   setTimeout(function(){
     removeTyping();
-    addBubble(findResponse(text), 'bot');
+
+    // Si acabamos de mostrar las 6 creencias, intentamos reconocer cuál nombró para dar ejercicios
+    if(pendingBelief){
+      const belief = matchBelief(text);
+      pendingBelief = false;
+      if(belief){
+        addBubble(belief.exercises, 'bot');
+        return;
+      }
+      // Si no la reconocemos, seguimos con el flujo normal (no forzamos una respuesta)
+    }
+
+    // Si el mensaje es un "sí"/"dale" corto y hay un tema pendiente con contenido extra, úsalo
+    if(isAffirmative(text)){
+      if(pendingChainReply){
+        const target = responses.find(r => r.id === pendingChainReply);
+        addBubble(target.reply, 'bot');
+        pendingChainReply = null;
+        pendingFollowUp = target.followUp ? target.id : null;
+        if(target.id === 'creencias') pendingBelief = true;
+        return;
+      }
+      if(pendingFollowUp){
+        const source = responses.find(r => r.id === pendingFollowUp);
+        addBubble(source.followUp, 'bot');
+        if(source.id === 'precio') addCalculator('precio');
+        if(source.id === 'finanzas') addCalculator('equilibrio');
+        if(source.id === 'respiracion') addSpeakButton(source.followUp);
+        if(source.id === 'meditacion') addMusicButton();
+        if(source.id === 'miedo') pendingBelief = true; // la lista de creencias que se mostró espera respuesta
+        pendingFollowUp = null;
+        pendingChainReply = source.chainTo || null; // si este tema invita a continuar hacia otro
+      } else {
+        addBubble("¡Genial! Cuéntame un poco más sobre qué necesitas, o elige uno de los temas de abajo 💜", 'bot');
+      }
+      return;
+    }
+
+    const match = findResponse(text);
+    addBubble(match.reply, 'bot');
+
+    // Si ya sabemos su nicho, agregamos un dato específico en los temas donde aplica
+    if(userNiche && nicheData[userNiche] && ['idea','precio','cliente','ventas'].includes(match.id)){
+      const tip = nicheData[userNiche][match.id];
+      if(tip) addBubble(`📍 Para tu emprendimiento de ${nicheData[userNiche].label}: ${tip}`, 'bot');
+    }
+
+    // Guardamos si este tema ofrece algo extra, por si la próxima respuesta es "sí"
+    pendingFollowUp = match.followUp ? match.id : null;
+    if(match.id === 'creencias') pendingBelief = true;
+
+    if(match.id === 'mercado'){
+      renderPills(nichePills);
+    }
+    // Si preguntó directo por calcular (sin pasar por el "sí"), mostramos la calculadora de una vez
+    const askedDirectly = /calcul/i.test(text) || /ayuda.*costo/i.test(text);
+    if(askedDirectly && match.id === 'precio') addCalculator('precio');
+    if(askedDirectly && match.id === 'finanzas') addCalculator('equilibrio');
+    if(match.id === 'respiracion') addSpeakButton(match.reply);
+    if(match.id === 'meditacion') addMusicButton();
   }, 700);
 }
 
@@ -280,6 +945,9 @@ quickReplies.addEventListener('click', function(e){
   const pill = e.target.closest('.pill');
   if(pill) handleUserMessage(pill.getAttribute('data-msg'));
 });
+
+// Pintamos los botones iniciales desde la única lista fuente (defaultPills)
+renderPills(defaultPills);
 </script>
 </body>
 </html>
