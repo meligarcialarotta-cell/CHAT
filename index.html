@@ -263,6 +263,12 @@ const quickReplies = document.getElementById('quickReplies');
 
 const responses = [
   {
+    id: 'validar',
+    keys: ['validar','validacion','validación','va a funcionar','funcionara','funcionará','como valido','cómo valido','valido mi idea','vender mi idea','como vendo mi idea','cómo vendo mi idea'],
+    reply: "Antes de crear todo, valida en 48 horas sin gastar nada 💜\n\n1. Pregunta directa: publica 1 línea en tus historias sobre el problema que resuelves.\n2. Los 5 DMs de sondeo: escribe a 5 personas y pregúntales directamente si pagarían.\n3. Búsqueda de mercado: revisa si existen productos similares (encontrar competencia es buena señal).\n\nSi tienes 3+ respuestas positivas → crea tu producto. Si tienes 1-2 → ajusta la idea. Si tienes 0 → replantea el problema que resuelves.\n\n¿Ya tienes a quién preguntarle?",
+    followUp: "Genial 💜 Aquí tienes el mensaje exacto para tus 5 DMs de sondeo:\n\n\"Hola [nombre], estoy validando una idea de negocio: [explica tu idea en 1 línea]. ¿Tú pagarías por algo así? Sé honesta, me ayuda muchísimo saber tu opinión real 🙏\"\n\nEnvíalo a 5 personas distintas (no solo tu círculo más cercano) y anota cuántas dicen que sí pagarían. Con 3 o más, ya puedes crear tu producto con confianza."
+  },
+  {
     id: 'idea',
     keys: ['idea','no se que vender','no sé qué vender','no tengo idea','cero ideas','emprender que'],
     reply: "La mayoría de mamás no tienen falta de ideas, tienen exceso de ideas y falta de foco 💜\n\nHaz este ejercicio rápido:\n1. Escribe 3 cosas que sabes hacer bien.\n2. Piensa qué te preguntan otras mamás a tu alrededor.\n3. Cruza ambas listas.\n\nAsí encontró Sofía la suya: llevaba meses queriendo \"algo con la comida saludable\" sin definir qué, hasta que notó que 3 amigas ya le pedían sus menús semanales por WhatsApp. Ahí estaba su idea, esperando ser nombrada.\n\n¿Quieres que exploremos juntas tus habilidades?",
@@ -270,10 +276,15 @@ const responses = [
     chainTo: 'validar'
   },
   {
+    id: 'valorhora',
+    keys: ['calcular mi hora','valor de mi hora','cuanto vale mi hora','cuánto vale mi hora','sacar mi hora de trabajo','calculadora de hora','calculadora de mi hora','mi hora de trabajo','valor de mi tiempo','cuanto vale mi tiempo','cuánto vale mi tiempo'],
+    reply: "Antes de poner precio a tu producto, ayuda mucho saber cuánto vale tu hora — así no la regalas sin darte cuenta 💜\n\nLa fórmula es simple: cuánto quieres ganar al mes ÷ (horas a la semana × semanas que trabajas al mes) = el valor de tu hora.\n\nEsto no es un número fijo para siempre — es un punto de partida realista para que empieces a cobrar con criterio, no adivinando. Completa la calculadora de abajo con tus propios números:"
+  },
+  {
     id: 'precio',
-    keys: ['precio','cobrar','cuanto cobro','cuánto cobro','tarifa','calcula mi precio','calculame el precio','calcúlame el precio'],
+    keys: ['precio','cuanto cobro','cuánto cobro','tarifa','calcula mi precio','calculame el precio','calcúlame el precio'],
     reply: "Poner precio da miedo, pero se resuelve con 3 preguntas:\n\n1. ¿Cuánto tiempo real te toma crearlo?\n2. ¿Cuáles son tus costos (materiales, plataformas)?\n3. ¿Qué transformación le das a tu cliente?\n\nEmpieza con un precio de entrada accesible — siempre puedes subirlo después con clientas reales. Sofía calculó que su plan de menús le tomaba 3 horas crear y empezó cobrando $10. Con sus primeras 3 ventas, subió a $15 sin perder clientas.\n\n¿Ya tienes una cifra en mente o la calculamos juntas?",
-    followUp: "Vamos a calcularla juntas 💜 Necesitas 3 datos (puedes escribirlos en tu próximo mensaje o solo pensarlos):\n\n1. Horas que te toma crear y entregar tu producto.\n2. Costos directos (plataformas, materiales, comisiones).\n3. Cuánto vale tu hora idealmente (aunque sea un estimado).\n\nFórmula simple: (horas × valor de tu hora) + costos directos = tu precio mínimo. Luego ajusta según lo que el mercado esté dispuesto a pagar por ese resultado. Empieza un poco por debajo de ese número para tus primeras ventas, y sube con testimonios reales."
+    followUp: "Vamos a calcularla juntas 💜 Necesitas 3 datos (puedes escribirlos en tu próximo mensaje o solo pensarlos):\n\n1. Horas que te toma crear y entregar tu producto.\n2. Costos directos (plataformas, materiales, comisiones).\n3. Cuánto vale tu hora idealmente (aunque sea un estimado — si no lo sabes, prueba primero la calculadora de \"valor de tu hora\").\n\nFórmula simple: (horas × valor de tu hora) + costos directos = tu precio mínimo. Luego ajusta según lo que el mercado esté dispuesto a pagar por ese resultado. Empieza un poco por debajo de ese número para tus primeras ventas, y sube con testimonios reales."
   },
   {
     id: 'miedo',
@@ -285,6 +296,28 @@ const responses = [
     id: 'creencias',
     keys: ['creencias limitantes','creencia limitante'],
     reply: "Las creencias limitantes son pensamientos automáticos, no hechos — y la buena noticia es que se pueden identificar y cuestionar 💜\n\nLas 6 más comunes en mamás emprendedoras:\n\n1. \"No soy experta suficiente\" → No necesitas ser la más experta, necesitas ir un paso adelante de a quien ayudas.\n\n2. \"Nadie va a pagar por esto\" → Se responde validando con personas reales (Módulo 4), no adivinando en tu cabeza.\n\n3. \"Ya hay mucha competencia\" → Que exista competencia confirma que hay mercado. Tu ventaja es tu cercanía, no ser la única.\n\n4. \"Debo tener todo perfecto antes de lanzar\" → Un producto al 80% que ya se vende vale más que uno perfecto que nunca sale.\n\n5. \"Si fracaso, quedaré mal\" → Un primer intento que no funciona es información, no fracaso. Nadie lleva la cuenta de tus intentos como tú crees.\n\n6. \"No merezco cobrar, es como ayudar a una amiga\" → Cobrar es lo que te permite sostener esa ayuda en el tiempo, sin agotarte.\n\n¿Cuál de estas se parece más a lo que sientes tú ahora mismo? Cuéntamela con tus palabras y te doy ejercicios concretos para trabajarla."
+  },
+  {
+    id: 'instagrambusiness',
+    keys: ['instagram business','cuenta business','cuenta de empresa instagram','cuenta profesional instagram','como abrir instagram business','cómo abrir instagram business','instagram para negocios','cuenta de negocio instagram'],
+    reply: "Toma 5 minutos y es gratis — aquí el paso a paso 💜\n\n1. Abre Instagram y entra a tu perfil.\n2. Toca el menú de las 3 líneas horizontales (arriba a la derecha).\n3. Ve a \"Configuración y privacidad\" y busca la opción \"Para profesionales\" (o \"Cuenta\" → \"Cambiar a cuenta profesional\", según la versión de tu app).\n4. Elige la categoría que mejor describa tu negocio (ej. \"Producto/servicio\").\n5. Selecciona \"Empresa\" (no \"Creador de contenido\") — Empresa te da acceso a tienda, botón de contacto y anuncios; Creador está pensado más para influencers.\n6. Instagram te va a preguntar si quieres conectar con una página de Facebook. Es opcional — puedes saltarlo por ahora y hacerlo después si decides activar tienda o anuncios pagados.\n7. Agrega tu correo o teléfono de contacto, para que aparezca el botón de contacto en tu perfil.\n8. ¡Listo! Ya tienes acceso a estadísticas (cuántas personas ven tus publicaciones, quiénes son), botón de contacto directo, y la opción de activar tienda más adelante.\n\nAlgo que tranquiliza a muchas: no necesitas tener seguidores para activarlo, es completamente gratis, y puedes volver a cuenta personal cuando quieras si no te convence."
+  },
+  {
+    id: 'nombrenegocio',
+    keys: ['nombre de mi negocio','como poner nombre','cómo poner nombre','nombre para mi marca','como se llama mi negocio','cómo se llama mi negocio','nombre de marca','elegir nombre','como nombro mi negocio','cómo nombro mi negocio','nombre para mi emprendimiento'],
+    reply: "Este es de los bloqueos más comunes que existen — muchas mamás llevan semanas \"casi listas para lanzar\" solo porque no deciden el nombre 💜 Vamos a resolverlo rápido.\n\n4 caminos posibles para nombrar tu negocio:\n\n1. 👤 Nombre personal + descriptor: tu nombre + lo que haces. Ej. \"Ana Menús\", \"Cocina con Laura\". Transmite cercanía y confianza desde el inicio.\n\n2. 📝 Nombre descriptivo directo: dice exactamente qué haces, sin rodeos. Ej. \"Menús Fáciles\", \"Organiza tu Clóset\". Fácil de entender, pero puede sonar menos memorable.\n\n3. ✨ Nombre evocador: una palabra o frase que representa una sensación o promesa, no describe literalmente. Así se llama este mismo kit: \"Mi Plan de Vuelo\" no dice \"curso de emprendimiento\", evoca movimiento, libertad, un mapa a seguir.\n\n4. 🔤 Palabra inventada o combinada: mezclas dos palabras o inventas una nueva. Más difícil de encontrar disponible, pero muy memorable si funciona.\n\nCriterios para que cualquier nombre que elijas funcione bien:\n→ Se pronuncia y se escribe fácil (nada de dudar cómo se deletrea).\n→ Está disponible como usuario en redes (revisa antes de encariñarte con uno).\n→ No te encierra si tu negocio crece o cambia (ej. \"Tortas de Ana\" te limita si luego quieres vender más que tortas).\n→ Se siente bien decirlo en voz alta — probablemente lo digas miles de veces.\n\n¿Quieres el ejercicio rápido para generar y filtrar opciones?",
+    followUp: "Aquí va el ejercicio de 15 minutos 💜\n\n1. Escribe 10 nombres posibles, sin filtrar nada todavía (permítete opciones malas, es parte del proceso).\n2. Tacha los que no se pronuncian fácil o son difíciles de escribir de oído.\n3. De los que quedan, revisa en Instagram/redes si el usuario está disponible (o muy parecido).\n4. Con tus 3 finalistas, pregúntale a 2-3 personas de confianza: \"¿cuál te gusta más y por qué?\" — a veces otra persona nota algo que tú no ves.\n5. Elige y avanza. No busques el nombre perfecto, busca uno que te guste lo suficiente para lanzar esta semana.\n\nUn recordatorio importante: el nombre no es lo que hace exitoso a un negocio — lo que entregas sí. Puedes cambiar de nombre más adelante si de verdad lo necesitas (no es ideal, pero tampoco es el fin del mundo). No dejes que esta decisión sea la razón por la que no lanzas."
+  },
+  {
+    id: 'innovacion',
+    keys: ['innovacion','innovación','valor agregado','como diferenciarme','cómo diferenciarme','como innovar','cómo innovar','que me hace diferente','qué me hace diferente','como me destaco','cómo me destaco','ser diferente a la competencia'],
+    reply: "Aclaremos algo primero: innovar no significa inventar algo que no existe 💜 Para un negocio como el tuyo, el valor agregado casi siempre está en CÓMO entregas lo que ya sabes hacer, no en inventar de cero.\n\n7 formas concretas de agregar valor sin gastar más:\n\n1. 🤝 Servicio: respuesta rápida, garantía de satisfacción, soporte directo por WhatsApp después de la compra.\n\n2. 🎁 Experiencia: un mensaje de bienvenida especial, un bono sorpresa, un empaque bonito (aunque sea digital, como un PDF de bienvenida bien diseñado).\n\n3. 🧩 Formato: combinar formatos que la competencia no combina — ej. tu PDF + un audio de 5 min explicando lo mismo, para quien prefiere escuchar en vez de leer.\n\n4. 🔄 Contenido vivo: actualizaciones gratuitas para quien ya compró, en vez de dejar el producto \"congelado\" para siempre.\n\n5. 💳 Accesibilidad: un plan de pago en 2 partes, o una versión de entrada más económica, para quien no puede pagar el precio completo de una vez.\n\n6. 📖 Tu historia: nadie más tiene tu historia, tu forma de hablar, tu manera de explicar las cosas. Eso no se copia, aunque copien tu producto.\n\n7. 🤝 Alianzas: unirte con otra emprendedora de tu mismo público (no competencia directa) para ofrecer un combo o recomendarse mutuamente.\n\nNo necesitas hacer las 7 — con 1 o 2 bien ejecutadas ya te diferencias de la mayoría, que no hace ninguna.\n\n¿Quieres 3 preguntas para encontrar TU valor agregado específico?",
+    followUp: "Aquí están 💜 Respóndelas con calma, no hay prisa:\n\n1. ¿Qué haces tú (en tu forma de explicar, de acompañar, de entregar) que tus competidoras no hacen o no muestran?\n\n2. ¿Qué queja repetida has visto o escuchado sobre productos parecidos al tuyo? (\"no responden\", \"el PDF es aburrido\", \"no hay soporte después de comprar\"...) Ahí hay una oportunidad clara para ti.\n\n3. ¿Qué parte de tu proceso podrías convertir en algo memorable, sin que te cueste más dinero? (un mensaje de voz personalizado, una plantilla bonita, un nombre creativo para tus módulos).\n\nEjemplo de Sofía: no inventó una técnica nueva de menús — su valor agregado fue adaptar cada menú a las alergias e ir preguntando activamente cómo les fue a sus hijas con cada receta. Eso, más que cualquier característica del producto, fue lo que hizo que la recomendaran.\n\nCuando tengas tus 3 respuestas, ya tienes tu diferencial real — no inventado, sino basado en lo que ya haces bien."
+  },
+  {
+    id: 'plataformas',
+    keys: ['como vender online','cómo vender online','donde vender online','dónde vender online','que plataforma usar','qué plataforma usar','en que plataforma vendo','en qué plataforma vendo','plataformas de venta','donde vendo mi producto','dónde vendo mi producto'],
+    reply: "No necesitas la plataforma perfecta para empezar — necesitas la más simple para tu momento actual 💜\n\nLas opciones más comunes:\n\n📦 Hotmart / Gumroad / Payhip — pensadas para productos digitales (cursos, PDF, membresías). Manejan cobros y entregas automáticas, pero cobran comisión por venta.\n\n📱 Instagram/Facebook Shop — ideal si ya tienes audiencia ahí. Funciona muy bien para productos físicos o servicios.\n\n💬 WhatsApp Business — el más simple de todos: catálogo + cobro manual. Perfecto para tus primeras ventas, sin configurar nada complejo.\n\n🧶 Etsy — para manualidades/artesanías, audiencia internacional, pero con comisión y competencia global.\n\n🛒 Mercado Libre — para producto físico con audiencia local en Latinoamérica, incluye logística de envío.\n\nCómo elegir, con 3 preguntas:\n1. ¿Tu producto es digital o físico? → Digital: Hotmart/Gumroad. Físico: Instagram Shop/Etsy/Mercado Libre.\n2. ¿Dónde ya está tu audiencia? → Si ya tienes seguidores en un lugar, vende ahí primero — reduces fricción.\n3. ¿Qué te importa más, alcance o margen? → Plataformas grandes (Hotmart, Etsy) dan más tráfico pero cobran más comisión. Vender directo (WhatsApp) te deja más margen, pero tú generas todo el tráfico.\n\nPara tus primeras ventas (Módulo 9), WhatsApp + Instagram son más que suficientes. Las plataformas más robustas tienen sentido cuando ya validaste y quieres escalar, no antes."
   },
   {
     id: 'ventas',
@@ -315,12 +348,6 @@ const responses = [
     reply: "Emprender siendo mamá no es cuestión de tener más tiempo, sino de usar mejor el que tienes 💜\n\nNo necesitas 8 horas. Necesitas bloques de 20 minutos bien usados: la siesta, después de acostar a los niños, mientras esperas en el parque.\n\nSofía tiene 2 hijos pequeños y solo 2 bloques de 20 minutos al día. Con ese sistema lanzó su negocio en 3 semanas.\n\n\"No se trata de encontrar tiempo. Se trata de decidir qué haces con el que ya tienes.\"\n\n¿Cuáles son tus bloques reales del día?"
   },
   {
-    id: 'validar',
-    keys: ['validar','validacion','validación','va a funcionar','funcionara','funcionará'],
-    reply: "Antes de crear todo, valida en 48 horas sin gastar nada 💜\n\n1. Pregunta directa: publica 1 línea en tus historias sobre el problema que resuelves.\n2. Los 5 DMs de sondeo: escribe a 5 personas y pregúntales directamente si pagarían.\n3. Búsqueda de mercado: revisa si existen productos similares (encontrar competencia es buena señal).\n\nSi tienes 3+ respuestas positivas → crea tu producto. Si tienes 1-2 → ajusta la idea. Si tienes 0 → replantea el problema que resuelves.\n\n¿Ya tienes a quién preguntarle?",
-    followUp: "Genial 💜 Aquí tienes el mensaje exacto para tus 5 DMs de sondeo:\n\n\"Hola [nombre], estoy validando una idea de negocio: [explica tu idea en 1 línea]. ¿Tú pagarías por algo así? Sé honesta, me ayuda muchísimo saber tu opinión real 🙏\"\n\nEnvíalo a 5 personas distintas (no solo tu círculo más cercano) y anota cuántas dicen que sí pagarían. Con 3 o más, ya puedes crear tu producto con confianza."
-  },
-  {
     id: 'mercado',
     keys: ['mercado','competencia','hay mucha competencia','otros cursos','cuanta gente vende','cuánta gente vende'],
     reply: "Buena pregunta — antes de darte el dato, aclaro algo: no conozco el detalle exacto de tu emprendimiento, así que esto es información general del mercado de infoproductos en español (no específica de tu nicho) 💜\n\nAlgunos datos de Hotmart 2026:\n→ El aprendizaje online sigue creciendo a nivel global.\n→ Los precios de cursos completos suelen ir de $27 a $997 USD, con el rango más común entre $97 y $297.\n→ Las categorías más rentables: marketing digital, administración, desarrollo personal y nichos específicos como \"mamá emprendedora\".\n\nQue exista competencia es buena señal, confirma que hay mercado. Tu ventaja no es competir en precio, es competir en cercanía y resultados reales.\n\n¿Me cuentas en qué categoría está tu idea? Elige una opción abajo para un contexto más específico:"
@@ -334,11 +361,6 @@ const responses = [
     id: 'nicho-manualidades',
     keys: ['manualidad','artesania','artesanía','manualidades','tejido','bordado','crochet'],
     reply: "En manualidades y artesanías, la competencia se mueve mucho por Instagram y marketplaces como Etsy o redes locales 💜\n\nLo que más se vende: cursos de una técnica específica (no \"manualidades en general\"), y kits con materiales incluidos. Precios comunes: $15-40 por curso corto, más si incluye kit físico.\n\nTu diferencial: entre más específica sea tu técnica y más muestres el proceso real (no solo el resultado final), más confianza generas frente a otras cuentas."
-  },
-  {
-    id: 'nicho-belleza',
-    keys: ['belleza','maquillaje','unas','uñas','peinados','estetica','estética'],
-    reply: "En belleza y estética, es un nicho con mucha competencia pero también mucha demanda constante 💜\n\nLo que más se vende: cursos de una técnica puntual (ej. solo diseño de uñas, o solo peinados), certificaciones cortas, y kits de inicio para quien quiere emprender en esto. Precios comunes: $20-70 por curso corto.\n\nTu diferencial: mostrar resultados reales en video/fotos y ofrecer soporte directo (grupo de WhatsApp, por ejemplo) suele pesar más que el precio."
   },
   {
     id: 'nicho-coaching',
@@ -361,6 +383,76 @@ const responses = [
     reply: "En diseño de interiores, la competencia va desde diseñadores certificados hasta cuentas de inspiración en Instagram y Pinterest 💜\n\nLo que más se vende: asesorías virtuales (e-decorating) por videollamada, moodboards personalizados, guías de decoración por presupuesto. Precios comunes: $30-60 moodboard, $80-150 proyecto de una habitación, $200+ proyecto de una casa completa.\n\nTu diferencial: mostrar transformaciones reales con presupuestos reales (no solo inspiración bonita de Pinterest) es lo que más genera confianza para que alguien te contrate."
   },
   {
+    id: 'nicho-organizacion',
+    keys: ['organización del hogar','organizacion del hogar','organizar casa','declutter','organizadora profesional'],
+    reply: "En organización del hogar, la competencia va desde organizadoras profesionales certificadas hasta cuentas de tips gratis en redes 💜\n\nLo que más se vende: asesorías virtuales con plan personalizado, cursos por zonas del hogar, y checklists descargables. Precios comunes: $30-60 asesoría virtual, $20-40 curso digital, $8-15/mes membresía.\n\nTu diferencial: las transformaciones reales de antes/después son lo que más convierte en este nicho — más que cualquier explicación teórica."
+  },
+  {
+    id: 'nicho-asistentevirtual',
+    keys: ['asistente virtual','asistente administrativa','virtual assistant'],
+    reply: "En asistencia virtual, la competencia es global — hay asistentes de todo el mundo ofreciendo tarifas muy variadas 💜\n\nLo que más se vende: paquetes de horas mensuales, y especialización en una tarea puntual (solo agenda, solo redes, solo atención al cliente). Precios comunes: $5-15 USD/hora según país, $150-500/mes en paquete fijo.\n\nTu diferencial: especializarte en un tipo de tarea o de cliente (ej. \"asistente virtual para coaches\") te distingue de la asistente virtual genérica que hace \"de todo un poco\"."
+  },
+  {
+    id: 'nicho-montessori',
+    keys: ['montessori','actividades montessori','crianza consciente'],
+    reply: "En actividades Montessori, la competencia incluye desde cuentas de crianza consciente hasta plataformas grandes de material educativo 💜\n\nLo que más se vende: guías de actividades por edad, membresías con actividades nuevas cada mes, y kits de materiales caseros. Precios comunes: $10-20 guía, $8-15/mes membresía, $20-40 kit físico.\n\nTu diferencial: explicar el \"por qué\" pedagógico detrás de cada actividad (no solo mostrarla) genera más confianza en mamás que investigan antes de comprar."
+  },
+  {
+    id: 'nicho-tutoria',
+    keys: ['tutoria academica','tutoría académica','clases particulares','refuerzo escolar'],
+    reply: "En tutoría académica, la competencia va desde profesores particulares tradicionales hasta plataformas grandes de tutoría online 💜\n\nLo que más se vende: sesiones 1 a 1 por videollamada y programas grupales pequeños por nivel. Precios comunes: $10-25 por sesión individual, $15-30/mes en programa grupal.\n\nTu diferencial: mostrar el progreso real y medible de un estudiante (con permiso de los papás) convence mucho más que solo listar tus credenciales."
+  },
+  {
+    id: 'nicho-idiomas',
+    keys: ['enseñanza de idiomas','clases de ingles','clases de inglés','aprender idiomas'],
+    reply: "En enseñanza de idiomas, compites contra apps grandes (Duolingo, etc.) y academias tradicionales 💜\n\nLo que más se vende: clases 1 a 1 o en grupos pequeños con seguimiento real — justo lo que las apps no dan. Precios comunes: $10-20 clase individual, $15-30/mes clases grupales.\n\nTu diferencial: el acompañamiento y la corrección personalizada es tu ventaja frente a cualquier app, por buena que sea."
+  },
+  {
+    id: 'nicho-costura',
+    keys: ['costura','personalizacion','personalización','bordado','ropa personalizada'],
+    reply: "En costura y personalización, la competencia incluye desde talleres artesanales hasta grandes tiendas de ropa personalizada online 💜\n\nLo que más se vende: piezas personalizadas por encargo (bordados con nombre, ropa de bebé) y cursos de una técnica puntual. Precios comunes: $15-50 por pieza personalizada, $20-40 curso.\n\nTu diferencial: mostrar el proceso de personalización en video (bordando el nombre, por ejemplo) genera mucha más conexión que solo la foto del resultado final."
+  },
+  {
+    id: 'nicho-segundamano',
+    keys: ['ropa de segunda mano','ropa usada niños','reventa de ropa'],
+    reply: "En ropa de segunda mano curada, compites contra marketplaces grandes y grupos de Facebook de compra-venta 💜\n\nLo que más se vende: tiendas curadas con fotos de calidad, y cajas sorpresa por suscripción. Precios comunes: $3-15 por prenda, $20-40 por caja sorpresa.\n\nTu diferencial: la curaduría y la honestidad sobre el estado real de la prenda es tu ventaja frente a marketplaces genéricos donde no sabes qué esperar."
+  },
+  {
+    id: 'nicho-fotografia',
+    keys: ['fotografia de producto','fotografía de producto','fotos para instagram','fotografo de productos'],
+    reply: "En fotografía de producto, compites contra fotógrafos profesionales y también contra emprendedoras que ya toman sus propias fotos con el celular 💜\n\nLo que más se vende: sesiones de fotos por encargo y cursos de fotografía con celular. Precios comunes: $30-100 por sesión, $25-45 el curso.\n\nTu diferencial: tu propio portafolio de antes/después es tu mejor argumento de venta — muéstralo siempre primero."
+  },
+  {
+    id: 'nicho-videorecuerdos',
+    keys: ['video recuerdos','video-recuerdos','edicion de video familiar','edición de video familiar'],
+    reply: "En edición de video-recuerdos, la competencia suele ser freelancers sueltos de edición de video, no un nicho saturado todavía 💜\n\nLo que más se vende: videos por encargo a partir de material familiar, y membresías anuales de recuerdos por trimestre. Precios comunes: $30-80 por video, $80-150 membresía anual.\n\nTu diferencial: mostrar ejemplos reales entregados (con permiso) — la emoción genuina del resultado es lo que más convence."
+  },
+  {
+    id: 'nicho-fitness',
+    keys: ['fitness postparto','ejercicio postparto','recuperacion postparto','recuperación postparto'],
+    reply: "En fitness postparto, la competencia incluye desde entrenadoras certificadas hasta cuentas genéricas de fitness que no consideran las necesidades específicas del postparto 💜\n\nLo que más se vende: rutinas cortas sin equipo y programas estructurados de varias semanas. Precios comunes: $25-50 programa grabado, $10-20/mes membresía.\n\nTu diferencial: priorizar la seguridad y el bajo impacto (en vez de prometer resultados rápidos) genera más confianza y es más responsable con tus clientas."
+  },
+  {
+    id: 'nicho-circulos',
+    keys: ['circulos de apoyo','círculos de apoyo','grupo de mamas','grupo de mamás','comunidad de mamas','comunidad de mamás'],
+    reply: "En círculos de apoyo entre mamás, la competencia suele ser grupos gratuitos de Facebook o WhatsApp, no necesariamente espacios pagos estructurados 💜\n\nLo que más se vende: membresías con encuentros regulares y espacios de conversación guiada. Precios comunes: $10-25/mes.\n\nTu diferencial: la calidez y consistencia de tu acompañamiento es lo que hace que alguien pague por algo que en teoría podría conseguir gratis en un grupo de Facebook."
+  },
+  {
+    id: 'nicho-fiestas',
+    keys: ['fiestas infantiles','organizacion de fiestas','organización de fiestas','decoracion de fiestas','decoración de fiestas'],
+    reply: "En fiestas infantiles, compites contra organizadoras de eventos tradicionales y bancos de imprimibles genéricos 💜\n\nLo que más se vende: kits imprimibles por tema y moodboards de decoración personalizados. Precios comunes: $10-20 kit imprimible, $25-50 moodboard/plan.\n\nTu diferencial: mostrar fiestas reales ya montadas con tus kits (no solo mockups de diseño) genera mucha más confianza para comprar."
+  },
+  {
+    id: 'nicho-copywriting',
+    keys: ['copywriting','redaccion publicitaria','redacción publicitaria','textos de venta'],
+    reply: "En copywriting, compites contra freelancers de todos los niveles y también contra la IA generativa — así que la calidad y el resultado medible importan más que nunca 💜\n\nLo que más se vende: redacción por encargo y plantillas de textos de venta. Precios comunes: $15-60 por texto, $15-25 plantillas.\n\nTu diferencial: mostrar el impacto medible de tus textos (\"subió su tasa de respuesta un 30%\") pesa mucho más que solo decir que \"escribes bien\"."
+  },
+  {
+    id: 'nicho-podcasts',
+    keys: ['edicion de podcasts','edición de podcasts','editar podcast','produccion de podcast','producción de podcast'],
+    reply: "En edición de podcasts, la competencia suele ser freelancers de edición de audio, un nicho todavía poco saturado en español 💜\n\nLo que más se vende: edición por episodio y paquetes mensuales con publicación incluida. Precios comunes: $15-40 por episodio, $60-200 paquete mensual.\n\nTu diferencial: ofrecer 1 episodio de muestra gratis y mostrar el antes/después del audio es la forma más rápida de ganar confianza en este nicho."
+  },
+  {
     id: 'startup',
     keys: ['startup','emprendimiento formal','que es una startup','qué es una startup','escalar negocio','inversion','inversión'],
     reply: "Aclaremos esto porque se confunde seguido 💜\n\nUna startup es una empresa diseñada para crecer muy rápido, casi siempre buscando inversión externa. Un microemprendimiento (como el tuyo) es distinto: crece con tus propias ventas, a tu ritmo, sin depender de inversionistas.\n\nNo necesitas \"pensar en grande\" como startup para que tu negocio sea válido o rentable. La mayoría de negocios digitales exitosos de mamás emprendedoras empiezan así: pequeños, sin inversión externa, financiados con las primeras ventas reales.\n\nConceptos que sí te sirven, vengan o no del mundo startup:\n→ MVP (producto mínimo viable): tu primera versión simple, ya vendible.\n→ Validación: probar antes de invertir tiempo o dinero.\n→ Iterar: mejorar con la información de clientas reales, no adivinando.\n\n¿Quieres que veamos cuál de estos tres aplicar a tu negocio ahora?",
@@ -376,13 +468,14 @@ const responses = [
     id: 'respiracion',
     keys: ['respiracion','respiración','ansiedad','estresada','estres','estrés','agobiada','abrumada','no puedo mas','no puedo más','audio','en voz alta','escuchar'],
     reply: "Antes de seguir con el negocio, paremos un momento contigo 💜\n\nUn ejercicio simple de respiración que puedes hacer ahora mismo, aunque tengas a tus hijos cerca:\n\n🌬️ Respiración 4-4-6\n1. Inhala contando hasta 4.\n2. Sostén el aire contando hasta 4.\n3. Exhala lento contando hasta 6.\n4. Repite 4 veces.\n\nExhalar más lento de lo que inhalas le dice a tu cuerpo que puede relajarse. Tómate 60 segundos, sin culpa, antes de volver a lo que estabas haciendo.\n\nEsto no reemplaza el acompañamiento profesional si sientes que la ansiedad o el agobio son constantes — ahí lo mejor es hablar con alguien de confianza o un profesional de salud mental.\n\n¿Quieres un ejercicio de meditación un poco más largo, de 3 minutos?",
-    followUp: "Te entiendo — el cansancio de mamá es distinto a cualquier otro 💜\n\nUna meditación exprés de 3 minutos, para cuando no tienes más tiempo que eso:\n\n🧘 Pausa de 3 minutos\n1. Minuto 1 — Cierra los ojos (o baja la mirada) y solo nota tu respiración, sin cambiarla.\n2. Minuto 2 — Repite mentalmente: \"Estoy haciendo lo que puedo, y es suficiente.\"\n3. Minuto 3 — Nota 3 cosas que puedes sentir ahora mismo (una textura, un sonido, tu propio cuerpo en la silla).\n\nNo necesitas silencio total ni una app. Puedes hacerlo en el carro, en el baño, o mientras tu bebé duerme la siesta.\n\nRecuerda: descansar también es parte de construir tu negocio. Una mamá agotada no sostiene un proyecto a largo plazo, y tú mereces cuidarte tanto como cuidas todo lo demás."
+    followUp: "Te entiendo — el cansancio de mamá es distinto a cualquier otro 💜\n\nUna meditación exprés de 3 minutos, para cuando no tienes más tiempo que eso:\n\n🧘 Pausa de 3 minutos\n1. Minuto 1 — Cierra los ojos (o baja la mirada) y solo nota tu respiración, sin cambiarla.\n2. Minuto 2 — Repite mentalmente: \"Estoy haciendo lo que puedo, y es suficiente.\"\n3. Minuto 3 — Nota 3 cosas que puedes sentir ahora mismo (una textura, un sonido, tu propio cuerpo en la silla).\n\nNo necesitas silencio total ni una app. Puedes hacerlo en el carro, en el baño, o mientras tu bebé duerme la siesta.\n\nRecuerda: descansar también es parte de construir tu negocio. Una mamá agotada no sostiene un proyecto a largo plazo, y tú mereces cuidarte tanto como cuidas todo lo demás.\n\n¿Quieres 3 técnicas rápidas más para esos momentos de agobio?",
+    chainTo: 'meditacion'
   },
   {
     id: 'meditacion',
     keys: ['meditacion','meditación','meditar','cansada','agotada','sin energia','sin energía','descansar','pausa'],
-    reply: "Te entiendo — el cansancio de mamá es distinto a cualquier otro 💜\n\nUna meditación exprés de 3 minutos, para cuando no tienes más tiempo que eso:\n\n🧘 Pausa de 3 minutos\n1. Minuto 1 — Cierra los ojos (o baja la mirada) y solo nota tu respiración, sin cambiarla.\n2. Minuto 2 — Repite mentalmente: \"Estoy haciendo lo que puedo, y es suficiente.\"\n3. Minuto 3 — Nota 3 cosas que puedes sentir ahora mismo (una textura, un sonido, tu propio cuerpo en la silla).\n\nNo necesitas silencio total ni una app. Puedes hacerlo en el carro, en el baño, o mientras tu bebé duerme la siesta.\n\nRecuerda: descansar también es parte de construir tu negocio. Una mamá agotada no sostiene un proyecto a largo plazo, y tú mereces cuidarte tanto como cuidas todo lo demás.\n\n¿Seguimos con tu negocio o prefieres otro momento de pausa?",
-    followUp: "Perfecto, retomemos con energía 💜 Cuéntame en qué seguimos: tu idea, tu precio, tu cliente ideal, tus primeras ventas, o cualquier otro tema — o elige un botón de abajo."
+    reply: "Te entiendo — el cansancio de mamá es distinto a cualquier otro 💜\n\nUna meditación exprés de 3 minutos, para cuando no tienes más tiempo que eso:\n\n🧘 Pausa de 3 minutos\n1. Minuto 1 — Cierra los ojos (o baja la mirada) y solo nota tu respiración, sin cambiarla.\n2. Minuto 2 — Repite mentalmente: \"Estoy haciendo lo que puedo, y es suficiente.\"\n3. Minuto 3 — Nota 3 cosas que puedes sentir ahora mismo (una textura, un sonido, tu propio cuerpo en la silla).\n\nNo necesitas silencio total ni una app. Puedes hacerlo en el carro, en el baño, o mientras tu bebé duerme la siesta.\n\nRecuerda: descansar también es parte de construir tu negocio. Una mamá agotada no sostiene un proyecto a largo plazo, y tú mereces cuidarte tanto como cuidas todo lo demás.\n\n¿Quieres 3 técnicas rápidas más para esos momentos de agobio?",
+    followUp: "Aquí tienes 3 técnicas más, cortas y sin necesitar nada extra 💜\n\n🖐️ Técnica 5-4-3-2-1 (te regresa al presente)\nNombra: 5 cosas que ves, 4 que puedes tocar, 3 que escuchas, 2 que hueles, 1 que saboreas. Útil cuando la mente va a mil por hora y no puedes concentrarte en nada.\n\n💜 Frase de autocompasión\nRepite en voz baja: \"Esto es difícil ahora mismo, y está bien no tenerlo todo resuelto.\" Trátate como tratarías a una amiga que está pasando por lo mismo.\n\n🙆‍♀️ Estiramiento de 30 segundos\nSube los hombros hacia las orejas, sostén 5 segundos, suelta. Repite 3 veces. Libera la tensión física que se acumula sin que lo notes.\n\nUna nota importante: estas técnicas ayudan en el momento, pero si sientes que el agobio es constante (no solo de vez en cuando), vale la pena hablarlo con alguien de confianza o un profesional de salud mental — eso no es un paso atrás, es parte de cuidarte bien.\n\n¿Seguimos con tu negocio? Cuéntame en qué o elige un botón de abajo."
   },
   {
     id: 'bloques',
@@ -398,12 +491,18 @@ const defaultPills = [
   { label: "📍 Mi emprendimiento es...", msg: "__askniche__" },
   { label: "No sé qué idea tener", msg: "No sé qué idea tener" },
   { label: "¿Qué problema resuelvo?", msg: "¿Qué problema resuelvo?" },
+  { label: "¿Cómo valido mi idea?", msg: "¿Cómo valido mi idea?" },
   { label: "¿Cómo pongo mi precio?", msg: "¿Cómo pongo mi precio?" },
+  { label: "Calculadora de mi hora de trabajo", msg: "Calculadora de mi hora de trabajo" },
   { label: "Tengo miedo de lanzar", msg: "Tengo miedo de lanzar" },
   { label: "Creencias limitantes", msg: "creencias limitantes" },
   { label: "Mis primeras ventas", msg: "Mis primeras ventas" },
+  { label: "¿Cómo vender online?", msg: "¿Cómo vender online?" },
+  { label: "Cómo poner nombre a mi negocio", msg: "Cómo poner nombre a mi negocio" },
+  { label: "Cómo abrir Instagram Business", msg: "Cómo abrir Instagram Business" },
   { label: "Fidelizar clientas", msg: "hacer sentir acompañada a mi clienta" },
   { label: "¿Hay mucha competencia?", msg: "¿Hay mucha competencia?" },
+  { label: "Innovación y valor agregado", msg: "innovación y valor agregado" },
   { label: "Finanzas básicas", msg: "Finanzas básicas" },
   { label: "Necesito una pausa", msg: "Necesito una pausa" },
 ]; 
@@ -411,11 +510,24 @@ const defaultPills = [
 const nichePills = [
   { label: "🍲 Comida / nutrición", msg: "comida saludable" },
   { label: "🧶 Manualidades", msg: "manualidades artesanías" },
-  { label: "💅 Belleza / estética", msg: "belleza estética" },
   { label: "🎯 Coaching / consultoría", msg: "coaching consultoría" },
   { label: "📱 Contenido digital", msg: "contenido digital redes sociales" },
   { label: "🎨 Diseño gráfico", msg: "diseño gráfico" },
   { label: "🏠 Diseño de interiores", msg: "diseño de interiores" },
+  { label: "🧺 Organización del hogar", msg: "organización del hogar" },
+  { label: "💻 Asistente virtual", msg: "asistente virtual" },
+  { label: "🧩 Montessori en casa", msg: "montessori en casa" },
+  { label: "📚 Tutoría académica", msg: "tutoría académica" },
+  { label: "🗣️ Enseñanza de idiomas", msg: "enseñanza de idiomas" },
+  { label: "🧵 Costura y personalización", msg: "costura y personalización" },
+  { label: "👶 Ropa de segunda mano", msg: "ropa de segunda mano" },
+  { label: "📸 Fotografía de producto", msg: "fotografía de producto" },
+  { label: "🎬 Video-recuerdos", msg: "video recuerdos edición" },
+  { label: "🤱 Fitness postparto", msg: "fitness postparto" },
+  { label: "💬 Círculos de apoyo entre mamás", msg: "círculos de apoyo entre mamás" },
+  { label: "🎈 Fiestas infantiles", msg: "fiestas infantiles" },
+  { label: "✍️ Copywriting", msg: "copywriting" },
+  { label: "🎙️ Edición de podcasts", msg: "edición de podcasts" },
   { label: "⬅ Volver a temas generales", msg: "__reset__" },
 ];
 
@@ -436,11 +548,24 @@ let userNiche = null; // null hasta que la persona elija una categoría
 const nicheSetterPills = [
   { label: "🍲 Comida / nutrición", msg: "__niche_comida__" },
   { label: "🧶 Manualidades", msg: "__niche_manualidades__" },
-  { label: "💅 Belleza / estética", msg: "__niche_belleza__" },
   { label: "🎯 Coaching / consultoría", msg: "__niche_coaching__" },
   { label: "📱 Contenido digital", msg: "__niche_contenido__" },
   { label: "🎨 Diseño gráfico", msg: "__niche_diseno__" },
   { label: "🏠 Diseño de interiores", msg: "__niche_interiores__" },
+  { label: "🧺 Organización del hogar", msg: "__niche_organizacion__" },
+  { label: "💻 Asistente virtual", msg: "__niche_asistentevirtual__" },
+  { label: "🧩 Montessori en casa", msg: "__niche_montessori__" },
+  { label: "📚 Tutoría académica", msg: "__niche_tutoria__" },
+  { label: "🗣️ Enseñanza de idiomas", msg: "__niche_idiomas__" },
+  { label: "🧵 Costura y personalización", msg: "__niche_costura__" },
+  { label: "👶 Ropa de segunda mano", msg: "__niche_segundamano__" },
+  { label: "📸 Fotografía de producto", msg: "__niche_fotografia__" },
+  { label: "🎬 Video-recuerdos", msg: "__niche_videorecuerdos__" },
+  { label: "🤱 Fitness postparto", msg: "__niche_fitness__" },
+  { label: "💬 Círculos de apoyo entre mamás", msg: "__niche_circulos__" },
+  { label: "🎈 Fiestas infantiles", msg: "__niche_fiestas__" },
+  { label: "✍️ Copywriting", msg: "__niche_copywriting__" },
+  { label: "🎙️ Edición de podcasts", msg: "__niche_podcasts__" },
   { label: "🌟 Otro", msg: "__niche_otro__" },
   { label: "⬅ Cancelar", msg: "__reset__" },
 ];
@@ -448,7 +573,7 @@ const nicheSetterPills = [
 const nicheData = {
   comida: {
     label: "comida y nutrición",
-    problema: "El problema real casi nunca es \"falta de recetas\" — es la carga mental diaria de decidir qué cocinar, combinada con falta de tiempo. Tu cliente no busca más información, busca que alguien más ya haya decidido por ella.",
+    problema: "El problema real casi nunca es \"falta de recetas\" — internet está lleno de recetas gratis. El problema es la carga mental diaria de decidir qué cocinar, combinada con falta de tiempo y la culpa de no alimentar bien a sus hijos.\n\nEjemplo real: una mamá abre Pinterest buscando inspiración, ve 50 recetas distintas, y termina sin decidir nada — pidiendo domicilio o repitiendo lo mismo de siempre. El problema no es la falta de opciones, es el exceso de opciones sin una decisión ya tomada por ella.\n\nPor eso tu producto no compite vendiendo \"más recetas\" — compite vendiendo la decisión ya tomada: un menú armado, una lista de mercado lista, un plan que solo tiene que seguir. Entender esto cambia cómo hablas de tu producto: no vendes información, vendes alivio mental.",
     idea: "El mercado de comida y nutrición es más grande que solo un PDF de recetas. Modelos posibles usando tu misma estructura del kit:\n\n1. Producto digital simple: recetario o plan de menús en PDF.\n2. Membresía mensual: menús nuevos cada mes + comunidad de mamás, pago recurrente en vez de venta única.\n3. Curso online estructurado: \"Batch cooking para mamás ocupadas\" en video, con módulos.\n4. Servicio 1 a 1: asesoría nutricional personalizada por videollamada.\n5. Producto físico/ecommerce: comida congelada, meal kits, o productos complementarios (moldes, loncheras) por catálogo.\n6. Comunidad de pago: reto mensual de meal prep con acompañamiento grupal.\n7. Formación de formadoras: enseñar tu método a otras mamás que quieran ofrecer lo mismo en su ciudad.\n\nNo necesitas elegir todos — empieza con 1, valida, y cuando tengas clientas reales, puedes sumar una membresía o comunidad como segundo ingreso sin crear un producto nuevo desde cero.",
     precio: "Producto digital: $10-40. Membresía mensual: $8-20/mes recurrente. Curso estructurado: $40-90. Sesiones 1 a 1: $15-30 c/u o $80-150 el paquete mensual. Producto físico: por porción o combo, cubriendo ingredientes + empaque + tiempo (varía mucho por país). Formación de formadoras: $150-400 por ser un programa más completo.",
     cliente: "Ejemplo de cliente ideal: mamás con hijos entre 2 y 10 años, que trabajan o tienen poco tiempo, y sienten culpa o estrés por no saber qué cocinar cada día.",
@@ -456,23 +581,15 @@ const nicheData = {
   },
   manualidades: {
     label: "manualidades y artesanías",
-    problema: "Aquí hay 2 problemas distintos según qué quieras vender:\n→ Si enseñas la técnica: el problema es la falta de guía clara para aprender sin sentirse perdida o frustrada.\n→ Si vendes las piezas ya hechas: el problema es que tu compradora quiere algo único, hecho a mano, que no encuentra en tiendas comunes.\nSon dos clientes distintos, no el mismo negocio con distinto empaque.",
+    problema: "Aquí hay 2 problemas distintos según qué quieras vender — y confundirlos es el error más común en este nicho:\n\n→ Si enseñas la técnica: tu cliente ya intentó aprender sola con tutoriales gratis de YouTube, pero se sintió perdida, se frustró a mitad de camino, o gastó en materiales que no supo usar bien. No busca \"más información\", busca una guía ordenada, paso a paso, que le garantice terminar algo bonito la primera vez.\n\n→ Si vendes las piezas ya hechas: tu compradora no tiene ningún interés en aprender la técnica — quiere el resultado final, único y hecho a mano, para regalar o decorar su casa. Le importa la historia detrás de la pieza y que no sea algo producido en masa, más que el precio.\n\nSon dos negocios distintos con el mismo punto de partida (tu habilidad manual). Definir cuál de los dos problemas resuelves antes de crear tu oferta te evita construir algo que no le habla claramente a ninguno de los dos.",
     idea: "El mercado de manualidades da para más que un curso suelto. Modelos posibles:\n\n1. Curso digital de una técnica específica (PDF o video).\n2. Membresía mensual: \"proyecto nuevo cada mes\" con patrón + video tutorial + comunidad de compañeras.\n3. Kits físicos con materiales incluidos, vendidos por ecommerce.\n4. Piezas terminadas por encargo o catálogo (Instagram Shop, Etsy, Mercado Libre).\n5. Piezas personalizadas para eventos (bodas, baby showers, cumpleaños) — precio más alto por ser a la medida.\n6. Certificación: formar a otras mujeres para que enseñen tu técnica (multiplicas tu conocimiento sin hacer tú todas las piezas).\n7. Marca propia al por mayor: vender tus piezas a tiendas locales o boutiques.\n\nCada modelo tiene un techo distinto de tiempo: los primeros 2 escalan sin límite de tus manos; del 3 al 5 tu tiempo de producción es el límite; el 6 y 7 multiplican tu conocimiento a través de otras personas.",
     precio: "Enseñar (curso/membresía): $15-25 curso corto, $10-20/mes membresía, $30-40 con kit incluido. Vender piezas: $15-60 por pieza según complejidad (sin contar envío). Piezas personalizadas para eventos: usualmente 30-50% más que una pieza estándar. Certificación para formar instructoras: $100-300.",
     cliente: "Si enseñas: mamás que buscan un hobby rentable o aprender una técnica puntual. Si vendes piezas: personas que buscan un regalo especial o una pieza única, valorando lo hecho a mano sobre lo producido en masa.",
     ventas: "Si enseñas: mostrar el proceso completo en video y ofrecer un mini-tutorial gratis. Si vendes piezas: fotos de buena luz mostrando detalles y escala real, video corto del proceso (genera más confianza que la foto sola), y reseñas visibles de compradoras."
   },
-  belleza: {
-    label: "belleza y estética",
-    problema: "El problema real es querer generar ingresos extra desde casa con una habilidad manual, pero no saber por dónde empezar, ni tener acceso a formación asequible y sin necesitar un local o inversión grande.",
-    idea: "El mercado de belleza va mucho más allá de un curso de técnica suelta. Modelos posibles:\n\n1. Curso corto de una técnica puntual (uñas, peinados, skincare).\n2. Certificación más completa, con mayor percepción de valor y respaldo.\n3. Membresía mensual: nuevas técnicas + tips + soporte continuo para quienes ya emprendieron contigo.\n4. Kit físico de productos + guía de uso, vendido junto al curso.\n5. Servicio a domicilio o mini-salón en casa (sesiones directas con clientas finales).\n6. Línea propia de productos (marca blanca) vendida por ecommerce.\n7. Formación de formadoras: enseñar a otras a dar tu mismo curso en su ciudad, con un % para ti.\n\nMuchas emprendedoras de este nicho combinan 2 modelos: dan el curso Y venden el kit de productos que usan en él — eso sube el ticket promedio sin crear un producto nuevo desde cero.",
-    precio: "Curso corto: $20-35. Certificación completa: $40-70. Membresía: $10-25/mes. Kit con productos: $80+. Servicio a domicilio: precio por sesión, varía mucho por ciudad y servicio. Formación de formadoras: $150-400.",
-    cliente: "Ejemplo de cliente ideal: mamás que quieren generar ingresos extra desde casa con una habilidad manual, sin necesitar un local ni una inversión grande.",
-    ventas: "Lo que mejor convierte en tu nicho: mostrar resultados reales en fotos/video de antes-después, ofrecer soporte directo por WhatsApp tras la compra, y pedir que las clientas compartan sus propios resultados como prueba social."
-  },
   coaching: {
     label: "coaching y consultoría",
-    problema: "El problema real debe ser algo puntual y urgente que tu cliente quiere resolver YA (ej. \"no sé organizar mis finanzas este mes\"), no un deseo vago tipo \"quiero mejorar mi vida\" — entre más específico el dolor, más fácil vender la solución.",
+    problema: "El problema real en coaching casi nunca es un deseo vago tipo \"quiero mejorar mi vida\" — eso es demasiado amplio para que alguien pague por resolverlo hoy. El problema real es algo puntual, urgente y con nombre propio: \"no sé organizar mis finanzas este mes\", \"no sé cómo hablar con mi hija adolescente sin pelear\", \"llevo 3 meses posponiendo lanzar mi negocio\".\n\nLa prueba de que encontraste el problema correcto: si tu cliente ideal pudiera resolverlo buscando en Google, no necesitaría pagarte. Tu valor está en la combinación de método + acompañamiento + responsabilidad compartida, no solo en la información que compartes.\n\nEntre más específico el dolor que nombras, más fácil se vuelve todo lo demás: tu precio se justifica solo, tu contenido se escribe casi solo, y dejas de competir contra \"coaches de vida\" genéricos que prometen de todo un poco.",
     idea: "El mercado de coaching da para mucho más que sesiones sueltas. Modelos posibles:\n\n1. Programa corto de 21-30 días con un resultado específico y medible.\n2. Membresía mensual: contenido + comunidad + 1 sesión grupal en vivo al mes.\n3. Mentoría 1 a 1 de mayor precio, para quien quiere acompañamiento más cercano.\n4. Taller o evento en vivo (online o presencial), como puerta de entrada a tu programa completo.\n5. Ebook o mini-guía gratuita como lead magnet, que lleva a tu programa premium.\n6. Comunidad de pago con accountability entre pares (no depende 100% de ti para funcionar).\n7. Certificación de tu método: formar a otras coaches que repliquen tu forma de trabajar.\n\nUna estrategia común: empiezas con el programa corto (más fácil de vender), y cuando tienes varias clientas satisfechas, lanzas la membresía o la mentoría como escalón siguiente para quien quiere más.",
     precio: "Programa corto: $80-250. Membresía: $20-50/mes. Mentoría 1 a 1: desde $300. Taller/evento en vivo: $15-40 por persona. Certificación de tu método: $300-800 (es tu producto de mayor valor).",
     cliente: "Ejemplo de cliente ideal: personas con un problema puntual y urgente que quieren resolver ahora (no un deseo vago de \"mejorar su vida en general\").",
@@ -480,7 +597,7 @@ const nicheData = {
   },
   contenido: {
     label: "contenido digital y redes sociales",
-    problema: "El problema real no es falta de talento creativo — es falta de tiempo y de un sistema para crear contenido consistente cada semana. Tu cliente ya sabe que \"debería\" publicar más, el problema es sostenerlo sin agotarse.",
+    problema: "El problema real casi nunca es falta de talento creativo — la mayoría de tus clientas ya saben tomar una buena foto o escribir un buen texto. El problema es la falta de un sistema que sostenga la consistencia semana tras semana, sin que se vuelva una carga más en su día.\n\nEjemplo real: una emprendedora publica seguido durante 2 semanas, se le acaban las ideas, se satura con otras tareas del negocio, y desaparece de redes por 3 semanas — perdiendo el impulso que había logrado. El ciclo se repite una y otra vez.\n\nTu producto no compite vendiendo \"ideas creativas\" — compite quitándole a tu clienta la decisión de \"qué publico hoy\" de encima. Por eso las plantillas y calendarios funcionan tan bien en este nicho: resuelven el problema real, que es la fricción de decidir, no la falta de creatividad.",
     idea: "El mercado de contenido digital da para más que vender un kit de plantillas suelto. Modelos posibles:\n\n1. Kit de plantillas editables (pago único).\n2. Membresía mensual: plantillas y contenido nuevo cada mes, pago recurrente.\n3. Curso corto de un formato específico (ej. solo reels con el celular).\n4. Servicio \"hecho para ti\": gestionas las redes de otras emprendedoras a cambio de una tarifa mensual.\n5. Comunidad/membresía con feedback: revisas el contenido de tus clientas y les das retroalimentación.\n6. Certificación como \"gestora de contenido\": formas a otras para que ofrezcan el mismo servicio.\n7. Licencia de tus plantillas a otras creadoras para que las revendan (marca blanca).\n\nEl servicio \"hecho para ti\" (punto 4) suele generar el ingreso más estable mes a mes, aunque consume más de tu tiempo que vender plantillas.",
     precio: "Kit de plantillas: $15-25. Membresía: $10-25/mes. Curso corto: $30-45. Servicio hecho para ti: $80-300/mes por clienta según qué incluya. Certificación: $150-400. Licencia white-label: variable, según volumen.",
     cliente: "Ejemplo de cliente ideal: emprendedoras que ya tienen un negocio pero no tienen tiempo ni ganas de crear contenido desde cero cada semana.",
@@ -488,7 +605,7 @@ const nicheData = {
   },
   diseno: {
     label: "diseño gráfico y digital",
-    problema: "El problema real es que tu cliente necesita verse profesional (invitaciones, logo, redes) para su propio negocio o evento, pero no tiene presupuesto para un diseñador a la medida ni el conocimiento para hacerlo ella misma con calidad.",
+    problema: "El problema real es que tu cliente necesita verse profesional — para su negocio, para un evento familiar, para sus redes — pero se encuentra atrapada entre dos malas opciones: pagar un diseñador a la medida (caro, y a veces con tiempos de entrega largos), o intentarlo ella misma en Canva sin saber de tipografía, color o composición, y terminar con algo que se ve \"casero\".\n\nTu producto ocupa el espacio entre esas dos opciones: le das el resultado profesional de un diseñador, a una fracción del precio y con entrega inmediata (plantilla editable), o le enseñas lo mínimo necesario para que ella misma logre verse profesional sin depender de nadie.\n\nEntender esto te ayuda a no competir por precio contra bancos de plantillas genéricas — compites ofreciendo curaduría y buen gusto ya resuelto, que es exactamente lo que a tu cliente le falta.",
     idea: "El mercado de diseño da para más que vender plantillas sueltas. Modelos posibles:\n\n1. Plantillas editables (invitaciones, papelería, redes) de pago único.\n2. Mini-kits de branding para emprendedoras (logo + colores + fuentes).\n3. Servicio de diseño a medida (freelance), de mayor precio que las plantillas.\n4. Membresía mensual: plantillas nuevas cada mes para un tipo de negocio específico.\n5. Curso de Canva para quien no sabe diseñar pero quiere aprender lo básico.\n6. Certificación/formación a otras que quieran ofrecer lo mismo.\n7. Marca de productos físicos con tu diseño (papelería impresa, stickers) por ecommerce.\n8. Licencia white-label de tus plantillas para que otras las revendan con su marca.\n\nMuchas diseñadoras combinan plantillas (ingreso pasivo, escalable) con diseño a medida (ingreso más alto por proyecto, pero limitado por tu tiempo).",
     precio: "Plantilla/logo simple: $10-20. Kit de branding: $30-60. Diseño a medida: $80-300+ según el proyecto. Membresía: $10-20/mes. Curso de Canva: $25-40. Certificación: $150-350.",
     cliente: "Ejemplo de cliente ideal: otras emprendedoras o mamás que necesitan verse profesionales (invitaciones, logo, redes) pero no tienen presupuesto para un diseñador a la medida.",
@@ -496,11 +613,123 @@ const nicheData = {
   },
   interiores: {
     label: "diseño de interiores",
-    problema: "El problema real es que tu cliente quiere renovar un espacio de su casa y sentir que refleja mejor su estilo de vida, pero no sabe cómo hacerlo sin gastar de más, sin cometer errores de decoración, ni pagar un diseñador de interiores tradicional.",
+    problema: "El problema real es que tu cliente mira un espacio de su casa (el cuarto del bebé, la sala, su rincón de trabajo) y siente que no refleja cómo quiere vivir — pero no sabe traducir esa sensación en decisiones concretas de color, muebles o distribución. Le da miedo comprar algo caro y que no combine, o pasar horas viendo inspiración en Pinterest sin nunca aterrizarla en su espacio real.\n\nUn diseñador de interiores tradicional resuelve esto, pero a un costo que la mayoría de mamás no puede pagar para un solo cuarto. Tu producto ocupa ese espacio: le das dirección profesional y concreta (\"compra esto, en este color, ponlo aquí\"), a una fracción del costo de un proyecto tradicional completo.\n\nEsto explica por qué mostrar transformaciones reales con presupuesto real pesa tanto en este nicho: tu cliente necesita ver que el resultado profesional es alcanzable para alguien con un presupuesto como el suyo, no solo para quien tiene presupuesto ilimitado.",
     idea: "El mercado de diseño de interiores da para más que un moodboard suelto. Modelos posibles:\n\n1. Moodboard o propuesta puntual para un espacio.\n2. Asesoría virtual (e-decorating) completa de una habitación por videollamada.\n3. Curso de decoración \"low cost\" con lo que ya tienes en casa.\n4. Membresía mensual: ideas de decoración + comunidad + revisión de espacios.\n5. Proyecto completo de una casa (tu servicio de mayor precio).\n6. Ecommerce curado: recomendar y vender (como afiliada o marca propia) productos de decoración accesibles.\n7. Certificación para formar a otras asesoras de decoración virtual.\n\nEl e-decorating (punto 2) suele ser el punto de entrada más fácil de vender, porque el resultado es tangible y rápido de mostrar en redes.",
     precio: "Moodboard: $30-60. Asesoría virtual de una habitación: $80-150. Curso low-cost: $25-45. Membresía: $10-20/mes. Proyecto de una casa completa: $200+. Certificación: $150-350.",
     cliente: "Ejemplo de cliente ideal: mamás que quieren renovar un espacio puntual de su casa (cuarto de bebé, sala, oficina en casa) sin pagar un diseñador de interiores tradicional.",
     ventas: "Lo que mejor convierte en tu nicho: mostrar transformaciones reales de antes/después con presupuestos reales (no solo inspiración de Pinterest), y ofrecer una mini-asesoría gratuita de 15 minutos como muestra."
+  },
+  organizacion: {
+    label: "organización del hogar",
+    problema: "El problema real no es \"tener demasiadas cosas\" — es que el desorden acumulado le genera estrés visual y mental cada vez que entra a ese espacio, y no sabe por dónde empezar sin sentirse abrumada. Ya vio tips en redes, pero le faltó un método aplicado a SU espacio real, no a una casa de Pinterest perfecta.",
+    idea: "Modelos posibles:\n1. Asesoría virtual: le envía fotos del espacio y tú armas un plan de organización personalizado.\n2. Curso digital: método de organización por zonas (clóset, cocina, juguetes).\n3. Membresía mensual: reto de organización de un espacio nuevo cada mes.\n4. Servicio presencial (si compartes ciudad con tus clientas): ir a organizar en persona.\n5. Checklist o kit de etiquetas y plantillas de organización descargables.\n6. Certificación para formar a otras organizadoras.",
+    precio: "Asesoría virtual: $30-60. Curso digital: $20-40. Membresía: $8-15/mes. Servicio presencial: por hora o por espacio, varía mucho por ciudad. Checklist/kit: $10-15. Certificación: $150-300.",
+    cliente: "Mamás con casas pequeñas o con niños, que sienten que el desorden les quita paz mental, y no tienen tiempo de investigar un método completo por su cuenta.",
+    ventas: "Mostrar transformaciones reales de antes/después (esto vende solo), y ofrecer una mini-checklist gratuita como anzuelo."
+  },
+  asistentevirtual: {
+    label: "asistente virtual",
+    problema: "El problema real de tu cliente (otra emprendedora o profesional ocupado) es que las tareas administrativas (agenda, correos, redes) le quitan horas que debería usar en lo que sí genera ingresos. No necesita \"ayuda genérica\", necesita a alguien confiable a quien delegarle tareas específicas sin tener que supervisar todo el tiempo.",
+    idea: "Modelos posibles:\n1. Servicio por horas/mes (paquete de X horas de apoyo administrativo).\n2. Especialización en una tarea puntual (solo agenda, solo redes, solo atención al cliente).\n3. Curso para otras mamás que quieran ser asistentes virtuales.\n4. Plantillas de procesos y checklists para asistentes virtuales nuevas.",
+    precio: "Paquete de horas: $5-15 USD/hora según país y especialización. Paquete mensual fijo: $150-500/mes según carga. Curso de formación: $50-150.",
+    cliente: "Emprendedoras o profesionales independientes con negocio en crecimiento, que ya no dan abasto solas pero no quieren o no pueden contratar tiempo completo.",
+    ventas: "Mostrar testimonios de clientas anteriores sobre cuánto tiempo les liberaste, y ofrecer una sesión de diagnóstico gratuita de 15 minutos para ver en qué puedes ayudar."
+  },
+  montessori: {
+    label: "actividades Montessori en casa",
+    problema: "El problema real es que la mamá quiere estimular el desarrollo de su hijo de forma intencional, pero no sabe qué actividades son apropiadas para su edad, o siente que necesita comprar material carísimo para hacerlo \"bien\". Busca simplicidad y guía, no un curso completo de pedagogía.",
+    idea: "Modelos posibles:\n1. Guía o fichas de actividades por edad (PDF descargable).\n2. Membresía mensual: actividades nuevas cada mes según la edad del niño.\n3. Curso para mamás sobre principios Montessori aplicados en casa.\n4. Kits físicos de materiales caseros o económicos con instrucciones.",
+    precio: "Guía/fichas: $10-20. Membresía: $8-15/mes. Curso: $30-60. Kit físico: $20-40.",
+    cliente: "Mamás de niños entre 0 y 6 años, interesadas en crianza consciente, que quieren aplicar principios Montessori sin pagar un colegio especializado.",
+    ventas: "Mostrar videos cortos de niños reales haciendo las actividades (no modelos profesionales), y explicar el \"por qué\" pedagógico detrás de cada una — eso genera confianza en mamás informadas."
+  },
+  tutoria: {
+    label: "tutoría académica",
+    problema: "El problema real es que el niño se está quedando atrás o perdiendo confianza en una materia puntual (matemáticas, lectura), y la mamá no tiene el tiempo, paciencia o conocimiento para ayudarlo ella misma sin generar peleas en casa.",
+    idea: "Modelos posibles:\n1. Sesiones 1 a 1 por videollamada.\n2. Programa grupal pequeño (3-5 niños) por nivel o tema.\n3. Guías descargables de ejercicios por tema.\n4. Membresía mensual con ejercicios nuevos y soporte para dudas.",
+    precio: "Sesión individual: $10-25 según país. Programa grupal: $15-30/mes por niño. Guías: $10-15. Membresía: $15-25/mes.",
+    cliente: "Mamás con hijos entre 6 y 15 años que están batallando con una materia específica, y quieren resultados medibles (mejores notas, menos estrés en casa).",
+    ventas: "Mostrar el progreso real de un estudiante (con permiso de los papás) y ofrecer una sesión de diagnóstico gratuita para identificar el nivel exacto del niño."
+  },
+  idiomas: {
+    label: "enseñanza de idiomas",
+    problema: "El problema real es que quiere que su hijo aprenda un idioma (o ella misma), pero las apps genéricas se sienten impersonales y sin seguimiento real, y las clases tradicionales son caras o con horarios rígidos.",
+    idea: "Modelos posibles:\n1. Clases 1 a 1 por videollamada.\n2. Clases grupales pequeñas por nivel.\n3. Curso grabado con práctica guiada.\n4. Membresía de conversación semanal en grupo.",
+    precio: "Clase individual: $10-20. Clases grupales: $15-30/mes. Curso grabado: $30-60. Membresía de conversación: $15-25/mes.",
+    cliente: "Mamás que quieren que sus hijos aprendan un idioma desde pequeños, o mamás que quieren aprender ellas mismas para mejorar oportunidades laborales.",
+    ventas: "Mostrar avances reales de estudiantes (videos cortos hablando), y ofrecer una clase de prueba gratuita."
+  },
+  costura: {
+    label: "costura y personalización",
+    problema: "El problema real depende de si vendes piezas o enseñas: si vendes, tu cliente quiere algo personalizado (nombre bordado, tela especial) que no encuentra en tiendas; si enseñas, tu cliente quiere aprender a coser o personalizar sin gastar en una máquina cara sin saber si le gustará.",
+    idea: "Modelos posibles:\n1. Piezas personalizadas por encargo (ropa de bebé, bordado, arreglos).\n2. Curso de costura básica o técnica puntual (bordado a mano).\n3. Kits de proyecto con tela y patrón incluido.\n4. Servicio local de arreglos y personalización.",
+    precio: "Piezas personalizadas: $15-50 según complejidad. Curso: $20-40. Kits: $20-35. Servicio de arreglos: por pieza, varía por ciudad.",
+    cliente: "Mamás que buscan algo único para su bebé o hijo (ropa personalizada, recuerdos bordados), o mamás que quieren aprender la técnica como hobby rentable.",
+    ventas: "Mostrar el proceso de personalización (bordando el nombre, por ejemplo) y fotos de clientas anteriores usando la pieza."
+  },
+  segundamano: {
+    label: "ropa de segunda mano curada",
+    problema: "El problema real es que la ropa de niños se usa poquísimo tiempo antes de quedar pequeña, así que comprar todo nuevo es caro e innecesario — pero buscar ropa de segunda mano de calidad, sin manchas ni mal estado, toma tiempo que la mamá no tiene.",
+    idea: "Modelos posibles:\n1. Tienda curada en Instagram o Facebook Marketplace con fotos de calidad.\n2. Suscripción de \"caja sorpresa\" de ropa por edad/temporada.\n3. Servicio de consignación (vendes la ropa de otras mamás por comisión).\n4. Bazar o venta periódica, local o virtual.",
+    precio: "Piezas individuales: $3-15 según prenda y marca. Caja sorpresa: $20-40 por caja. Comisión de consignación: 20-40% del valor de venta.",
+    cliente: "Mamás conscientes del gasto y del medio ambiente, con hijos que crecen rápido, buscando ropa de calidad a mitad de precio.",
+    ventas: "Fotos con buena luz mostrando el estado real de la prenda (sin filtros engañosos), y ser muy honesta con el estado — la confianza es la moneda de este negocio."
+  },
+  fotografia: {
+    label: "fotografía de producto",
+    problema: "El problema real es que otras emprendedoras saben que las fotos amateur de sus productos no venden, pero no tienen tiempo, equipo o habilidad para tomarlas ellas mismas con buena calidad.",
+    idea: "Modelos posibles:\n1. Servicio de sesión de fotos de producto (a domicilio o en tu espacio).\n2. Curso de fotografía de producto con el celular.\n3. Membresía: sesión mensual con edición incluida.\n4. Preajustes o edición para que ellas mismas mejoren sus propias fotos.",
+    precio: "Sesión de fotos: $30-100 según cantidad de productos. Curso: $25-45. Membresía mensual: $50-150. Preajustes/edición: $10-20.",
+    cliente: "Emprendedoras que venden productos físicos por Instagram o marketplace y necesitan fotos profesionales sin gastar en un fotógrafo de alto costo.",
+    ventas: "Mostrar tu propio portafolio de antes/después de fotos de productos, y ofrecer 1 foto de muestra gratis como prueba de calidad."
+  },
+  videorecuerdos: {
+    label: "video-recuerdos familiares",
+    problema: "El problema real es que las familias acumulan cientos de fotos y videos sueltos de momentos importantes (cumpleaños, bautizos, primeros años) pero nunca tienen tiempo de organizarlos en algo que puedan ver y disfrutar de verdad.",
+    idea: "Modelos posibles:\n1. Servicio de edición de video-recuerdo a partir del material que te envían.\n2. Plantillas de edición para que ellas mismas lo hagan.\n3. Membresía anual: 1 video-recuerdo por trimestre.\n4. Curso de edición básica de videos familiares.",
+    precio: "Video por encargo: $30-80 según duración y complejidad. Plantillas: $10-20. Membresía anual: $80-150. Curso: $25-40.",
+    cliente: "Mamás con hijos pequeños que quieren guardar los recuerdos de forma bonita, pero no tienen tiempo ni habilidad de edición.",
+    ventas: "Mostrar ejemplos reales (con permiso) de videos ya entregados — la emoción genuina en el resultado vende solo."
+  },
+  fitness: {
+    label: "fitness postparto",
+    problema: "El problema real es que su cuerpo cambió, quiere recuperar fuerza y energía, pero no tiene tiempo de ir a un gimnasio, no sabe qué ejercicios son seguros postparto, y le preocupa lastimarse sin supervisión adecuada.",
+    idea: "Modelos posibles:\n1. Rutinas cortas en video (15-20 min, sin equipo).\n2. Programa estructurado de varias semanas.\n3. Membresía mensual con rutinas nuevas y comunidad de apoyo.\n4. Sesiones en vivo grupales por videollamada.\n\nImportante: si no tienes formación certificada en rehabilitación postparto, es más responsable enfocarte en movimiento general de bajo impacto y recomendar que quien tenga diástasis abdominal u otra condición específica consulte a un profesional antes de empezar.",
+    precio: "Programa grabado: $25-50. Membresía: $10-20/mes. Sesiones en vivo grupales: $10-20/sesión o $40-80/mes.",
+    cliente: "Mamás en los primeros 12 meses postparto, con poco tiempo, que buscan movimiento seguro y accesible, no una transformación física extrema.",
+    ventas: "Mostrar rutinas reales tuyas o de clientas (con permiso), enfatizando que son seguras y de bajo impacto — evita promesas de \"recupera tu cuerpo en 2 semanas\", ese tipo de mensaje generalmente daña más de lo que ayuda."
+  },
+  circulos: {
+    label: "círculos de apoyo entre mamás",
+    problema: "El problema real es la soledad de la maternidad — muchas mamás se sienten aisladas, sin espacio para hablar de lo que sienten sin ser juzgadas, y sin una red de apoyo cercana.",
+    idea: "Modelos posibles:\n1. Círculo de conversación semanal o quincenal por videollamada.\n2. Membresía comunitaria con encuentros regulares.\n3. Retiro o encuentro presencial puntual.\n\nImportante: si el círculo se enfoca en bienestar emocional, es responsable aclarar que es un espacio de acompañamiento entre pares, no terapia — y tener claro a quién referir si alguien muestra señales de necesitar apoyo profesional de salud mental.",
+    precio: "Membresía mensual: $10-25/mes. Encuentro puntual: $10-20 por sesión. Retiro presencial: variable según logística.",
+    cliente: "Mamás que se sienten solas o desconectadas, buscando comunidad y validación, no necesariamente terapia.",
+    ventas: "El boca a boca y los testimonios genuinos de participantes son lo que más convierte aquí — la confianza se construye mostrando quién eres tú detrás del espacio."
+  },
+  fiestas: {
+    label: "fiestas infantiles",
+    problema: "El problema real es que organizar una fiesta infantil de principio a fin (tema, decoración, actividades) consume mucho tiempo y genera estrés, y la mamá no sabe por dónde empezar sin gastar de más.",
+    idea: "Modelos posibles:\n1. Kits imprimibles de fiesta (invitaciones, banderines, etiquetas) por tema.\n2. Moodboard o plan de decoración personalizado.\n3. Servicio de organización completa (si es local).\n4. Membresía: temas nuevos de fiesta cada mes.",
+    precio: "Kit imprimible: $10-20. Moodboard/plan: $25-50. Servicio completo: variable según ciudad y magnitud. Membresía: $8-15/mes.",
+    cliente: "Mamás que quieren una fiesta bonita para sus hijos sin gastar en un organizador profesional caro, ni perder días enteros planeando.",
+    ventas: "Mostrar fiestas reales ya montadas con tus kits o planes (fotos del evento real, no solo mockups), y ofrecer 1 elemento gratis del kit como muestra."
+  },
+  copywriting: {
+    label: "copywriting",
+    problema: "El problema real es que otras emprendedoras saben que sus textos de venta no convierten, pero no tienen tiempo ni habilidad de escritura persuasiva para mejorarlos ellas mismas.",
+    idea: "Modelos posibles:\n1. Servicio de redacción por encargo (descripciones, emails, posts).\n2. Plantillas de textos de venta editables.\n3. Curso corto de copywriting básico para emprendedoras.\n4. Membresía: revisión mensual de sus textos.",
+    precio: "Texto por encargo: $15-60 según extensión y tipo. Plantillas: $15-25. Curso: $30-50. Membresía: $40-100/mes.",
+    cliente: "Emprendedoras con productos o servicios que ya tienen tráfico o seguidores pero no logran convertir eso en ventas por cómo están escritos sus textos.",
+    ventas: "Mostrar ejemplos de \"antes y después\" de textos reales (con permiso), y el impacto medible cuando sea posible (ej. \"subió su tasa de respuesta un 30%\")."
+  },
+  podcasts: {
+    label: "edición de podcasts",
+    problema: "El problema real es que grabar un podcast es la parte fácil — editar, limpiar el audio y publicarlo consistentemente es lo que hace que la mayoría de la gente abandone su podcast a las pocas semanas.",
+    idea: "Modelos posibles:\n1. Servicio de edición por episodio.\n2. Paquete mensual (edición + publicación en plataformas).\n3. Curso de edición básica de audio para quien quiere aprender.\n4. Plantillas de intro/outro y elementos de audio reutilizables.",
+    precio: "Edición por episodio: $15-40 según duración. Paquete mensual: $60-200 según cantidad de episodios. Curso: $25-45.",
+    cliente: "Creadores de contenido o emprendedoras que empezaron un podcast pero se sienten abrumadas por la parte técnica de edición y publicación.",
+    ventas: "Ofrecer la edición de 1 episodio de muestra gratis, y mostrar el \"antes/después\" del audio (limpieza de ruido, cortes, etc.)."
   },
   otro: {
     label: "tu emprendimiento"
@@ -831,6 +1060,33 @@ function addCalculator(kind){
         resultDiv.textContent = `Necesitas ${ventas} ventas al mes para cubrir tus costos. A partir de la venta ${ventas + 1}, todo es ganancia real.`;
       }
     });
+
+  } else if(kind === 'valorhora'){
+    card.innerHTML = `
+      <h4>🧮 Calculadora del valor de tu hora</h4>
+      <div class="calc-field"><label>¿Cuánto quieres ganar al mes? ($)</label><input type="number" id="calcIngresoDeseado" min="0" step="10"></div>
+      <div class="calc-field"><label>Horas a la semana para tu negocio</label><input type="number" id="calcHorasSemana" min="0" step="0.5"></div>
+      <div class="calc-field"><label>Semanas que trabajas al mes</label><input type="number" id="calcSemanasMes" min="1" max="5" step="1" value="4"></div>
+      <button class="calc-btn" id="calcBtnValorHora">Calcular el valor de mi hora</button>
+      <div class="calc-result" id="calcResultValorHora"></div>
+    `;
+    chatWindow.appendChild(card);
+    chatWindow.scrollTop = chatWindow.scrollHeight;
+
+    document.getElementById('calcBtnValorHora').addEventListener('click', function(){
+      const ingreso = parseFloat(document.getElementById('calcIngresoDeseado').value) || 0;
+      const horasSemana = parseFloat(document.getElementById('calcHorasSemana').value) || 0;
+      const semanasMes = parseFloat(document.getElementById('calcSemanasMes').value) || 4;
+      const horasMes = horasSemana * semanasMes;
+      const resultDiv = document.getElementById('calcResultValorHora');
+      resultDiv.style.display = 'block';
+      if(ingreso <= 0 || horasMes <= 0){
+        resultDiv.textContent = 'Escribe cuánto quieres ganar y cuántas horas reales tienes disponibles para calcular 💜';
+      } else {
+        const valorHora = ingreso / horasMes;
+        resultDiv.textContent = `El valor de tu hora es: $${valorHora.toFixed(2)}. Úsalo en la calculadora de precio (arriba) para saber cuánto cobrar por cada producto o servicio.`;
+      }
+    });
   }
 }
 
@@ -899,6 +1155,7 @@ function handleUserMessage(text){
         pendingChainReply = null;
         pendingFollowUp = target.followUp ? target.id : null;
         if(target.id === 'creencias') pendingBelief = true;
+        if(target.id === 'meditacion') addMusicButton();
         return;
       }
       if(pendingFollowUp){
@@ -937,6 +1194,7 @@ function handleUserMessage(text){
     const askedDirectly = /calcul/i.test(text) || /ayuda.*costo/i.test(text);
     if(askedDirectly && match.id === 'precio') addCalculator('precio');
     if(askedDirectly && match.id === 'finanzas') addCalculator('equilibrio');
+    if(match.id === 'valorhora') addCalculator('valorhora');
     if(match.id === 'respiracion') addSpeakButton(match.reply);
     if(match.id === 'meditacion') addMusicButton();
   }, 700);
