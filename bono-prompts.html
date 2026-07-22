@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bono: 100 Prompts para Emprendedoras · Mi Plan de Vuelo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream: #FAF5EE;
+    --cream-deep: #F1E9DD;
+    --ink: #3F332E;
+    --ink-soft: #6B5D57;
+    --rose: #C48E93;
+    --rose-deep: #B3767D;
+    --lila: #B7A6D6;
+    --lila-deep: #9C86C4;
+    --olive: #7C8A55;
+    --olive-deep: #67723F;
+    --card: #FFFFFF;
+    --line: #E8DCCB;
+    --radius: 18px;
+  }
+
+  *{ box-sizing: border-box; }
+  html{ scroll-behavior: smooth; }
+  body{
+    margin:0;
+    background: var(--cream);
+    color: var(--ink);
+    font-family: 'Inter', sans-serif;
+    line-height:1.5;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .airplane-mark{ display:inline-block; transform: rotate(-8deg); }
+  .airplane-mark svg{ display:block; }
+
+  header.hero{
+    position:relative;
+    padding: 64px 24px 56px;
+    text-align:center;
+    background:
+      radial-gradient(circle at 15% 20%, rgba(196,142,147,0.16), transparent 45%),
+      radial-gradient(circle at 85% 15%, rgba(183,166,214,0.18), transparent 45%),
+      var(--cream);
+    overflow:hidden;
+  }
+  header.hero::after{
+    content:"";
+    position:absolute;
+    left:0; right:0; bottom:0;
+    height:3px;
+    background: linear-gradient(90deg, var(--rose), var(--lila) 50%, var(--olive));
+    opacity:.55;
+  }
+  .eyebrow{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    font-size:12.5px;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    color: var(--rose-deep);
+    font-weight:600;
+    background: rgba(196,142,147,0.12);
+    padding:7px 16px;
+    border-radius:999px;
+    margin-bottom:22px;
+  }
+  h1.title{
+    font-family:'Fraunces', serif;
+    font-optical-sizing:auto;
+    font-weight:600;
+    font-size: clamp(34px, 5.5vw, 54px);
+    line-height:1.08;
+    margin: 0 0 16px;
+    color: var(--ink);
+  }
+  h1.title em{
+    font-style: italic;
+    color: var(--rose-deep);
+  }
+  p.subtitle{
+    max-width:560px;
+    margin: 0 auto 28px;
+    font-size:16.5px;
+    color: var(--ink-soft);
+  }
+  .howto{
+    max-width:620px;
+    margin: 0 auto;
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 20px 26px;
+    text-align:left;
+    font-size:14.5px;
+    color: var(--ink-soft);
+    box-shadow: 0 10px 30px -18px rgba(63,51,46,0.35);
+  }
+  .howto strong{ color: var(--ink); }
+  .howto code{
+    background: var(--cream-deep);
+    padding: 2px 7px;
+    border-radius:6px;
+    font-family: 'Inter', monospace;
+    font-size:13px;
+    color: var(--rose-deep);
+  }
+
+  nav.jumpbar{
+    position: sticky;
+    top:0;
+    z-index: 20;
+    background: rgba(250,245,238,0.92);
+    backdrop-filter: blur(6px);
+    border-bottom: 1px solid var(--line);
+    padding: 12px 16px;
+    overflow-x:auto;
+    white-space:nowrap;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  nav.jumpbar::-webkit-scrollbar{ display:none; }
+  nav.jumpbar a{
+    display:inline-block;
+    font-size:13px;
+    font-weight:600;
+    color: var(--ink-soft);
+    text-decoration:none;
+    padding:7px 14px;
+    border-radius:999px;
+    margin-right:8px;
+    border:1px solid var(--line);
+    transition: all .2s ease;
+  }
+  nav.jumpbar a:hover{
+    color: var(--card);
+    background: var(--ink);
+    border-color: var(--ink);
+  }
+
+  main{
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 8px 20px 40px;
+  }
+
+  section.category{
+    padding: 46px 0 8px;
+    scroll-margin-top: 70px;
+  }
+  .cat-head{
+    display:flex;
+    align-items:baseline;
+    gap:14px;
+    margin-bottom:22px;
+    flex-wrap:wrap;
+  }
+  .cat-number{
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    font-size:15px;
+    color: var(--card);
+    background: var(--accent, var(--rose-deep));
+    padding: 5px 12px;
+    border-radius:999px;
+  }
+  .cat-head h2{
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    font-size: clamp(22px, 3vw, 28px);
+    margin:0;
+    color: var(--ink);
+  }
+  .cat-tag{
+    font-size:12.5px;
+    color: var(--ink-soft);
+    font-style:italic;
+  }
+
+  .grid{
+    display:grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap:16px;
+  }
+
+  .prompt-card{
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 20px 20px 18px;
+    position:relative;
+    box-shadow: 0 6px 18px -14px rgba(63,51,46,0.4);
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+    transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+  }
+  .prompt-card:hover{
+    transform: translateY(-3px);
+    box-shadow: 0 14px 28px -16px rgba(63,51,46,0.45);
+    border-color: var(--accent, var(--rose));
+  }
+  .prompt-index{
+    font-family:'Fraunces', serif;
+    font-size:26px;
+    font-weight:600;
+    color: var(--accent, var(--rose-deep));
+    opacity:.85;
+    line-height:1;
+  }
+  .prompt-text{
+    font-size:15px;
+    color: var(--ink);
+    flex-grow:1;
+  }
+  .prompt-text b{
+    background: var(--cream-deep);
+    padding: 1px 5px;
+    border-radius:5px;
+    font-weight:600;
+    color: var(--ink);
+  }
+  .copy-btn{
+    align-self:flex-start;
+    display:inline-flex;
+    align-items:center;
+    gap:7px;
+    font-family:'Inter', sans-serif;
+    font-size:12.5px;
+    font-weight:600;
+    letter-spacing:.02em;
+    color: var(--accent, var(--rose-deep));
+    background:none;
+    border: 1.4px solid var(--accent, var(--rose));
+    padding: 7px 14px;
+    border-radius:999px;
+    cursor:pointer;
+    transition: all .15s ease;
+  }
+  .copy-btn:hover{
+    background: var(--accent, var(--rose));
+    color: var(--card);
+  }
+  .copy-btn.copied{
+    background: var(--olive);
+    border-color: var(--olive);
+    color: var(--card);
+  }
+  .copy-btn svg{ width:13px; height:13px; }
+
+  /* category accent colors */
+  #idea .cat-number{ background: var(--rose-deep); }
+  #idea .accent-scope .prompt-index, #idea .accent-scope .copy-btn{ color: var(--rose-deep); border-color: var(--rose); }
+
+  #cliente .cat-number{ background: var(--lila-deep); }
+  #cliente .accent-scope .prompt-index, #cliente .accent-scope .copy-btn{ color: var(--lila-deep); border-color: var(--lila); }
+
+  #contenido .cat-number{ background: var(--olive-deep); }
+  #contenido .accent-scope .prompt-index, #contenido .accent-scope .copy-btn{ color: var(--olive-deep); border-color: var(--olive); }
+
+  #ventas .cat-number{ background: var(--rose-deep); }
+  #ventas .accent-scope .prompt-index, #ventas .accent-scope .copy-btn{ color: var(--rose-deep); border-color: var(--rose); }
+
+  #finanzas .cat-number{ background: var(--lila-deep); }
+  #finanzas .accent-scope .prompt-index, #finanzas .accent-scope .copy-btn{ color: var(--lila-deep); border-color: var(--lila); }
+
+  #productividad .cat-number{ background: var(--olive-deep); }
+  #productividad .accent-scope .prompt-index, #productividad .accent-scope .copy-btn{ color: var(--olive-deep); border-color: var(--olive); }
+
+  #ia .cat-number{ background: var(--rose-deep); }
+  #ia .accent-scope .prompt-index, #ia .accent-scope .copy-btn{ color: var(--rose-deep); border-color: var(--rose); }
+
+  #crecimiento .cat-number{ background: var(--lila-deep); }
+  #crecimiento .accent-scope .prompt-index, #crecimiento .accent-scope .copy-btn{ color: var(--lila-deep); border-color: var(--lila); }
+
+  .finale{
+    margin: 56px 0 20px;
+    background: linear-gradient(135deg, rgba(124,138,85,0.10), rgba(183,166,214,0.10));
+    border: 1.5px solid var(--olive);
+    border-radius: var(--radius);
+    padding: 30px 28px;
+    text-align:center;
+  }
+  .finale .cat-number{ background: var(--olive-deep); margin-bottom:14px; display:inline-block; }
+  .finale h2{
+    font-family:'Fraunces', serif;
+    font-size: clamp(20px, 2.6vw, 26px);
+    margin: 8px 0 14px;
+  }
+  .finale p{ max-width:580px; margin: 0 auto 18px; color: var(--ink-soft); font-size:15px; }
+
+  footer{
+    background: var(--olive-deep);
+    color: #F3F0E4;
+    padding: 34px 20px 28px;
+    text-align:center;
+    margin-top: 20px;
+  }
+  footer .flight{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:10px;
+    margin-bottom:10px;
+  }
+  footer .flight span.dots{
+    width:70px;
+    border-top: 2px dotted rgba(243,240,228,0.55);
+  }
+  footer p{ margin:4px 0; font-size:13.5px; opacity:.9; }
+  footer .brand{
+    font-family:'Fraunces', serif;
+    font-size:17px;
+    font-weight:600;
+    letter-spacing:.02em;
+  }
+
+  @media (max-width: 560px){
+    header.hero{ padding: 48px 18px 40px; }
+    .howto{ padding:16px 18px; }
+    section.category{ padding: 34px 0 6px; }
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="eyebrow">
+    <span class="airplane-mark">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M22 2L11 13M22 2L15 22L11 13M22 2L2 9L11 13" stroke="#B3767D" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </span>
+    Bono · Mi Plan de Vuelo
+  </div>
+  <h1 class="title">100 Prompts para <em>ChatGPT</em><br>Emprendedoras</h1>
+  <p class="subtitle">Tu caja de herramientas de IA para cada etapa del negocio: idea, cliente, ventas, contenido, finanzas y mentalidad.</p>
+  <div class="howto">
+    <strong>Cómo usarlos:</strong> copia el prompt con el botón, reemplaza lo que está entre <code>[ ]</code> con los datos de tu negocio, y pégalo en ChatGPT. Entre más contexto le des, mejores serán los resultados.
+  </div>
+</header>
+
+<nav class="jumpbar">
+  <a href="#idea">💡 Idea</a>
+  <a href="#cliente">🎯 Cliente & Valor</a>
+  <a href="#contenido">📱 Contenido</a>
+  <a href="#ventas">💌 Ventas</a>
+  <a href="#finanzas">💰 Finanzas</a>
+  <a href="#productividad">🕊️ Productividad & Marketing</a>
+  <a href="#ia">🤖 IA y ChatGPT</a>
+  <a href="#crecimiento">🌱 Crecimiento Personal</a>
+</nav>
+
+<main id="main"></main>
+
+<footer>
+  <div class="flight">
+    <span class="dots"></span>
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M22 2L11 13M22 2L15 22L11 13M22 2L2 9L11 13" stroke="#F3F0E4" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <span class="dots"></span>
+  </div>
+  <p class="brand">Mi Plan de Vuelo</p>
+  <p>Tú tienes la idea. Yo te doy el mapa. El vuelo es tuyo.</p>
+</footer>
+
+<script>
+const DATA = [
+  {
+    id: "idea", tag: "Del 1 al 10", title: "Idea de Negocio",
+    prompts: [
+      "Actúa como consultor de negocios y analiza mi idea: [describe tu idea]. Indícame fortalezas, debilidades, oportunidades y riesgos.",
+      "Dame 20 ideas de negocio relacionadas con [tema] que requieran poca inversión.",
+      "¿Cómo puedo validar esta idea antes de invertir dinero?",
+      "Hazme 15 preguntas para saber si mi idea tiene potencial.",
+      "¿Qué problemas reales resuelve mi negocio?",
+      "¿Qué errores cometen quienes empiezan un negocio como el mío?",
+      "¿Qué tendencia de mercado puedo aprovechar en mi sector?",
+      "¿Cómo puedo diferenciarme de la competencia?",
+      "Propón tres modelos de negocio para mi idea.",
+      "¿Qué oportunidades de crecimiento tiene este negocio en los próximos cinco años?"
+    ]
+  },
+  {
+    id: "cliente", tag: "Del 11 al 30", title: "Cliente Ideal & Propuesta de Valor",
+    prompts: [
+      "Crea un Buyer Persona completo para mi negocio.",
+      "¿Cuáles son los principales dolores de mi cliente?",
+      "¿Qué deseos tiene mi cliente ideal?",
+      "¿Qué objeciones tendrá antes de comprar?",
+      "¿Qué preguntas suele hacer antes de decidir?",
+      "¿Qué redes sociales utiliza más?",
+      "¿Qué tipo de contenido consume?",
+      "¿Qué lenguaje debo usar para conectar con él?",
+      "¿Qué emociones debo despertar en mi comunicación?",
+      "Haz una lista de 30 problemas que mi cliente quiere solucionar.",
+      "Ayúdame a crear una propuesta de valor irresistible.",
+      "Explícame por qué alguien debería elegirme a mí y no a mi competencia.",
+      "Resume mi propuesta de valor en una sola frase.",
+      "Crea un eslogan memorable.",
+      "¿Qué beneficios debo comunicar primero?",
+      "Transforma las características de mi producto en beneficios.",
+      "Haz que mi oferta sea más atractiva.",
+      "¿Qué garantías puedo ofrecer?",
+      "¿Cómo aumentar el valor percibido?",
+      "¿Qué bonos puedo incluir para vender más?"
+    ]
+  },
+  {
+    id: "contenido", tag: "Del 31 al 40", title: "Contenido para Redes Sociales",
+    prompts: [
+      "Dame 30 ideas de publicaciones.",
+      "Escribe un calendario de contenido para un mes.",
+      "Genera un guion para un Reel de 30 segundos.",
+      "Escribe un carrusel educativo.",
+      "Crea un post que genere comentarios.",
+      "Escribe una historia inspiradora.",
+      "Haz una publicación para vender sin parecer insistente.",
+      "Dame 20 llamados a la acción.",
+      "Genera 10 ganchos para captar atención.",
+      "Escribe una publicación usando storytelling."
+    ]
+  },
+  {
+    id: "ventas", tag: "Del 41 al 50", title: "Ventas",
+    prompts: [
+      "Ayúdame a vender mi producto sin sonar agresiva.",
+      "Escribe una oferta irresistible.",
+      "¿Qué argumentos debo usar para cerrar ventas?",
+      "¿Cómo responder cuando dicen \"está muy caro\"?",
+      "¿Cómo responder cuando dicen \"lo voy a pensar\"?",
+      "Haz un guion para responder mensajes de clientes.",
+      "Escribe un seguimiento amable para un cliente.",
+      "Genera una página de ventas.",
+      "Crea una secuencia de cinco mensajes de WhatsApp.",
+      "Diseña un embudo de ventas sencillo."
+    ]
+  },
+  {
+    id: "finanzas", tag: "Del 51 al 60", title: "Finanzas",
+    prompts: [
+      "Ayúdame a calcular el precio de mi producto.",
+      "¿Cómo saber si estoy ganando dinero?",
+      "¿Qué gastos debo controlar?",
+      "Haz una proyección de ventas sencilla.",
+      "Explícame el punto de equilibrio.",
+      "¿Cómo calcular mi utilidad?",
+      "¿Qué indicadores debo revisar cada mes?",
+      "Ayúdame a hacer un presupuesto.",
+      "¿Cómo organizar el flujo de caja?",
+      "¿Qué errores financieros debo evitar?"
+    ]
+  },
+  {
+    id: "productividad", tag: "Del 61 al 80", title: "Productividad & Marketing",
+    prompts: [
+      "Haz un plan semanal para emprender teniendo hijos.",
+      "Organiza mi día para aprovechar mejor el tiempo.",
+      "¿Qué tareas debo automatizar?",
+      "Ayúdame a priorizar mis actividades.",
+      "¿Cómo dejar de procrastinar?",
+      "Diseña una rutina productiva.",
+      "¿Qué aplicaciones me ayudarán a organizarme?",
+      "Haz un plan de trabajo de 30 días.",
+      "¿Cómo equilibrar emprendimiento y familia?",
+      "¿Qué hábitos tienen las emprendedoras exitosas?",
+      "Diseña un plan de marketing de 90 días.",
+      "¿Qué estrategia gratuita puedo implementar?",
+      "¿Cómo conseguir mis primeros clientes?",
+      "¿Qué alianzas estratégicas puedo crear?",
+      "¿Qué contenido genera más confianza?",
+      "Haz un plan para crecer en Instagram.",
+      "¿Cómo aumentar las recomendaciones?",
+      "¿Cómo conseguir testimonios?",
+      "Diseña una campaña de lanzamiento.",
+      "¿Qué métricas debo medir?"
+    ]
+  },
+  {
+    id: "ia", tag: "Del 81 al 90", title: "IA y ChatGPT",
+    prompts: [
+      "¿Cómo puedo usar ChatGPT todos los días en mi negocio?",
+      "Dame una lista de tareas que puedo automatizar con IA.",
+      "Genera ideas de contenido durante un año.",
+      "Ayúdame a escribir un correo para clientes.",
+      "Escribe respuestas frecuentes para WhatsApp.",
+      "Resume este documento: [pega el texto].",
+      "Convierte este texto en una publicación para Instagram.",
+      "Mejora este mensaje para que sea más persuasivo.",
+      "Genera cinco versiones diferentes del mismo anuncio.",
+      "Crea un plan de trabajo usando inteligencia artificial."
+    ]
+  },
+  {
+    id: "crecimiento", tag: "Del 91 al 99", title: "Crecimiento Personal",
+    prompts: [
+      "¿Qué habilidades debo desarrollar como emprendedora?",
+      "¿Cómo fortalecer mi confianza?",
+      "Ayúdame a cambiar creencias limitantes sobre el dinero.",
+      "¿Qué libros debo leer este año?",
+      "Diseña un plan para mejorar mi liderazgo.",
+      "¿Cómo manejar el miedo a vender?",
+      "¿Qué hábitos diarios fortalecen la disciplina?",
+      "Hazme preguntas para descubrir mis fortalezas.",
+      "Ayúdame a definir mis metas para los próximos 12 meses."
+    ]
+  }
+];
+
+const FINAL_PROMPT = "Con toda la información que tienes sobre mi negocio, crea un plan de acción detallado para los próximos 90 días con prioridades, objetivos semanales, indicadores de seguimiento y recomendaciones prácticas para aumentar mis ventas.";
+
+function escapeHtml(str){
+  return str.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");
+}
+
+function highlightBrackets(str){
+  return escapeHtml(str).replace(/\[([^\]]+)\]/g, "<b>[$1]</b>");
+}
+
+const copyIcon = `<svg viewBox="0 0 24 24" fill="none"><rect x="9" y="9" width="11" height="11" rx="2" stroke="currentColor" stroke-width="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10" stroke="currentColor" stroke-width="2"/></svg>`;
+const checkIcon = `<svg viewBox="0 0 24 24" fill="none"><path d="M4 12l5 5L20 6" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
+
+let globalCount = 0;
+const main = document.getElementById('main');
+
+DATA.forEach(cat => {
+  const section = document.createElement('section');
+  section.className = 'category';
+  section.id = cat.id;
+
+  const head = document.createElement('div');
+  head.className = 'cat-head';
+  head.innerHTML = `<span class="cat-number">${cat.tag}</span><h2>${cat.title}</h2>`;
+  section.appendChild(head);
+
+  const grid = document.createElement('div');
+  grid.className = 'grid accent-scope';
+
+  cat.prompts.forEach(p => {
+    globalCount++;
+    const num = globalCount;
+    const card = document.createElement('div');
+    card.className = 'prompt-card';
+    card.innerHTML = `
+      <div class="prompt-index">${String(num).padStart(2,'0')}</div>
+      <div class="prompt-text">${highlightBrackets(p)}</div>
+      <button class="copy-btn" data-text="${escapeHtml(p).replace(/"/g,'&quot;')}">
+        <span class="icon">${copyIcon}</span><span class="label">Copiar prompt</span>
+      </button>
+    `;
+    grid.appendChild(card);
+  });
+
+  section.appendChild(grid);
+  main.appendChild(section);
+});
+
+// Prompt 100 final
+const finale = document.createElement('div');
+finale.className = 'finale';
+finale.innerHTML = `
+  <span class="cat-number">100</span>
+  <h2>Tu plan de acción completo</h2>
+  <p>${escapeHtml(FINAL_PROMPT)}</p>
+  <button class="copy-btn" data-text="${escapeHtml(FINAL_PROMPT).replace(/"/g,'&quot;')}" style="color:#67723F;border-color:#7C8A55;">
+    <span class="icon">${copyIcon}</span><span class="label">Copiar prompt</span>
+  </button>
+`;
+main.appendChild(finale);
+
+// Copy behavior
+document.addEventListener('click', (e) => {
+  const btn = e.target.closest('.copy-btn');
+  if(!btn) return;
+  const text = btn.getAttribute('data-text');
+  navigator.clipboard.writeText(text).then(() => {
+    const label = btn.querySelector('.label');
+    const icon = btn.querySelector('.icon');
+    const prevLabel = label.textContent;
+    const prevIcon = icon.innerHTML;
+    btn.classList.add('copied');
+    label.textContent = 'Copiado';
+    icon.innerHTML = checkIcon;
+    setTimeout(() => {
+      btn.classList.remove('copied');
+      label.textContent = prevLabel;
+      icon.innerHTML = prevIcon;
+    }, 1600);
+  }).catch(() => {
+    alert('Selecciona y copia el texto manualmente: \n\n' + text);
+  });
+});
+</script>
+
+</body>
+</html>
