@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Asistente Mi Plan de Vuelo</title>
+<title>Sofía · Mi Plan de Vuelo</title>
 <style>
   :root{
     --lila:#9B7EBD;
@@ -38,13 +38,12 @@
     font-weight:bold;
     margin-bottom:18px;
   }
-  .avatar{
-    width:64px;height:64px;border-radius:50%;
-    background:var(--lila);
-    color:white;
-    display:flex;align-items:center;justify-content:center;
-    font-size:26px;font-weight:bold;
-    margin:0 auto 14px;
+  .sofia-hero{
+    display:block;
+    max-width:190px;
+    width:55%;
+    height:auto;
+    margin:0 auto 4px;
   }
   h1{
     text-align:center;
@@ -233,17 +232,12 @@
 <body>
 <div class="app">
   <div class="eyebrow">KIT DIGITAL &middot; EMPRENDE DESDE CASA</div>
-  <div class="avatar">
-    <svg width="30" height="30" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M21.5 2.5L2.5 10.8C2.1 11 2.1 11.6 2.5 11.8L10 15L13.2 21.6C13.4 22 14 22 14.2 21.6L21.9 3.1C22.1 2.7 21.8 2.3 21.5 2.5Z" fill="white" stroke="white" stroke-width="0.6" stroke-linejoin="round"/>
-      <path d="M10 15L13 12L21.5 2.5" stroke="#9B7EBD" stroke-width="0.7" stroke-linecap="round" stroke-linejoin="round"/>
-    </svg>
-  </div>
-  <h1>Asistente Mi Plan de Vuelo</h1>
-  <div class="subtitle">Tu acompañante para estructurar tu negocio, disponible 24/7</div>
+  <img src="sofia.png" alt="Sofía" class="sofia-hero">
+  <h1>Sofía</h1>
+  <div class="subtitle">Tu compañera para estructurar tu negocio, disponible 24/7</div>
 
   <div class="chat-window" id="chatWindow">
-    <div class="bubble bot">¡Hola! Soy el Asistente de Mi Plan de Vuelo 💜 Estoy aquí para ayudarte con tu idea de negocio, tus precios, tu cliente ideal o lo que necesites para dar el siguiente paso. ¿Por dónde empezamos?</div>
+    <div class="bubble bot">¡Hola! Soy Sofía 💜 Estoy aquí para ayudarte con tu idea de negocio, tus precios, tu cliente ideal o lo que necesites para dar el siguiente paso. ¿Por dónde empezamos?</div>
   </div>
 
   <div class="quick-replies" id="quickReplies"></div>
@@ -252,7 +246,7 @@
     <input type="text" id="textInput" placeholder="Escribe tu pregunta aquí..." />
     <button id="sendBtn" aria-label="Enviar">&#10148;</button>
   </div>
-  <div class="footnote">Asistente entrenado con la metodología de Mi Plan de Vuelo</div>
+  <div class="footnote">Sofía · entrenada con la metodología de Mi Plan de Vuelo</div>
 </div>
 
 <script>
@@ -309,10 +303,31 @@ const responses = [
     followUp: "Aquí va el ejercicio de 15 minutos 💜\n\n1. Escribe 10 nombres posibles, sin filtrar nada todavía (permítete opciones malas, es parte del proceso).\n2. Tacha los que no se pronuncian fácil o son difíciles de escribir de oído.\n3. De los que quedan, revisa en Instagram/redes si el usuario está disponible (o muy parecido).\n4. Con tus 3 finalistas, pregúntale a 2-3 personas de confianza: \"¿cuál te gusta más y por qué?\" — a veces otra persona nota algo que tú no ves.\n5. Elige y avanza. No busques el nombre perfecto, busca uno que te guste lo suficiente para lanzar esta semana.\n\nUn recordatorio importante: el nombre no es lo que hace exitoso a un negocio — lo que entregas sí. Puedes cambiar de nombre más adelante si de verdad lo necesitas (no es ideal, pero tampoco es el fin del mundo). No dejes que esta decisión sea la razón por la que no lanzas."
   },
   {
+    id: 'liderazgo',
+    keys: ['habilidades gerenciales','como ser mejor lider','cómo ser mejor líder','liderazgo','como tomar decisiones','cómo tomar decisiones','como resolver conflictos','cómo resolver conflictos','como motivar','cómo motivar','habilidades de gerente','ser buena jefa'],
+    reply: "No necesitas un título de gerente para necesitar estas habilidades — las usas aunque tu \"equipo\" seas solo tú misma, o cuando empieces a tener a alguien ayudándote 💜\n\n6 habilidades que marcan la diferencia:\n\n1. 🗣️ Comunicación: decir claro qué necesitas y escuchar de verdad — a tus clientas, a quien te ayude, a ti misma.\n\n2. ⚖️ Toma de decisiones: reconoce el problema → mira tus opciones → elige → ponla en práctica → revisa qué pasó. Así, sin darle tantas vueltas en la cabeza.\n\n3. 🤝 Resolución de conflictos: define qué está pasando → busca la causa → decide qué quieres lograr → piensa opciones → elige la mejor → actúa → evalúa. 7 pasos, pero se hacen rápido con práctica.\n\n4. 🔄 Actitud frente al cambio: cuando algo no sale como esperabas, pregúntate qué puedes ajustar, no si debes rendirte.\n\n5. 💪 Motivación (tuya y de quien te ayude): reconoce los avances, aunque sean pequeños. El salario emocional (sentirse valorada) sostiene tanto como el dinero.\n\n6. 👥 Trabajo en equipo (si tienes a alguien ayudándote): las 5 C — cada quien aporta su parte, se organizan, se comunican, confían entre ustedes, y se comprometen.\n\nNo necesitas dominarlas todas de una vez. Elige la que más te esté costando ahora mismo."
+  },
+  {
+    id: 'planeacion',
+    keys: ['planeacion estrategica','planeación estratégica','como planeo mi negocio','cómo planeo mi negocio','plan estrategico','plan estratégico','hacia donde va mi negocio','hacia dónde va mi negocio'],
+    reply: "Esto es planear tu negocio con más estructura, para cuando quieras ir un paso más allá del plan de 30 días 💜 Es básicamente ordenar por escrito hacia dónde vas y cómo llegar.\n\nLos pasos, y dónde ya los tienes cubiertos en tu kit:\n\n1. Diagnóstico: mirar tu situación actual — lo haces en el Módulo 4 (validación).\n2. Historia: por qué empezaste — Módulo 0.\n3. Misión y visión: para qué haces esto y a dónde quieres llegar — Módulo 1 (propósito).\n4. Objetivos: qué quieres lograr, en la fórmula verbo + qué + cómo (ej. \"Conseguir 10 clientas nuevas en 2 meses\").\n5. Estrategias: cómo lo vas a lograr — tu Módulo 6 (negocio en una página) ya es esto.\n6. Acciones: pasos concretos — tu plan de 30 días.\n7. Indicadores: cómo mides si funciona — tu Módulo 10 (seguimiento semanal).\n\nSi más adelante tu negocio crece y quieres formalizarlo más, existe una herramienta llamada **análisis FODA/CAME**: miras tus Fortalezas, Oportunidades, Debilidades y Amenazas, y luego decides si necesitas mantener, corregir, afrontar o explotar cada una. Es un ejercicio de una sola hoja, útil cuando ya tengas varias clientas y quieras crecer con más intención.\n\nPor ahora, con lo que ya tienes en el kit cubres los pasos esenciales — esto es para cuando quieras ir más a fondo."
+  },
+  {
+    id: 'creatividad',
+    keys: ['creatividad','como ser mas creativa','cómo ser más creativa','como innovar mas','cómo innovar más','scamper','bloqueos de creatividad','no soy creativa','falta de ideas creativas'],
+    reply: "Primero, algo importante: todas las personas son creativas — es la facultad más común que tenemos los seres humanos, no un don de unas pocas 💜 Si sientes que no lo eres, probablemente es por alguna de estas 5 barreras:\n\n1. Miedo a equivocarte (te frena antes de intentar).\n2. Mala imagen de ti misma (\"no se me ocurren buenas ideas\").\n3. Usar siempre la misma solución para todo.\n4. Ser muy crítica con tus propias ideas antes de probarlas.\n5. Seguir la rutina sin ver el problema desde otro ángulo.\n\nLa buena noticia: la creatividad es como un músculo, se entrena. Y no necesitas inventar algo 100% nuevo — casi toda innovación es una combinación o ajuste de algo que ya existe.\n\n¿Quieres que hagamos juntas el ejercicio SCAMPER para tu propio producto o servicio? Es una técnica de 7 preguntas que te ayuda a ver tu idea desde ángulos que normalmente no considerarías.",
+    followUp: "Aquí está el SCAMPER, aplícalo a tu propio producto o servicio, respondiendo cada pregunta con lo primero que se te ocurra (no lo pienses de más, luego filtras):\n\n1. 🔄 Sustituir: ¿qué parte de tu producto/servicio podrías cambiar por otra cosa?\n2. 🧩 Combinar: ¿con qué otra idea, producto o servicio lo podrías combinar?\n3. 🔧 Adaptar: ¿qué le podrías copiar o adaptar de otro negocio que admires?\n4. ✏️ Modificar: ¿qué pasaría si lo hicieras más grande, más pequeño, más rápido o más simple?\n5. 🎁 Otros usos: ¿de qué otra forma podría usarse lo que ofreces, además de para lo que ya lo usan?\n6. ✂️ Eliminar: ¿qué parte podrías quitarle para simplificarlo o bajar el costo?\n7. 🔀 Reordenar: ¿qué pasaría si cambiaras el orden de cómo lo entregas o lo vendes?\n\nNo necesitas responder las 7 en un solo día. Con que una sola pregunta te genere una idea nueva, ya valió la pena el ejercicio. Recuerda: todas las ideas son válidas en esta etapa, incluso las que suenan raras — a veces esas son la semilla de la mejor idea."
+  },
+  {
     id: 'innovacion',
     keys: ['innovacion','innovación','valor agregado','como diferenciarme','cómo diferenciarme','como innovar','cómo innovar','que me hace diferente','qué me hace diferente','como me destaco','cómo me destaco','ser diferente a la competencia'],
     reply: "Aclaremos algo primero: innovar no significa inventar algo que no existe 💜 Para un negocio como el tuyo, el valor agregado casi siempre está en CÓMO entregas lo que ya sabes hacer, no en inventar de cero.\n\n7 formas concretas de agregar valor sin gastar más:\n\n1. 🤝 Servicio: respuesta rápida, garantía de satisfacción, soporte directo por WhatsApp después de la compra.\n\n2. 🎁 Experiencia: un mensaje de bienvenida especial, un bono sorpresa, un empaque bonito (aunque sea digital, como un PDF de bienvenida bien diseñado).\n\n3. 🧩 Formato: combinar formatos que la competencia no combina — ej. tu PDF + un audio de 5 min explicando lo mismo, para quien prefiere escuchar en vez de leer.\n\n4. 🔄 Contenido vivo: actualizaciones gratuitas para quien ya compró, en vez de dejar el producto \"congelado\" para siempre.\n\n5. 💳 Accesibilidad: un plan de pago en 2 partes, o una versión de entrada más económica, para quien no puede pagar el precio completo de una vez.\n\n6. 📖 Tu historia: nadie más tiene tu historia, tu forma de hablar, tu manera de explicar las cosas. Eso no se copia, aunque copien tu producto.\n\n7. 🤝 Alianzas: unirte con otra emprendedora de tu mismo público (no competencia directa) para ofrecer un combo o recomendarse mutuamente.\n\nNo necesitas hacer las 7 — con 1 o 2 bien ejecutadas ya te diferencias de la mayoría, que no hace ninguna.\n\n¿Quieres 3 preguntas para encontrar TU valor agregado específico?",
     followUp: "Aquí están 💜 Respóndelas con calma, no hay prisa:\n\n1. ¿Qué haces tú (en tu forma de explicar, de acompañar, de entregar) que tus competidoras no hacen o no muestran?\n\n2. ¿Qué queja repetida has visto o escuchado sobre productos parecidos al tuyo? (\"no responden\", \"el PDF es aburrido\", \"no hay soporte después de comprar\"...) Ahí hay una oportunidad clara para ti.\n\n3. ¿Qué parte de tu proceso podrías convertir en algo memorable, sin que te cueste más dinero? (un mensaje de voz personalizado, una plantilla bonita, un nombre creativo para tus módulos).\n\nEjemplo de Sofía: no inventó una técnica nueva de menús — su valor agregado fue adaptar cada menú a las alergias e ir preguntando activamente cómo les fue a sus hijas con cada receta. Eso, más que cualquier característica del producto, fue lo que hizo que la recomendaran.\n\nCuando tengas tus 3 respuestas, ya tienes tu diferencial real — no inventado, sino basado en lo que ya haces bien."
+  },
+  {
+    id: 'vertodos',
+    keys: ['que mas puedo preguntarte','qué más puedo preguntarte','ver todos los temas','que temas hay','qué temas hay','todos los temas','menu de temas','menú de temas','de que puedes hablar','de qué puedes hablar','en que me puedes ayudar','en qué me puedes ayudar'],
+    reply: "Puedo ayudarte con esto 💜\n\n💡 Tu idea y validación — no sé qué idea tener, cómo valido mi idea, qué problema resuelvo\n\n💳 Precio y finanzas — cómo pongo mi precio, calculadora de mi hora de trabajo, finanzas básicas\n\n🎯 Cliente y mercado — mi cliente ideal, ¿hay mucha competencia?\n\n💗 Miedo y creencias — tengo miedo de lanzar, creencias limitantes\n\n🛍️ Ventas y fidelización — mis primeras ventas, fidelizar clientas\n\n🌐 Vender online — cómo vender online, cómo cobrar, cómo poner nombre a mi negocio, Instagram Business\n\n🚀 Crecer — innovación y valor agregado, planeación estratégica\n\n🎨 Creatividad — ejercicios como el SCAMPER\n\n🧘 Bienestar — necesito una pausa\n\nElige cualquiera de los botones de abajo, o escríbeme con tus propias palabras y te entiendo igual."
   },
   {
     id: 'plataformas',
@@ -489,6 +504,7 @@ const fallback = "Cuéntame un poco más 💜 Puedo ayudarte con: tu idea de neg
 
 const defaultPills = [
   { label: "📍 Mi emprendimiento es...", msg: "__askniche__" },
+  { label: "¿Qué más puedo preguntarte?", msg: "¿Qué más puedo preguntarte?" },
   { label: "No sé qué idea tener", msg: "No sé qué idea tener" },
   { label: "¿Qué problema resuelvo?", msg: "¿Qué problema resuelvo?" },
   { label: "¿Cómo valido mi idea?", msg: "¿Cómo valido mi idea?" },
@@ -503,6 +519,8 @@ const defaultPills = [
   { label: "Fidelizar clientas", msg: "hacer sentir acompañada a mi clienta" },
   { label: "¿Hay mucha competencia?", msg: "¿Hay mucha competencia?" },
   { label: "Innovación y valor agregado", msg: "innovación y valor agregado" },
+  { label: "Planeación estratégica", msg: "planeación estratégica" },
+  { label: "Creatividad e innovación", msg: "creatividad" },
   { label: "Finanzas básicas", msg: "Finanzas básicas" },
   { label: "Necesito una pausa", msg: "Necesito una pausa" },
 ]; 
@@ -577,7 +595,10 @@ const nicheData = {
     idea: "El mercado de comida y nutrición es más grande que solo un PDF de recetas. Modelos posibles usando tu misma estructura del kit:\n\n1. Producto digital simple: recetario o plan de menús en PDF.\n2. Membresía mensual: menús nuevos cada mes + comunidad de mamás, pago recurrente en vez de venta única.\n3. Curso online estructurado: \"Batch cooking para mamás ocupadas\" en video, con módulos.\n4. Servicio 1 a 1: asesoría nutricional personalizada por videollamada.\n5. Producto físico/ecommerce: comida congelada, meal kits, o productos complementarios (moldes, loncheras) por catálogo.\n6. Comunidad de pago: reto mensual de meal prep con acompañamiento grupal.\n7. Formación de formadoras: enseñar tu método a otras mamás que quieran ofrecer lo mismo en su ciudad.\n\nNo necesitas elegir todos — empieza con 1, valida, y cuando tengas clientas reales, puedes sumar una membresía o comunidad como segundo ingreso sin crear un producto nuevo desde cero.",
     precio: "Producto digital: $10-40. Membresía mensual: $8-20/mes recurrente. Curso estructurado: $40-90. Sesiones 1 a 1: $15-30 c/u o $80-150 el paquete mensual. Producto físico: por porción o combo, cubriendo ingredientes + empaque + tiempo (varía mucho por país). Formación de formadoras: $150-400 por ser un programa más completo.",
     cliente: "Ejemplo de cliente ideal: mamás con hijos entre 2 y 10 años, que trabajan o tienen poco tiempo, y sienten culpa o estrés por no saber qué cocinar cada día.",
-    ventas: "Lo que mejor convierte en tu nicho: mostrar el plato terminado en foto/video, regalar 1 receta gratis como anzuelo, y compartir el \"antes\" (la mamá agobiada sin saber qué cocinar) junto al \"después\" (la semana ya resuelta)."
+    ventas: "Lo que mejor convierte en tu nicho: mostrar el plato terminado en foto/video, regalar 1 receta gratis como anzuelo, y compartir el \"antes\" (la mamá agobiada sin saber qué cocinar) junto al \"después\" (la semana ya resuelta).",
+    liderazgo: "Aquí el liderazgo se ve en cómo organizas tu propio proceso (comprar, cocinar, entregar) — si más adelante tienes ayuda en la cocina, la clave es dar instrucciones claras sobre higiene y tiempos.",
+    acompanamiento: "Pregunta activamente cómo les fue con cada receta o menú — ese seguimiento es lo que más fideliza en este nicho, más que cualquier descuento.",
+    innovacion: "Tu valor agregado más fácil de aplicar: adaptar menús a alergias o preferencias específicas, algo que un recetario genérico nunca hace."
   },
   manualidades: {
     label: "manualidades y artesanías",
@@ -585,7 +606,10 @@ const nicheData = {
     idea: "El mercado de manualidades da para más que un curso suelto. Modelos posibles:\n\n1. Curso digital de una técnica específica (PDF o video).\n2. Membresía mensual: \"proyecto nuevo cada mes\" con patrón + video tutorial + comunidad de compañeras.\n3. Kits físicos con materiales incluidos, vendidos por ecommerce.\n4. Piezas terminadas por encargo o catálogo (Instagram Shop, Etsy, Mercado Libre).\n5. Piezas personalizadas para eventos (bodas, baby showers, cumpleaños) — precio más alto por ser a la medida.\n6. Certificación: formar a otras mujeres para que enseñen tu técnica (multiplicas tu conocimiento sin hacer tú todas las piezas).\n7. Marca propia al por mayor: vender tus piezas a tiendas locales o boutiques.\n\nCada modelo tiene un techo distinto de tiempo: los primeros 2 escalan sin límite de tus manos; del 3 al 5 tu tiempo de producción es el límite; el 6 y 7 multiplican tu conocimiento a través de otras personas.",
     precio: "Enseñar (curso/membresía): $15-25 curso corto, $10-20/mes membresía, $30-40 con kit incluido. Vender piezas: $15-60 por pieza según complejidad (sin contar envío). Piezas personalizadas para eventos: usualmente 30-50% más que una pieza estándar. Certificación para formar instructoras: $100-300.",
     cliente: "Si enseñas: mamás que buscan un hobby rentable o aprender una técnica puntual. Si vendes piezas: personas que buscan un regalo especial o una pieza única, valorando lo hecho a mano sobre lo producido en masa.",
-    ventas: "Si enseñas: mostrar el proceso completo en video y ofrecer un mini-tutorial gratis. Si vendes piezas: fotos de buena luz mostrando detalles y escala real, video corto del proceso (genera más confianza que la foto sola), y reseñas visibles de compradoras."
+    ventas: "Si enseñas: mostrar el proceso completo en video y ofrecer un mini-tutorial gratis. Si vendes piezas: fotos de buena luz mostrando detalles y escala real, video corto del proceso (genera más confianza que la foto sola), y reseñas visibles de compradoras.",
+    liderazgo: "Si empiezas a recibir pedidos grandes, la clave es organizar tu tiempo de producción — calcula cuánto te toma cada pieza antes de prometer fechas de entrega.",
+    acompanamiento: "Envía una foto o video de cómo va tu pedido antes de entregarlo — genera muchísima confianza en un producto hecho a mano.",
+    innovacion: "Ofrece una pequeña personalización (color, iniciales) sin cobrar extra al principio — un diferencial que cuesta poco y se nota mucho."
   },
   coaching: {
     label: "coaching y consultoría",
@@ -593,7 +617,10 @@ const nicheData = {
     idea: "El mercado de coaching da para mucho más que sesiones sueltas. Modelos posibles:\n\n1. Programa corto de 21-30 días con un resultado específico y medible.\n2. Membresía mensual: contenido + comunidad + 1 sesión grupal en vivo al mes.\n3. Mentoría 1 a 1 de mayor precio, para quien quiere acompañamiento más cercano.\n4. Taller o evento en vivo (online o presencial), como puerta de entrada a tu programa completo.\n5. Ebook o mini-guía gratuita como lead magnet, que lleva a tu programa premium.\n6. Comunidad de pago con accountability entre pares (no depende 100% de ti para funcionar).\n7. Certificación de tu método: formar a otras coaches que repliquen tu forma de trabajar.\n\nUna estrategia común: empiezas con el programa corto (más fácil de vender), y cuando tienes varias clientas satisfechas, lanzas la membresía o la mentoría como escalón siguiente para quien quiere más.",
     precio: "Programa corto: $80-250. Membresía: $20-50/mes. Mentoría 1 a 1: desde $300. Taller/evento en vivo: $15-40 por persona. Certificación de tu método: $300-800 (es tu producto de mayor valor).",
     cliente: "Ejemplo de cliente ideal: personas con un problema puntual y urgente que quieren resolver ahora (no un deseo vago de \"mejorar su vida en general\").",
-    ventas: "Lo que mejor convierte en tu nicho: contar tu propia historia de transformación, mostrar resultados medibles de clientas anteriores (con permiso), y ofrecer una sesión de diagnóstico corta y gratuita como primer contacto."
+    ventas: "Lo que mejor convierte en tu nicho: contar tu propia historia de transformación, mostrar resultados medibles de clientas anteriores (con permiso), y ofrecer una sesión de diagnóstico corta y gratuita como primer contacto.",
+    liderazgo: "Tu liderazgo se ve en sostener límites claros con tus clientas (horarios, alcance de las sesiones) sin sentirte culpable — eso también es liderar bien tu negocio.",
+    acompanamiento: "Un mensaje de seguimiento entre sesiones (no solo el día de la sesión) es lo que más valoran las clientas de coaching.",
+    innovacion: "Grábate una sesión de \"preguntas frecuentes\" en audio o video que puedas reutilizar con cada clienta nueva — ahorra tiempo y se siente personalizado."
   },
   contenido: {
     label: "contenido digital y redes sociales",
@@ -601,7 +628,10 @@ const nicheData = {
     idea: "El mercado de contenido digital da para más que vender un kit de plantillas suelto. Modelos posibles:\n\n1. Kit de plantillas editables (pago único).\n2. Membresía mensual: plantillas y contenido nuevo cada mes, pago recurrente.\n3. Curso corto de un formato específico (ej. solo reels con el celular).\n4. Servicio \"hecho para ti\": gestionas las redes de otras emprendedoras a cambio de una tarifa mensual.\n5. Comunidad/membresía con feedback: revisas el contenido de tus clientas y les das retroalimentación.\n6. Certificación como \"gestora de contenido\": formas a otras para que ofrezcan el mismo servicio.\n7. Licencia de tus plantillas a otras creadoras para que las revendan (marca blanca).\n\nEl servicio \"hecho para ti\" (punto 4) suele generar el ingreso más estable mes a mes, aunque consume más de tu tiempo que vender plantillas.",
     precio: "Kit de plantillas: $15-25. Membresía: $10-25/mes. Curso corto: $30-45. Servicio hecho para ti: $80-300/mes por clienta según qué incluya. Certificación: $150-400. Licencia white-label: variable, según volumen.",
     cliente: "Ejemplo de cliente ideal: emprendedoras que ya tienen un negocio pero no tienen tiempo ni ganas de crear contenido desde cero cada semana.",
-    ventas: "Lo que mejor convierte en tu nicho: mostrar resultados propios reales (aunque sean pequeños, como \"pasé de 0 a 50 seguidores en un mes\"), no prometer \"hacerte viral\", y regalar 1 plantilla gratis como muestra de calidad."
+    ventas: "Lo que mejor convierte en tu nicho: mostrar resultados propios reales (aunque sean pequeños, como \"pasé de 0 a 50 seguidores en un mes\"), no prometer \"hacerte viral\", y regalar 1 plantilla gratis como muestra de calidad.",
+    liderazgo: "Si trabajas con otras creadoras o clientas de gestión de redes, la clave es dar retroalimentación clara sobre lo que sí y no funciona, sin que se sienta como un regaño.",
+    acompanamiento: "Revisa cómo les fue con el contenido que les diste (likes, comentarios, ventas) — mostrar interés real en sus resultados fideliza más que solo entregar el archivo.",
+    innovacion: "Agrega un mini-video explicando cómo usar tus plantillas — pocas lo hacen, y elimina la fricción de \"no sé ni por dónde empezar\"."
   },
   diseno: {
     label: "diseño gráfico y digital",
@@ -609,7 +639,10 @@ const nicheData = {
     idea: "El mercado de diseño da para más que vender plantillas sueltas. Modelos posibles:\n\n1. Plantillas editables (invitaciones, papelería, redes) de pago único.\n2. Mini-kits de branding para emprendedoras (logo + colores + fuentes).\n3. Servicio de diseño a medida (freelance), de mayor precio que las plantillas.\n4. Membresía mensual: plantillas nuevas cada mes para un tipo de negocio específico.\n5. Curso de Canva para quien no sabe diseñar pero quiere aprender lo básico.\n6. Certificación/formación a otras que quieran ofrecer lo mismo.\n7. Marca de productos físicos con tu diseño (papelería impresa, stickers) por ecommerce.\n8. Licencia white-label de tus plantillas para que otras las revendan con su marca.\n\nMuchas diseñadoras combinan plantillas (ingreso pasivo, escalable) con diseño a medida (ingreso más alto por proyecto, pero limitado por tu tiempo).",
     precio: "Plantilla/logo simple: $10-20. Kit de branding: $30-60. Diseño a medida: $80-300+ según el proyecto. Membresía: $10-20/mes. Curso de Canva: $25-40. Certificación: $150-350.",
     cliente: "Ejemplo de cliente ideal: otras emprendedoras o mamás que necesitan verse profesionales (invitaciones, logo, redes) pero no tienen presupuesto para un diseñador a la medida.",
-    ventas: "Lo que mejor convierte en tu nicho: mostrar tu portafolio con ejemplos reales de antes/después, ofrecer plantillas ya armadas como \"entrada\" antes de vender diseño personalizado, y dejar que tus clientas compartan cómo usaron tu diseño."
+    ventas: "Lo que mejor convierte en tu nicho: mostrar tu portafolio con ejemplos reales de antes/después, ofrecer plantillas ya armadas como \"entrada\" antes de vender diseño personalizado, y dejar que tus clientas compartan cómo usaron tu diseño.",
+    liderazgo: "La clave aquí es saber decir que no a cambios infinitos de un cliente — poner límites claros de revisiones desde el inicio evita agotarte.",
+    acompanamiento: "Explica brevemente el \"por qué\" de tus decisiones de diseño (color, tipografía) — hace que la clienta sienta que entendiste su marca, no que solo entregaste un archivo.",
+    innovacion: "Ofrece 2 opciones de diseño en vez de una sola — se siente como más valor sin representar mucho más trabajo."
   },
   interiores: {
     label: "diseño de interiores",
@@ -617,7 +650,10 @@ const nicheData = {
     idea: "El mercado de diseño de interiores da para más que un moodboard suelto. Modelos posibles:\n\n1. Moodboard o propuesta puntual para un espacio.\n2. Asesoría virtual (e-decorating) completa de una habitación por videollamada.\n3. Curso de decoración \"low cost\" con lo que ya tienes en casa.\n4. Membresía mensual: ideas de decoración + comunidad + revisión de espacios.\n5. Proyecto completo de una casa (tu servicio de mayor precio).\n6. Ecommerce curado: recomendar y vender (como afiliada o marca propia) productos de decoración accesibles.\n7. Certificación para formar a otras asesoras de decoración virtual.\n\nEl e-decorating (punto 2) suele ser el punto de entrada más fácil de vender, porque el resultado es tangible y rápido de mostrar en redes.",
     precio: "Moodboard: $30-60. Asesoría virtual de una habitación: $80-150. Curso low-cost: $25-45. Membresía: $10-20/mes. Proyecto de una casa completa: $200+. Certificación: $150-350.",
     cliente: "Ejemplo de cliente ideal: mamás que quieren renovar un espacio puntual de su casa (cuarto de bebé, sala, oficina en casa) sin pagar un diseñador de interiores tradicional.",
-    ventas: "Lo que mejor convierte en tu nicho: mostrar transformaciones reales de antes/después con presupuestos reales (no solo inspiración de Pinterest), y ofrecer una mini-asesoría gratuita de 15 minutos como muestra."
+    ventas: "Lo que mejor convierte en tu nicho: mostrar transformaciones reales de antes/después con presupuestos reales (no solo inspiración de Pinterest), y ofrecer una mini-asesoría gratuita de 15 minutos como muestra.",
+    liderazgo: "Si coordinas con proveedores o contratistas para tus clientas, la clave es comunicar expectativas claras de tiempos y presupuesto desde el inicio.",
+    acompanamiento: "Un check-in una semana después de la asesoría, preguntando cómo va la implementación, se siente como acompañamiento real, no solo una consulta única.",
+    innovacion: "Incluye siempre un plan B más económico junto a tu recomendación principal — ayuda a que la clienta sienta que consideraste su presupuesto real."
   },
   organizacion: {
     label: "organización del hogar",
@@ -625,7 +661,10 @@ const nicheData = {
     idea: "Modelos posibles:\n1. Asesoría virtual: le envía fotos del espacio y tú armas un plan de organización personalizado.\n2. Curso digital: método de organización por zonas (clóset, cocina, juguetes).\n3. Membresía mensual: reto de organización de un espacio nuevo cada mes.\n4. Servicio presencial (si compartes ciudad con tus clientas): ir a organizar en persona.\n5. Checklist o kit de etiquetas y plantillas de organización descargables.\n6. Certificación para formar a otras organizadoras.",
     precio: "Asesoría virtual: $30-60. Curso digital: $20-40. Membresía: $8-15/mes. Servicio presencial: por hora o por espacio, varía mucho por ciudad. Checklist/kit: $10-15. Certificación: $150-300.",
     cliente: "Mamás con casas pequeñas o con niños, que sienten que el desorden les quita paz mental, y no tienen tiempo de investigar un método completo por su cuenta.",
-    ventas: "Mostrar transformaciones reales de antes/después (esto vende solo), y ofrecer una mini-checklist gratuita como anzuelo."
+    ventas: "Mostrar transformaciones reales de antes/después (esto vende solo), y ofrecer una mini-checklist gratuita como anzuelo.",
+    liderazgo: "Si empiezas a tener ayudantes u otras organizadoras trabajando contigo, la clave es estandarizar tu método para que cualquiera lo aplique igual de bien.",
+    acompanamiento: "Envía una foto de seguimiento a las 2 semanas para ver si el sistema se mantuvo — eso demuestra que te importa el resultado, no solo el momento de organizar.",
+    innovacion: "Ofrece una \"mini-checklist de mantenimiento\" después del servicio — algo simple que ayuda a que el orden dure, y que casi nadie más incluye."
   },
   asistentevirtual: {
     label: "asistente virtual",
@@ -633,7 +672,10 @@ const nicheData = {
     idea: "Modelos posibles:\n1. Servicio por horas/mes (paquete de X horas de apoyo administrativo).\n2. Especialización en una tarea puntual (solo agenda, solo redes, solo atención al cliente).\n3. Curso para otras mamás que quieran ser asistentes virtuales.\n4. Plantillas de procesos y checklists para asistentes virtuales nuevas.",
     precio: "Paquete de horas: $5-15 USD/hora según país y especialización. Paquete mensual fijo: $150-500/mes según carga. Curso de formación: $50-150.",
     cliente: "Emprendedoras o profesionales independientes con negocio en crecimiento, que ya no dan abasto solas pero no quieren o no pueden contratar tiempo completo.",
-    ventas: "Mostrar testimonios de clientas anteriores sobre cuánto tiempo les liberaste, y ofrecer una sesión de diagnóstico gratuita de 15 minutos para ver en qué puedes ayudar."
+    ventas: "Mostrar testimonios de clientas anteriores sobre cuánto tiempo les liberaste, y ofrecer una sesión de diagnóstico gratuita de 15 minutos para ver en qué puedes ayudar.",
+    liderazgo: "Aquí el liderazgo es contigo misma: definir tus horarios y decir que no a tareas fuera de lo acordado, para no terminar sobrecargada.",
+    acompanamiento: "Un resumen semanal corto de lo que hiciste (aunque sea 3 líneas) genera mucha más confianza que el silencio hasta que preguntan.",
+    innovacion: "Ofrece plantillas o procesos ya armados (no solo tu tiempo) — así tu clienta ve valor incluso en las semanas más tranquilas."
   },
   montessori: {
     label: "actividades Montessori en casa",
@@ -641,7 +683,10 @@ const nicheData = {
     idea: "Modelos posibles:\n1. Guía o fichas de actividades por edad (PDF descargable).\n2. Membresía mensual: actividades nuevas cada mes según la edad del niño.\n3. Curso para mamás sobre principios Montessori aplicados en casa.\n4. Kits físicos de materiales caseros o económicos con instrucciones.",
     precio: "Guía/fichas: $10-20. Membresía: $8-15/mes. Curso: $30-60. Kit físico: $20-40.",
     cliente: "Mamás de niños entre 0 y 6 años, interesadas en crianza consciente, que quieren aplicar principios Montessori sin pagar un colegio especializado.",
-    ventas: "Mostrar videos cortos de niños reales haciendo las actividades (no modelos profesionales), y explicar el \"por qué\" pedagógico detrás de cada una — eso genera confianza en mamás informadas."
+    ventas: "Mostrar videos cortos de niños reales haciendo las actividades (no modelos profesionales), y explicar el \"por qué\" pedagógico detrás de cada una — eso genera confianza en mamás informadas.",
+    liderazgo: "La clave es explicar el \"por qué\" pedagógico sin sonar como una clase teórica — mantenlo simple y aplicado a la vida diaria de la mamá.",
+    acompanamiento: "Pregunta cómo reaccionó el niño a la actividad — ese seguimiento personalizado es lo que más aprecian las mamás en este nicho.",
+    innovacion: "Adapta una misma actividad para 2 edades distintas (hermanos) — resuelve un problema real que casi nadie más piensa resolver."
   },
   tutoria: {
     label: "tutoría académica",
@@ -649,7 +694,10 @@ const nicheData = {
     idea: "Modelos posibles:\n1. Sesiones 1 a 1 por videollamada.\n2. Programa grupal pequeño (3-5 niños) por nivel o tema.\n3. Guías descargables de ejercicios por tema.\n4. Membresía mensual con ejercicios nuevos y soporte para dudas.",
     precio: "Sesión individual: $10-25 según país. Programa grupal: $15-30/mes por niño. Guías: $10-15. Membresía: $15-25/mes.",
     cliente: "Mamás con hijos entre 6 y 15 años que están batallando con una materia específica, y quieren resultados medibles (mejores notas, menos estrés en casa).",
-    ventas: "Mostrar el progreso real de un estudiante (con permiso de los papás) y ofrecer una sesión de diagnóstico gratuita para identificar el nivel exacto del niño."
+    ventas: "Mostrar el progreso real de un estudiante (con permiso de los papás) y ofrecer una sesión de diagnóstico gratuita para identificar el nivel exacto del niño.",
+    liderazgo: "La clave es mantener consistencia y estructura en cada sesión — los niños (y sus mamás) confían más en una rutina clara que en la genialidad puntual de una sesión.",
+    acompanamiento: "Comparte con la mamá un mini-resumen después de cada sesión (qué se vio, qué falta) — ese reporte breve genera mucha confianza.",
+    innovacion: "Usa ejemplos de la vida cotidiana del niño (sus juegos, sus intereses) para explicar temas difíciles — un diferencial simple pero efectivo."
   },
   idiomas: {
     label: "enseñanza de idiomas",
@@ -657,7 +705,10 @@ const nicheData = {
     idea: "Modelos posibles:\n1. Clases 1 a 1 por videollamada.\n2. Clases grupales pequeñas por nivel.\n3. Curso grabado con práctica guiada.\n4. Membresía de conversación semanal en grupo.",
     precio: "Clase individual: $10-20. Clases grupales: $15-30/mes. Curso grabado: $30-60. Membresía de conversación: $15-25/mes.",
     cliente: "Mamás que quieren que sus hijos aprendan un idioma desde pequeños, o mamás que quieren aprender ellas mismas para mejorar oportunidades laborales.",
-    ventas: "Mostrar avances reales de estudiantes (videos cortos hablando), y ofrecer una clase de prueba gratuita."
+    ventas: "Mostrar avances reales de estudiantes (videos cortos hablando), y ofrecer una clase de prueba gratuita.",
+    liderazgo: "La constancia en la corrección (sin ser dura) es la clave — un buen profesor de idiomas corrige con paciencia, no con crítica.",
+    acompanamiento: "Envía un audio corto de práctica entre clases — refuerza el aprendizaje y muestra que piensas en el progreso del estudiante fuera de la sesión.",
+    innovacion: "Incluye referencias culturales o canciones simples del idioma — hace que el aprendizaje se sienta menos como tarea escolar."
   },
   costura: {
     label: "costura y personalización",
@@ -665,7 +716,10 @@ const nicheData = {
     idea: "Modelos posibles:\n1. Piezas personalizadas por encargo (ropa de bebé, bordado, arreglos).\n2. Curso de costura básica o técnica puntual (bordado a mano).\n3. Kits de proyecto con tela y patrón incluido.\n4. Servicio local de arreglos y personalización.",
     precio: "Piezas personalizadas: $15-50 según complejidad. Curso: $20-40. Kits: $20-35. Servicio de arreglos: por pieza, varía por ciudad.",
     cliente: "Mamás que buscan algo único para su bebé o hijo (ropa personalizada, recuerdos bordados), o mamás que quieren aprender la técnica como hobby rentable.",
-    ventas: "Mostrar el proceso de personalización (bordando el nombre, por ejemplo) y fotos de clientas anteriores usando la pieza."
+    ventas: "Mostrar el proceso de personalización (bordando el nombre, por ejemplo) y fotos de clientas anteriores usando la pieza.",
+    liderazgo: "Si empiezas a delegar parte de la costura, la clave es tener un estándar de calidad muy claro y comunicado, para que cada pieza salga igual de bien.",
+    acompanamiento: "Muestra el proceso de tu pieza personalizada antes de entregarla — genera mucha conexión emocional, especialmente en piezas para bebés.",
+    innovacion: "Ofrece una etiqueta o detalle final gratis (nombre bordado, empaque especial) — pequeño costo, gran percepción de valor."
   },
   segundamano: {
     label: "ropa de segunda mano curada",
@@ -673,7 +727,10 @@ const nicheData = {
     idea: "Modelos posibles:\n1. Tienda curada en Instagram o Facebook Marketplace con fotos de calidad.\n2. Suscripción de \"caja sorpresa\" de ropa por edad/temporada.\n3. Servicio de consignación (vendes la ropa de otras mamás por comisión).\n4. Bazar o venta periódica, local o virtual.",
     precio: "Piezas individuales: $3-15 según prenda y marca. Caja sorpresa: $20-40 por caja. Comisión de consignación: 20-40% del valor de venta.",
     cliente: "Mamás conscientes del gasto y del medio ambiente, con hijos que crecen rápido, buscando ropa de calidad a mitad de precio.",
-    ventas: "Fotos con buena luz mostrando el estado real de la prenda (sin filtros engañosos), y ser muy honesta con el estado — la confianza es la moneda de este negocio."
+    ventas: "Fotos con buena luz mostrando el estado real de la prenda (sin filtros engañosos), y ser muy honesta con el estado — la confianza es la moneda de este negocio.",
+    liderazgo: "La clave es ser muy organizada con el inventario — sin un sistema claro, este negocio se vuelve caótico rápido.",
+    acompanamiento: "Si una prenda no le queda bien a la clienta, ofrece cambiarla sin drama — esa flexibilidad fideliza más que cualquier descuento.",
+    innovacion: "Crea colecciones por tema o edad (ej. \"ropa de invierno 2-4 años\") en vez de solo publicar suelto — ayuda a la clienta a decidir más rápido."
   },
   fotografia: {
     label: "fotografía de producto",
@@ -681,7 +738,10 @@ const nicheData = {
     idea: "Modelos posibles:\n1. Servicio de sesión de fotos de producto (a domicilio o en tu espacio).\n2. Curso de fotografía de producto con el celular.\n3. Membresía: sesión mensual con edición incluida.\n4. Preajustes o edición para que ellas mismas mejoren sus propias fotos.",
     precio: "Sesión de fotos: $30-100 según cantidad de productos. Curso: $25-45. Membresía mensual: $50-150. Preajustes/edición: $10-20.",
     cliente: "Emprendedoras que venden productos físicos por Instagram o marketplace y necesitan fotos profesionales sin gastar en un fotógrafo de alto costo.",
-    ventas: "Mostrar tu propio portafolio de antes/después de fotos de productos, y ofrecer 1 foto de muestra gratis como prueba de calidad."
+    ventas: "Mostrar tu propio portafolio de antes/después de fotos de productos, y ofrecer 1 foto de muestra gratis como prueba de calidad.",
+    liderazgo: "La clave es comunicar claramente qué necesitas de tu clienta antes de la sesión (fondo, luz, productos limpios) para que el día de la sesión sea eficiente.",
+    acompanamiento: "Entrega las fotos con una breve guía de cómo usarlas (cuál para el feed, cuál para historias) — un extra que pocas fotógrafas dan.",
+    innovacion: "Ofrece un pequeño video detrás de cámaras junto con las fotos — contenido extra que tu clienta puede reutilizar en redes."
   },
   videorecuerdos: {
     label: "video-recuerdos familiares",
@@ -689,7 +749,10 @@ const nicheData = {
     idea: "Modelos posibles:\n1. Servicio de edición de video-recuerdo a partir del material que te envían.\n2. Plantillas de edición para que ellas mismas lo hagan.\n3. Membresía anual: 1 video-recuerdo por trimestre.\n4. Curso de edición básica de videos familiares.",
     precio: "Video por encargo: $30-80 según duración y complejidad. Plantillas: $10-20. Membresía anual: $80-150. Curso: $25-40.",
     cliente: "Mamás con hijos pequeños que quieren guardar los recuerdos de forma bonita, pero no tienen tiempo ni habilidad de edición.",
-    ventas: "Mostrar ejemplos reales (con permiso) de videos ya entregados — la emoción genuina en el resultado vende solo."
+    ventas: "Mostrar ejemplos reales (con permiso) de videos ya entregados — la emoción genuina en el resultado vende solo.",
+    liderazgo: "La clave es pedir el material con anticipación y dar fechas de entrega realistas — la mayoría de retrasos en este negocio vienen de subestimar el tiempo de edición.",
+    acompanamiento: "Pregunta qué momentos son los más importantes para la familia antes de editar — hace que el video se sienta hecho a la medida, no genérico.",
+    innovacion: "Ofrece una versión corta (1 min, para redes) además de la versión completa — dos productos del mismo trabajo."
   },
   fitness: {
     label: "fitness postparto",
@@ -697,7 +760,10 @@ const nicheData = {
     idea: "Modelos posibles:\n1. Rutinas cortas en video (15-20 min, sin equipo).\n2. Programa estructurado de varias semanas.\n3. Membresía mensual con rutinas nuevas y comunidad de apoyo.\n4. Sesiones en vivo grupales por videollamada.\n\nImportante: si no tienes formación certificada en rehabilitación postparto, es más responsable enfocarte en movimiento general de bajo impacto y recomendar que quien tenga diástasis abdominal u otra condición específica consulte a un profesional antes de empezar.",
     precio: "Programa grabado: $25-50. Membresía: $10-20/mes. Sesiones en vivo grupales: $10-20/sesión o $40-80/mes.",
     cliente: "Mamás en los primeros 12 meses postparto, con poco tiempo, que buscan movimiento seguro y accesible, no una transformación física extrema.",
-    ventas: "Mostrar rutinas reales tuyas o de clientas (con permiso), enfatizando que son seguras y de bajo impacto — evita promesas de \"recupera tu cuerpo en 2 semanas\", ese tipo de mensaje generalmente daña más de lo que ayuda."
+    ventas: "Mostrar rutinas reales tuyas o de clientas (con permiso), enfatizando que son seguras y de bajo impacto — evita promesas de \"recupera tu cuerpo en 2 semanas\", ese tipo de mensaje generalmente daña más de lo que ayuda.",
+    liderazgo: "La clave es priorizar siempre la seguridad sobre la intensidad — un buen liderazgo aquí sabe cuándo frenar a alguien, no solo motivarla a dar más.",
+    acompanamiento: "Pregunta cómo se sintió después de cada rutina (no solo si la hizo) — el acompañamiento emocional importa tanto como el físico aquí.",
+    innovacion: "Ofrece variaciones según el tiempo disponible (5, 10, 20 minutos) — resuelve el problema real de esta clienta: falta de tiempo, no falta de motivación."
   },
   circulos: {
     label: "círculos de apoyo entre mamás",
@@ -705,7 +771,10 @@ const nicheData = {
     idea: "Modelos posibles:\n1. Círculo de conversación semanal o quincenal por videollamada.\n2. Membresía comunitaria con encuentros regulares.\n3. Retiro o encuentro presencial puntual.\n\nImportante: si el círculo se enfoca en bienestar emocional, es responsable aclarar que es un espacio de acompañamiento entre pares, no terapia — y tener claro a quién referir si alguien muestra señales de necesitar apoyo profesional de salud mental.",
     precio: "Membresía mensual: $10-25/mes. Encuentro puntual: $10-20 por sesión. Retiro presencial: variable según logística.",
     cliente: "Mamás que se sienten solas o desconectadas, buscando comunidad y validación, no necesariamente terapia.",
-    ventas: "El boca a boca y los testimonios genuinos de participantes son lo que más convierte aquí — la confianza se construye mostrando quién eres tú detrás del espacio."
+    ventas: "El boca a boca y los testimonios genuinos de participantes son lo que más convierte aquí — la confianza se construye mostrando quién eres tú detrás del espacio.",
+    liderazgo: "La clave es sostener el espacio con calidez pero también con estructura — sin agenda clara, estos círculos se dispersan rápido.",
+    acompanamiento: "Un mensaje personal después de cada encuentro, mencionando algo que compartió esa persona, hace sentir vista a cada participante.",
+    innovacion: "Ten siempre un tema o pregunta disparadora lista, pero deja espacio libre también — la mezcla de estructura y flexibilidad es lo que más funciona."
   },
   fiestas: {
     label: "fiestas infantiles",
@@ -713,7 +782,10 @@ const nicheData = {
     idea: "Modelos posibles:\n1. Kits imprimibles de fiesta (invitaciones, banderines, etiquetas) por tema.\n2. Moodboard o plan de decoración personalizado.\n3. Servicio de organización completa (si es local).\n4. Membresía: temas nuevos de fiesta cada mes.",
     precio: "Kit imprimible: $10-20. Moodboard/plan: $25-50. Servicio completo: variable según ciudad y magnitud. Membresía: $8-15/mes.",
     cliente: "Mamás que quieren una fiesta bonita para sus hijos sin gastar en un organizador profesional caro, ni perder días enteros planeando.",
-    ventas: "Mostrar fiestas reales ya montadas con tus kits o planes (fotos del evento real, no solo mockups), y ofrecer 1 elemento gratis del kit como muestra."
+    ventas: "Mostrar fiestas reales ya montadas con tus kits o planes (fotos del evento real, no solo mockups), y ofrecer 1 elemento gratis del kit como muestra.",
+    liderazgo: "La clave es coordinar tiempos con precisión — en este negocio, un retraso afecta a toda la fiesta, no solo a tu parte.",
+    acompanamiento: "Envía fotos del montaje antes de que lleguen los invitados — le da tranquilidad a la mamá que contrató el servicio.",
+    innovacion: "Ofrece un kit de \"agradecimientos\" a juego con el tema de la fiesta — un extra pequeño que se nota y se comparte en redes."
   },
   copywriting: {
     label: "copywriting",
@@ -721,7 +793,10 @@ const nicheData = {
     idea: "Modelos posibles:\n1. Servicio de redacción por encargo (descripciones, emails, posts).\n2. Plantillas de textos de venta editables.\n3. Curso corto de copywriting básico para emprendedoras.\n4. Membresía: revisión mensual de sus textos.",
     precio: "Texto por encargo: $15-60 según extensión y tipo. Plantillas: $15-25. Curso: $30-50. Membresía: $40-100/mes.",
     cliente: "Emprendedoras con productos o servicios que ya tienen tráfico o seguidores pero no logran convertir eso en ventas por cómo están escritos sus textos.",
-    ventas: "Mostrar ejemplos de \"antes y después\" de textos reales (con permiso), y el impacto medible cuando sea posible (ej. \"subió su tasa de respuesta un 30%\")."
+    ventas: "Mostrar ejemplos de \"antes y después\" de textos reales (con permiso), y el impacto medible cuando sea posible (ej. \"subió su tasa de respuesta un 30%\").",
+    liderazgo: "La clave es hacer las preguntas correctas antes de escribir (a quién le habla, qué quiere lograr) — un mal texto casi siempre viene de un mal brief, no de mala escritura.",
+    acompanamiento: "Después de entregar, pregunta cómo le fue con el texto (más respuestas, más ventas) — ese seguimiento te da testimonios reales para vender tu propio servicio.",
+    innovacion: "Ofrece 2 variantes cortas de un mismo texto (una más directa, una más emocional) — le da a tu clienta opciones sin mucho trabajo extra."
   },
   podcasts: {
     label: "edición de podcasts",
@@ -729,7 +804,10 @@ const nicheData = {
     idea: "Modelos posibles:\n1. Servicio de edición por episodio.\n2. Paquete mensual (edición + publicación en plataformas).\n3. Curso de edición básica de audio para quien quiere aprender.\n4. Plantillas de intro/outro y elementos de audio reutilizables.",
     precio: "Edición por episodio: $15-40 según duración. Paquete mensual: $60-200 según cantidad de episodios. Curso: $25-45.",
     cliente: "Creadores de contenido o emprendedoras que empezaron un podcast pero se sienten abrumadas por la parte técnica de edición y publicación.",
-    ventas: "Ofrecer la edición de 1 episodio de muestra gratis, y mostrar el \"antes/después\" del audio (limpieza de ruido, cortes, etc.)."
+    ventas: "Ofrecer la edición de 1 episodio de muestra gratis, y mostrar el \"antes/después\" del audio (limpieza de ruido, cortes, etc.).",
+    liderazgo: "La clave es tener un proceso claro y repetible de entrega (mismos pasos, mismos tiempos) — genera confianza en un servicio técnico que el cliente no puede evaluar del todo.",
+    acompanamiento: "Explica brevemente qué ajustaste en cada episodio (ruido, cortes) — ayuda a que el cliente valore el trabajo invisible que hiciste.",
+    innovacion: "Ofrece clips cortos del episodio para redes, además del audio completo — contenido extra reutilizable."
   },
   otro: {
     label: "tu emprendimiento"
@@ -1178,7 +1256,7 @@ function handleUserMessage(text){
     addBubble(match.reply, 'bot');
 
     // Si ya sabemos su nicho, agregamos un dato específico en los temas donde aplica
-    if(userNiche && nicheData[userNiche] && ['idea','precio','cliente','ventas','problema'].includes(match.id)){
+    if(userNiche && nicheData[userNiche] && ['idea','precio','cliente','ventas','problema','liderazgo','acompanamiento','innovacion'].includes(match.id)){
       const tip = nicheData[userNiche][match.id];
       if(tip) addBubble(`📍 Para tu emprendimiento de ${nicheData[userNiche].label}: ${tip}`, 'bot');
     }
