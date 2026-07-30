@@ -87,6 +87,12 @@
     align-self:flex-end;
     border-bottom-right-radius:4px;
   }
+  .bubble.intro{
+    align-self:center;
+    text-align:center;
+    max-width:92%;
+    border-bottom-left-radius:16px;
+  }
   .typing{
     align-self:flex-start;
     display:flex;
@@ -237,7 +243,7 @@
   <div class="subtitle">Tu compañera para estructurar tu negocio, disponible 24/7</div>
 
   <div class="chat-window" id="chatWindow">
-    <div class="bubble bot">¡Hola! Soy Sofía 💜 Estoy aquí para ayudarte con tu idea de negocio, tus precios, tu cliente ideal o lo que necesites para dar el siguiente paso. ¿Por dónde empezamos?</div>
+    <div class="bubble bot intro">¡Hola! Soy Sofía 💜 Estoy aquí para ayudarte con tu idea de negocio, tus precios, tu cliente ideal o lo que necesites para dar el siguiente paso. ¿Por dónde empezamos?</div>
   </div>
 
   <div class="quick-replies" id="quickReplies"></div>
@@ -504,24 +510,23 @@ const fallback = "Cuéntame un poco más 💜 Puedo ayudarte con: tu idea de neg
 
 const defaultPills = [
   { label: "📍 Mi emprendimiento es...", msg: "__askniche__" },
-  { label: "¿Qué más puedo preguntarte?", msg: "¿Qué más puedo preguntarte?" },
   { label: "No sé qué idea tener", msg: "No sé qué idea tener" },
   { label: "¿Qué problema resuelvo?", msg: "¿Qué problema resuelvo?" },
   { label: "¿Cómo valido mi idea?", msg: "¿Cómo valido mi idea?" },
-  { label: "¿Cómo pongo mi precio?", msg: "¿Cómo pongo mi precio?" },
-  { label: "Calculadora de mi hora de trabajo", msg: "Calculadora de mi hora de trabajo" },
-  { label: "Tengo miedo de lanzar", msg: "Tengo miedo de lanzar" },
-  { label: "Creencias limitantes", msg: "creencias limitantes" },
-  { label: "Mis primeras ventas", msg: "Mis primeras ventas" },
-  { label: "¿Cómo vender online?", msg: "¿Cómo vender online?" },
-  { label: "Cómo poner nombre a mi negocio", msg: "Cómo poner nombre a mi negocio" },
-  { label: "Cómo abrir Instagram Business", msg: "Cómo abrir Instagram Business" },
-  { label: "Fidelizar clientas", msg: "hacer sentir acompañada a mi clienta" },
   { label: "¿Hay mucha competencia?", msg: "¿Hay mucha competencia?" },
   { label: "Innovación y valor agregado", msg: "innovación y valor agregado" },
-  { label: "Planeación estratégica", msg: "planeación estratégica" },
   { label: "Creatividad e innovación", msg: "creatividad" },
+  { label: "¿Cómo pongo mi precio?", msg: "¿Cómo pongo mi precio?" },
+  { label: "Calculadora de mi hora de trabajo", msg: "Calculadora de mi hora de trabajo" },
   { label: "Finanzas básicas", msg: "Finanzas básicas" },
+  { label: "Cómo poner nombre a mi negocio", msg: "Cómo poner nombre a mi negocio" },
+  { label: "Cómo abrir Instagram Business", msg: "Cómo abrir Instagram Business" },
+  { label: "¿Cómo vender online?", msg: "¿Cómo vender online?" },
+  { label: "Mis primeras ventas", msg: "Mis primeras ventas" },
+  { label: "Fidelizar clientas", msg: "hacer sentir acompañada a mi clienta" },
+  { label: "Tengo miedo de lanzar", msg: "Tengo miedo de lanzar" },
+  { label: "Creencias limitantes", msg: "creencias limitantes" },
+  { label: "Planeación estratégica", msg: "planeación estratégica" },
   { label: "Necesito una pausa", msg: "Necesito una pausa" },
 ]; 
 
