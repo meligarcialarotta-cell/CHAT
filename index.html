@@ -1268,6 +1268,10 @@ function handleUserMessage(text){
 
     // Guardamos si este tema ofrece algo extra, por si la próxima respuesta es "sí"
     pendingFollowUp = match.followUp ? match.id : null;
+    // Importante: al entrar a un tema nuevo desde cero, cualquier cadena (chainTo) que hubiera
+    // quedado pendiente de un tema anterior ya no aplica — evita que un "sí" futuro salte a un
+    // tema viejo sin relación con lo que se está hablando ahora.
+    pendingChainReply = null;
     if(match.id === 'creencias') pendingBelief = true;
 
     if(match.id === 'mercado'){
