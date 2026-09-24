@@ -5,21 +5,22 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Bono: 100 Prompts para Emprendedoras · Mi Plan de Vuelo</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
   :root{
-    --cream: #FAF5EE;
-    --cream-deep: #F1E9DD;
-    --ink: #3F332E;
-    --ink-soft: #6B5D57;
-    --rose: #C48E93;
-    --rose-deep: #B3767D;
-    --lila: #B7A6D6;
-    --lila-deep: #9C86C4;
-    --olive: #7C8A55;
-    --olive-deep: #67723F;
+    --cream: #F7F1E8;
+    --cream-deep: #EFE4D4;
+    --ink: #3A2E28;
+    --ink-soft: #7A716A;
+    --rose: #BE7C7B;
+    --rose-deep: #A8686A;
+    --lila: #B4C5D3;
+    --lila-deep: #6D8CA3;
+    --olive: #3C8190;
+    --olive-deep: #2F6875;
     --card: #FFFFFF;
-    --line: #E8DCCB;
+    --line: rgba(58,46,40,0.14);
     --radius: 18px;
   }
 
@@ -29,7 +30,7 @@
     margin:0;
     background: var(--cream);
     color: var(--ink);
-    font-family: 'Inter', sans-serif;
+    font-family: 'Public Sans', sans-serif;
     line-height:1.5;
     -webkit-font-smoothing: antialiased;
   }
@@ -70,7 +71,7 @@
     margin-bottom:22px;
   }
   h1.title{
-    font-family:'Fraunces', serif;
+    font-family:'Playfair Display', serif;
     font-optical-sizing:auto;
     font-weight:600;
     font-size: clamp(34px, 5.5vw, 54px);
@@ -105,7 +106,7 @@
     background: var(--cream-deep);
     padding: 2px 7px;
     border-radius:6px;
-    font-family: 'Inter', monospace;
+    font-family: 'Public Sans', monospace;
     font-size:13px;
     color: var(--rose-deep);
   }
@@ -160,7 +161,7 @@
     flex-wrap:wrap;
   }
   .cat-number{
-    font-family:'Fraunces', serif;
+    font-family:'Playfair Display', serif;
     font-weight:600;
     font-size:15px;
     color: var(--card);
@@ -169,7 +170,7 @@
     border-radius:999px;
   }
   .cat-head h2{
-    font-family:'Fraunces', serif;
+    font-family:'Playfair Display', serif;
     font-weight:600;
     font-size: clamp(22px, 3vw, 28px);
     margin:0;
@@ -205,7 +206,7 @@
     border-color: var(--accent, var(--rose));
   }
   .prompt-index{
-    font-family:'Fraunces', serif;
+    font-family:'Playfair Display', serif;
     font-size:26px;
     font-weight:600;
     color: var(--accent, var(--rose-deep));
@@ -229,7 +230,7 @@
     display:inline-flex;
     align-items:center;
     gap:7px;
-    font-family:'Inter', sans-serif;
+    font-family:'Public Sans', sans-serif;
     font-size:12.5px;
     font-weight:600;
     letter-spacing:.02em;
@@ -287,7 +288,7 @@
   }
   .finale .cat-number{ background: var(--olive-deep); margin-bottom:14px; display:inline-block; }
   .finale h2{
-    font-family:'Fraunces', serif;
+    font-family:'Playfair Display', serif;
     font-size: clamp(20px, 2.6vw, 26px);
     margin: 8px 0 14px;
   }
@@ -313,7 +314,7 @@
   }
   footer p{ margin:4px 0; font-size:13.5px; opacity:.9; }
   footer .brand{
-    font-family:'Fraunces', serif;
+    font-family:'Playfair Display', serif;
     font-size:17px;
     font-weight:600;
     letter-spacing:.02em;
@@ -331,7 +332,7 @@
 <header class="hero">
   <div class="eyebrow">
     <span class="airplane-mark">
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M22 2L11 13M22 2L15 22L11 13M22 2L2 9L11 13" stroke="#B3767D" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M22 2L11 13M22 2L15 22L11 13M22 2L2 9L11 13" stroke="#A8686A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
     </span>
     Bono · Mi Plan de Vuelo
   </div>
@@ -563,7 +564,7 @@ finale.innerHTML = `
   <span class="cat-number">100</span>
   <h2>Tu plan de acción completo</h2>
   <p>${escapeHtml(FINAL_PROMPT)}</p>
-  <button class="copy-btn" data-text="${escapeHtml(FINAL_PROMPT).replace(/"/g,'&quot;')}" style="color:#67723F;border-color:#7C8A55;">
+  <button class="copy-btn" data-text="${escapeHtml(FINAL_PROMPT).replace(/"/g,'&quot;')}" style="color:#2F6875;border-color:#3C8190;">
     <span class="icon">${copyIcon}</span><span class="label">Copiar prompt</span>
   </button>
 `;
