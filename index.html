@@ -4,21 +4,24 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Sofía · Mi Plan de Vuelo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
   :root{
-    --lila:#9B7EBD;
-    --lila-dark:#6E4E9E;
-    --rose:#C98CA7;
-    --olive:#7C8A5E;
-    --ink:#3A3A3A;
-    --grey:#6B6B6B;
-    --bg1:#F3E9F2;
-    --bg2:#FBF0E9;
+    --lila:#5AA0AF;
+    --lila-dark:#3C8190;
+    --rose:#BE7C7B;
+    --olive:#3C8190;
+    --ink:#3A2E28;
+    --grey:#7A716A;
+    --bg1:#FFFFFF;
+    --bg2:#F7F1E8;
   }
   *{box-sizing:border-box;}
   body{
     margin:0;
-    font-family:'Georgia', 'Times New Roman', serif;
+    font-family:'Public Sans', sans-serif;
     background:linear-gradient(160deg, var(--bg1) 0%, var(--bg2) 100%);
     min-height:100vh;
     display:flex;
@@ -34,27 +37,22 @@
     letter-spacing:2px;
     font-size:12px;
     color:var(--rose);
-    font-family:Arial, sans-serif;
+    font-family:'Public Sans', sans-serif;
     font-weight:bold;
     margin-bottom:18px;
   }
-  .sofia-hero{
-    display:block;
-    max-width:190px;
-    width:55%;
-    height:auto;
-    margin:0 auto 4px;
-  }
   h1{
     text-align:center;
-    color:#3A2E42;
+    color:var(--ink);
+    font-family:'Playfair Display', serif;
+    font-weight:600;
     font-size:30px;
-    margin:0 0 4px;
+    margin:18px 0 4px;
   }
   .subtitle{
     text-align:center;
     color:var(--grey);
-    font-family:Arial, sans-serif;
+    font-family:'Public Sans', sans-serif;
     font-size:15px;
     margin-bottom:26px;
   }
@@ -66,7 +64,7 @@
     margin-bottom:18px;
   }
   .bubble{
-    font-family:Arial, sans-serif;
+    font-family:'Public Sans', sans-serif;
     font-size:15px;
     line-height:1.5;
     padding:14px 18px;
@@ -121,7 +119,7 @@
     margin-bottom:20px;
   }
   .pill{
-    font-family:Arial, sans-serif;
+    font-family:'Public Sans', sans-serif;
     font-size:14px;
     color:#5C4A63;
     background:rgba(255,255,255,0.7);
@@ -140,7 +138,7 @@
   }
   #textInput{
     flex:1;
-    font-family:Arial, sans-serif;
+    font-family:'Public Sans', sans-serif;
     font-size:15px;
     padding:12px 18px;
     border-radius:24px;
@@ -163,13 +161,13 @@
   #sendBtn:hover{background:var(--lila);}
   .footnote{
     text-align:center;
-    font-family:Arial, sans-serif;
+    font-family:'Public Sans', sans-serif;
     font-size:11px;
     color:#A99BA6;
     margin-top:14px;
   }
   .calc-card{
-    font-family:Arial, sans-serif;
+    font-family:'Public Sans', sans-serif;
     background:#FFFFFF;
     border:1px solid #E9DEE8;
     border-radius:16px;
@@ -180,7 +178,9 @@
   }
   .calc-card h4{
     margin:0 0 10px;
-    font-size:14px;
+    font-size:15px;
+    font-family:'Playfair Display', serif;
+    font-weight:600;
     color:var(--lila-dark);
   }
   .calc-field{
@@ -220,7 +220,7 @@
     display:none;
   }
   .speak-btn{
-    font-family:Arial, sans-serif;
+    font-family:'Public Sans', sans-serif;
     font-size:13px;
     color:var(--lila-dark);
     background:#F5EFF8;
@@ -238,7 +238,6 @@
 <body>
 <div class="app">
   <div class="eyebrow">KIT DIGITAL &middot; EMPRENDE DESDE CASA</div>
-  <img src="sofia.png" alt="Sofía" class="sofia-hero">
   <h1>Sofía</h1>
   <div class="subtitle">Tu compañera para estructurar tu negocio, disponible 24/7</div>
 
@@ -361,7 +360,7 @@ const responses = [
     id: 'problema',
     keys: ['que problema resuelvo','qué problema resuelvo','cual es el problema','cuál es el problema','problema real','dolor del cliente','que problema estoy resolviendo','qué problema estoy resolviendo'],
     reply: "Esto es la base de todo lo demás — sin esto claro, ni el precio, ni el marketing, ni las ventas terminan de cuadrar 💜\n\nLa mayoría de emprendedoras piensan primero en \"qué voy a vender\" y después en \"qué problema resuelvo\" — y por eso terminan con productos que no conectan del todo.\n\nHazte estas 3 preguntas:\n1. ¿Qué le está costando tiempo, dinero o tranquilidad a tu cliente ideal, ahora mismo?\n2. ¿Qué ha intentado ya para resolverlo, y por qué no le ha funcionado del todo?\n3. ¿Qué pasa si NO lo resuelve? (ahí está la urgencia real, no inventada)\n\nCuando tienes esta respuesta clara:\n→ Tu precio se siente justificado (estás cobrando por resolver algo real, no por un PDF).\n→ Tu contenido y tus mensajes de venta se escriben casi solos.\n→ Vender deja de sentirse como \"convencer\" y empieza a sentirse como \"ayudar\".\n\nEsto se conecta directo con tu Módulo 3 (Cliente) y Módulo 6 (Canvas) del kit, donde ya tienes espacio para escribirlo con calma.\n\n¿Quieres intentar responder esas 3 preguntas para tu propia idea?",
-    followUp: "Vamos paso a paso 💜 Completa esto con tus propias palabras (puedes escribírmelo aquí, o solo pensarlo por ahora):\n\n1. Lo que le cuesta a mi cliente hoy es: ___\n2. Ya intentó: ___, pero no le funcionó porque: ___\n3. Si no lo resuelve, lo que le pasa es: ___\n\nEjemplo de Sofía, para que te guíes:\n1. Le cuesta decidir qué cocinar cada día, y termina pidiendo domicilio o repitiendo lo mismo.\n2. Ya intentó buscar recetas en Pinterest, pero no le funcionó porque nunca sabía cuál elegir ni si sus hijos se la comerían.\n3. Si no lo resuelve, sigue gastando más en domicilios y sintiéndose culpable por no cocinar saludable.\n\nCuando tengas tus 3 respuestas, ya tienes la base completa de tu propuesta de valor. Puedes registrarlas directo en el Módulo 3 de tu Excel."
+    followUp: "Vamos paso a paso 💜 Completa esto con tus propias palabras (puedes escribírmelo aquí, o solo pensarlo por ahora):\n\n1. Lo que le cuesta a mi cliente hoy es: ___\n2. Ya intentó: ___, pero no le funcionó porque: ___\n3. Si no lo resuelve, lo que le pasa es: ___\n\nEjemplo de Sofía, para que te guíes:\n1. Le cuesta decidir qué cocinar cada día, y termina pidiendo domicilio o repitiendo lo mismo.\n2. Ya intentó buscar recetas en Pinterest, pero no le funcionó porque nunca sabía cuál elegir ni si sus hijos se la comerían.\n3. Si no lo resuelve, sigue gastando más en domicilios y sintiéndose culpable por no cocinar saludable.\n\nCuando tengas tus 3 respuestas, ya tienes la base completa de tu propuesta de valor. Puedes registrarlas directo en el Módulo 3 de tu plataforma web (Mi Cliente)."
   },
   {
     id: 'tiempo',
