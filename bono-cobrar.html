@@ -4,59 +4,62 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Bono 2: Formas de Cobrar a tus Clientes · Mi Plan de Vuelo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
   :root{
-    --lila:#9B7EBD; --lila-dark:#6E4E9E; --rose:#C98CA7; --olive:#7C8A5E;
-    --ink:#3A3A3A; --grey:#6B6B6B; --bg1:#F3E9F2; --bg2:#FBF0E9;
+    --lila:#5AA0AF; --lila-dark:#3C8190; --rose:#BE7C7B; --olive:#3C8190;
+    --ink:#3A2E28; --grey:#7A716A; --bg1:#FFFFFF; --bg2:#F7F1E8;
   }
   *{box-sizing:border-box;}
   body{
-    margin:0; font-family:'Georgia','Times New Roman',serif;
+    margin:0; font-family:'Public Sans', sans-serif;
     background:linear-gradient(160deg, var(--bg1) 0%, var(--bg2) 100%);
     min-height:100vh; display:flex; justify-content:center; padding:40px 16px;
     color:var(--ink);
   }
   .page{width:100%; max-width:720px;}
   .eyebrow{text-align:center; letter-spacing:2px; font-size:12px; color:var(--rose);
-    font-family:Arial, sans-serif; font-weight:bold; margin-bottom:16px;}
+    font-family:'Public Sans', sans-serif; font-weight:bold; margin-bottom:16px;}
   .avatar{width:60px;height:60px;border-radius:50%;background:var(--lila);color:white;
     display:flex;align-items:center;justify-content:center;font-size:26px;margin:0 auto 18px;}
-  h1{text-align:center;color:#3A2E42;font-size:30px;margin:0 0 8px;}
-  .subtitle{text-align:center;color:var(--grey);font-family:Arial, sans-serif;font-size:15px;margin-bottom:8px;line-height:1.5;}
+  h1{text-align:center;color:var(--ink);font-family:'Playfair Display', serif;font-weight:600;font-size:30px;margin:0 0 8px;}
+  .subtitle{text-align:center;color:var(--grey);font-family:'Public Sans', sans-serif;font-size:15px;margin-bottom:8px;line-height:1.5;}
   .intro{
-    font-family:Arial, sans-serif; font-size:15px; line-height:1.6; color:var(--ink);
+    font-family:'Public Sans', sans-serif; font-size:15px; line-height:1.6; color:var(--ink);
     background:#FFFFFF; border-radius:16px; padding:20px 24px; margin:24px 0;
     box-shadow:0 1px 3px rgba(0,0,0,0.06);
   }
   .section-label{
-    font-family:Arial, sans-serif; font-size:13px; font-weight:bold; letter-spacing:1px;
+    font-family:'Public Sans', sans-serif; font-size:13px; font-weight:bold; letter-spacing:1px;
     color:var(--olive); text-transform:uppercase; margin:32px 0 14px; text-align:center;
   }
   .card{
     background:#FFFFFF; border-radius:16px; padding:20px 24px; margin-bottom:14px;
-    box-shadow:0 1px 3px rgba(0,0,0,0.06); font-family:Arial, sans-serif;
+    box-shadow:0 1px 3px rgba(0,0,0,0.06); font-family:'Public Sans', sans-serif;
   }
   .card h2{
-    font-family:Georgia, serif; font-size:18px; color:var(--lila-dark); margin:0 0 8px;
+    font-family:'Playfair Display', serif; font-size:18px; color:var(--lila-dark); margin:0 0 8px;
     display:flex; align-items:center; gap:8px;
   }
   .num{
     display:inline-flex; align-items:center; justify-content:center;
     width:24px; height:24px; border-radius:50%; background:var(--lila);
-    color:#fff; font-family:Arial, sans-serif; font-size:12px; font-weight:bold; flex-shrink:0;
+    color:#fff; font-family:'Public Sans', sans-serif; font-size:12px; font-weight:bold; flex-shrink:0;
   }
   .card p{font-size:14.5px; line-height:1.6; color:var(--ink); margin:6px 0;}
   .card ul{margin:8px 0; padding-left:20px;}
   .card ul li{font-size:14px; line-height:1.6; color:var(--ink);}
   .best-for{
-    margin-top:10px; padding:9px 14px; background:#F5EFF8; border-radius:10px;
+    margin-top:10px; padding:9px 14px; background:#EAF3F4; border-radius:10px;
     font-size:13.5px; color:var(--lila-dark);
   }
   .tips-card, .checklist-card{
-    font-family:Arial, sans-serif; background:#FFFFFF; border-radius:16px; padding:22px 24px;
+    font-family:'Public Sans', sans-serif; background:#FFFFFF; border-radius:16px; padding:22px 24px;
     margin:16px 0; box-shadow:0 1px 3px rgba(0,0,0,0.06);
   }
-  .tips-card h2, .checklist-card h2{font-family:Georgia, serif; font-size:19px; color:var(--lila-dark); margin:0 0 14px;}
+  .tips-card h2, .checklist-card h2{font-family:'Playfair Display', serif; font-size:19px; color:var(--lila-dark); margin:0 0 14px;}
   .tip-item{display:flex; gap:10px; margin-bottom:10px; font-size:14.5px; line-height:1.5;}
   .tip-item .check{color:var(--olive); font-weight:bold; flex-shrink:0;}
   .checklist-item{
@@ -68,30 +71,30 @@
   }
   .checklist-item.checked span{ text-decoration:line-through; color:var(--grey); }
   .warning{
-    font-family:Arial, sans-serif; background:#FBF0E0; border-left:4px solid var(--rose);
+    font-family:'Public Sans', sans-serif; background:#F7E9E6; border-left:4px solid var(--rose);
     border-radius:10px; padding:16px 18px; margin:24px 0; font-size:14px; line-height:1.6; color:var(--ink);
   }
   .closing{
-    text-align:center; font-family:Georgia, serif; font-style:italic; color:var(--lila-dark);
+    text-align:center; font-family:'Playfair Display', serif; font-style:italic; color:var(--lila-dark);
     font-size:16px; margin:28px 0 8px; padding:0 10px;
   }
-  .footnote{text-align:center;font-family:Arial, sans-serif;font-size:11px;color:#A99BA6;margin-top:20px;}
+  .footnote{text-align:center;font-family:'Public Sans', sans-serif;font-size:11px;color:#A79C93;margin-top:20px;}
 
   .selector-card{
-    font-family:Arial, sans-serif; background:#FFFFFF; border-radius:16px; padding:24px;
-    margin:24px 0; box-shadow:0 2px 6px rgba(0,0,0,0.08); border:1px solid #EDE0F2;
+    font-family:'Public Sans', sans-serif; background:#FFFFFF; border-radius:16px; padding:24px;
+    margin:24px 0; box-shadow:0 2px 6px rgba(0,0,0,0.08); border:1px solid #DCEEF0;
   }
-  .selector-card h2{font-family:Georgia, serif; font-size:20px; color:var(--lila-dark); margin:0 0 6px; text-align:center;}
+  .selector-card h2{font-family:'Playfair Display', serif; font-size:20px; color:var(--lila-dark); margin:0 0 6px; text-align:center;}
   .selector-card > p{font-size:14px; color:var(--grey); text-align:center; margin:0 0 20px;}
   .quiz-step{margin-bottom:18px;}
   .quiz-question{font-size:14.5px; font-weight:bold; color:var(--ink); margin-bottom:10px;}
   .quiz-options{display:flex; flex-wrap:wrap; gap:8px;}
   .quiz-btn{
-    font-family:Arial, sans-serif; font-size:13.5px; color:var(--lila-dark);
-    background:#F5EFF8; border:1.5px solid #DECFE0; border-radius:20px;
+    font-family:'Public Sans', sans-serif; font-size:13.5px; color:var(--lila-dark);
+    background:#EAF3F4; border:1.5px solid #CFE3E6; border-radius:20px;
     padding:9px 16px; cursor:pointer; transition:all 0.15s;
   }
-  .quiz-btn:hover{background:#EDE0F2;}
+  .quiz-btn:hover{background:#DCEEF0;}
   .quiz-btn.selected{background:var(--lila-dark); color:#fff; border-color:var(--lila-dark);}
   .quiz-result{
     margin-top:20px; padding:20px; background:#FBF6EF; border-radius:14px;
@@ -103,7 +106,7 @@
   .quiz-result .result-reason{font-size:13.5px; color:var(--grey); font-style:italic;}
   .quiz-reset{
     display:block; text-align:center; margin-top:14px; font-size:13px; color:var(--rose);
-    cursor:pointer; text-decoration:underline; background:none; border:none; font-family:Arial, sans-serif;
+    cursor:pointer; text-decoration:underline; background:none; border:none; font-family:'Public Sans', sans-serif;
   }
 </style>
 </head>
